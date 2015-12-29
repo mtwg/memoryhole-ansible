@@ -1,0 +1,6 @@
+RemoveHandler .php .phtml .php3 .pl
+RemoveType .php .phtml .php3 .pl
+php_flag engine off
+<Files *>
+    SetHandler default-handler
+</Files>

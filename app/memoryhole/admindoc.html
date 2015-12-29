@@ -1,0 +1,121 @@
+<html>
+<body>
+<h1>Memory Hole Technical Documentation</h1>
+
+<h2>About the Memory Hole</h2>
+The Memory Hole is built upon a hacked-up version of SugarCRM 5.0. Many changes were made to the SugarCRM backend in order to streamline and customize the UI to be specific to the case of tracking arrestees and legal information. For all intents and purposes, it can be regarded as a fork of SugarCRM - and a pretty quick hack. Hopefully someday I'll write something better.<p>
+It utilizes PHP for the frontend and logic, and MySQL for the backend database. All data can be accessed directly through MySQL if need be, and is intended to be run on a Linux platform using Apache. Other systems may work, but the install instructions are specific to Ubuntu 8.04.
+
+<h2>Administration</h2>
+<h3>Adding User Accounts</h3>
+	<ol>
+	<li>Click on Admin in the upper right</li>
+	<li>Click on User Management under Users</li>
+	<li>Click 'Create New Users: Home'</li>
+	<li>Enter in first/last names, username, and password, then hit 'save' (rest is unneccessary)</li>
+	<li>repeat for as many users as you want to set up</li>
+	</ol>
+<h3>Adding Options to Lists</h3>
+	<li>Click on Admin in the upper right</li>
+	<li>Click on Dropdown Editor under Developer Tools</li>
+	<li>Click Add Dropdown
+	<li>Give the dropdown a name
+	<li>Add items to the dropdown by filling out the name and label, and clicking add. The name is the value stored in the db, and the label is what will appear in the dropdown. In most cases, the value should be the same, except replace spaces with underscores in the name.
+	<li>Click save
+
+<h3>Adding Fields</h3>
+	First, you have to determine what kind of field you want. If you need a dropdown or multi-select, use the Dropdown Editor (described above) to create a new dropdown list first.
+	<h4>Create the Field</h4>
+	<ol>
+	<li>Click on Admin in the upper right</li>
+	<li>Click on Studio under Developer Tools</li>
+	<li>Select the right module from the list (arrestees, lawyers, etc.)
+	<li>Click 'Fields'
+	<li>Click 'Add Field'
+	<li>On the right side, the field editor will appear. First, pick the data type. Most likely you'll want either Textfield, checkbox, date, dropdown, multiselect, radio, or textarea (for large amounts of text, like notes).
+	<li>Each different data type has different options
+	<li>Fill in the Field Name, Display Label (the label that is shown on the forms) and system Label. They should all be the same, except Field name and sysytem label can't have spaces.
+	<li>For dropdowns and multiselects, choose which dropdown list to use from the list.
+	<li>If applicable, choose a default value.
+	<li>See <a href='http://www.sugarcrm.com/crm/index.php?action=docs&enc=UTF-8&option=com_docs&edition=OS&v=5.0&&doc=/docs/Administration_Guides/CommunityEdition_Admin_Guide_5.0/System_Administration.4.6.html#1113197'>http://www.sugarcrm.com/crm/index.php?action=docs&enc=UTF-8&option=com_docs&edition=OS&v=5.0&&doc=/docs/Administration_Guides/CommunityEdition_Admin_Guide_5.0/System_Administration.4.6.html#1113197</a> for more details.
+	<li>Hit Save
+	</ol>
+	<h4>Add the Field to the Layout</h4>
+	<ol>
+	<li>Click on Admin in the upper right</li>
+	<li>Click on Studio under Developer Tools</li>
+	<li>Select the right module from the list (arrestees, lawyers, etc.)
+	<li>Click 'Layouts', then 'Edit View'
+	<li>Drag new Panels, Rows, and fields from the left side onto the layout on the right side.
+	<li>Once everything is arranged right, you have to make sure the tab order is set for all fields and in the right order. Do this by clicking the edit icon on each field, filling in the tab order field with a number, and clicking save. NOTE: If a field has no tab order, or two fields have the same tab order, tabbing will be sscrewed up.
+	<li>When that's all set, click save and Deploy, then check out the edit view to see if it worked (preferably in another tab/window)
+	<li>Click 'Layouts' on the breadcrumb list, or follow the first few steps above to get back to the layout options
+	<li>Choose 'Search', then 'Advanced Search'
+	<li>Drag the new field from the list on the right into the list on the left. This will enable you to make searches based on the field
+	<li>Click 'Save and Deploy'
+	</ol>
+
+<h2>Memory Hole Installation</h2>
+
+<ol type='A'>
+<li>install all the stuff we need
+	<ol>
+	<li>run "sudo bash" and enter root password	</li>
+	<li>apt-get install apache2 php5-mysql php5 mysql-server-5.0 mysql-client-5.0  libapache2-mod-php5 php5-gd pwgen nano</li>
+	<li>Just hit 'enter' when it asks to set up a mysql password
+	</ol>
+</li>
+<li>setup the files:</li>
+	<ol>
+	<li>Download this file: <a href='memoryhole.tar.bz2'>memoryhole.tar.bz2</a> and save it to the desktop</li>
+	<li>"cd /var/www/"</li>
+	<li>"tar -xjvf ~/Desktop/memoryhole.tar.bz2"</li>
+	<li>cd memoryhole</li>
+	</ol>
+
+<li>create some passwords</li>
+	<ol>
+	<li>run pwgen to generate a list of mnemonic, but random, passwords</li>
+	<li>select and write down three passwords:</li>
+		<ul>
+		<li>root database password (&lt;DBROOT&gt;)</li>
+		<li>database user password (&lt;DBUSER&gt;)</li>
+		<li>memory hole admin password (&lt;ADMIN&gt;)</li>
+		</ul>
+	</ol>
+
+<li>setup the database</li>
+	<ol>
+	<li>mysql -u root -e 'create database memoryhole';</li>
+	<li>mysql -u root -e "use memoryhole; grant all on memoryhole.* to memoryhole@'localhost' identified by '&lt;DBUSER&gt;'";</li>
+	<li>mysql -u memoryhole -p&lt;DBUSER&gt; memoryhole &lt; db.sql (note no space between -p and &lt;DBUSER&gt; password)</li>
+	<li>set a password on the mysql root account: mysqladmin -u root password &lt;DBROOT&gt;</li>
+	</ol>
+
+<li>Edit the config file</li>
+	<ol>
+	<li>nano config.php</li>
+	<li>find the line that looks like 'db_password' =&gt; 'PASSWORD',</li>
+	<li>change 'PASSWORD' to &lt;DBUSER&gt;</li>
+	<li>&lt;CTRL&gt;-x, y, &lt;ENTER&gt; to save and exit</li>
+	<li>chmod 700 config.php	</li>
+	<li>chown -R www-data.www-data config.php cache/ data/ modules/ custom/</li>
+	</ol>
+
+<li>Change the admin password</li>
+	<ol>
+	<li>Hopefully, <a href='http://localhost/memoryhole'>http://localhost/memoryhole</a> should give you a login screen.</li>
+	<li>Login as admin/~REDACTED~</li>
+	<li>Click on My Account in the upper-right, then "change password". Change the password to &lt;ADMIN&gt;.</li>
+	<li>You'll probably not need the DBROOT and DBUSER passwords anymore - store them in a secure place. You'll need the &lt;ADMIN&gt; password to create new accounts and preform other administrative tasks in the database.</li>
+	</ol>
+
+<li>Set up accounts</li>
+	<ol>
+	<li>Click on Admin in the upper right</li>
+	<li>Click on User Management under Users</li>
+	<li>Click 'Create New Users: Home'</li>
+	<li>Enter in first/last names, username, and password, then hit 'save' (rest is unneccessary)</li>
+	<li>repeat for as many users as you want to set up</li>
+	</ol>
+</ol>

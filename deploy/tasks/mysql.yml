@@ -1,0 +1,33 @@
+---
+- name: Install MariaDB
+  yum: name={{ item }}
+  with_items:
+    - mysql-server
+  tags:
+    - mysql
+  notify: start mysql-server
+
+- meta: flush_handlers
+
+- name: Create /root/.my.cnf
+  template: src=dot-my.cnf.j2 dest=/root/.my.cnf mode=600
+  tags:
+    - mysql
+
+- name: update mysql root passwd
+  mysql_user:
+    name: "{{ mysql_root_user }}"
+    user: "{{ mysql_root_user }}"
+    password: "{{ mysql_root_password }}"
+    login_user: "{{ mysql_root_user }}"
+    login_password: "{{ mysql_root_password }}"
+    login_host: "{{ item }}"
+    check_implicit_admin: yes
+    priv: "*.*:ALL,GRANT"
+  with_items:
+    - "{{ ansible_hostname }}"
+    - 127.0.0.1
+    - localhost
+  tags:
+    - mysql
+  notify: restart mysql-server

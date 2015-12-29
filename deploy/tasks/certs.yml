@@ -1,0 +1,10 @@
+- name: Copy certificate
+  copy: 'src=certificates/memoryhole.crt dest=/root/memoryhole.crt owner=root group=root'
+  tags:
+  - application
+
+- name: Copy certificate key
+  copy: 'src=certificates/memoryhole.key dest=/root/memoryhole.key owner=root group=root'
+  notify: reload apache
+  tags:
+  - application

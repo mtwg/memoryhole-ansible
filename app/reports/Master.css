@@ -1,0 +1,344 @@
+body {
+    /* background-color: #EEEEEE; */
+    color: #333366;
+    font-family: 'Arial'
+}
+
+td#title {
+    color: #370835;
+	font-family: 'Arial';
+	font-size: 100%;
+	font-weight: bold;
+}
+
+h2 {
+    color: #000080;
+    font-family: 'Arial';
+    text-transform: capitalize
+}
+
+h3 {
+    color: #000080;
+    font-family: 'Arial';
+    text-transform: capitalize
+}
+
+h4 {
+    color: #000080;
+    font-family: 'Arial';
+    text-transform: capitalize
+}
+
+h5 {
+    color: #000080;
+    font-family: 'Arial';
+    text-transform: capitalize
+}
+
+h6 {
+    color: #000080;
+    font-family: 'Arial';
+    text-transform: capitalize
+}
+
+table.tableBorder1 {
+	border-style: solid;
+	border-width: 1px;
+    border-collapse: collapse;
+    border-color: #8B2D01;
+}	
+
+table.tableBorder2 {
+	border-style: solid;
+	border-width: 2px;
+    border-collapse: collapse;
+    border-color: #8B2D01;
+}	
+
+th.header0 {
+	
+    color: #000080;
+	font-family: 'Arial';
+	font-size: 80%;
+	
+}
+
+th.header1 {
+	
+    color: #000080;
+	font-family: 'Arial';
+	font-size: 80%;
+	border-style: solid;
+	border-width: 1px;
+    border-collapse: collapse;
+    border-color: #8B2D01;
+	
+}
+
+th.white {
+    /* color: #000080; */
+	background: white;
+	color: #000000;
+	font-family: 'Arial';
+	font-size: 80%;
+	
+}
+
+th.liteGrey {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	*/
+	background:   #EEEEEE;
+	color: #EEEEEE;
+	font-family: 'Arial';
+	font-size: 80%;
+}
+
+th.parameter {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	*/
+	background:   #70510A;
+	color: #F9EAB5;
+	font-family: 'Arial';
+	font-size: 80%;
+}
+
+td.parameter {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	*/
+	background:   #F2EEE1;
+    color: #000000;
+	font-family: 'Arial';
+	font-size: 80%;
+}
+
+td.data1 {
+    /* 
+	color: #000080;
+	background:   #FFFFFF;
+	*/
+	color: #000000;
+	font-family: 'Arial';
+	font-size: 75%;
+	/*
+	background:   #F5E192;
+		*/
+	border-bottom: thin solid #863601;
+}
+
+td.data0 {
+    /* 
+	color: #000080;
+	background:   #FFFFFF;
+	*/
+	color: #000000;
+	font-family: 'Arial';
+	font-size: 75%;
+	
+}
+
+td.data {
+    /* 
+	color: #000080;
+	*/
+	color: #000000;
+	background:   #FFFFFF;
+	font-family: 'Arial';
+	font-size: 75%;
+	border-style: solid;
+	border-width: 1px;
+    border-collapse: collapse;
+    border-color: #8B2D01;
+	
+}
+
+td.error {
+    /* 
+	color: #000080;
+	background:   #FFFFFF;
+	*/
+	color: #FF0000;
+	font-family: 'Arial';
+	font-size: 80%;
+	font-weight: bold;
+}
+
+td.message {
+    /* 
+	color: #000080;
+	background:   #FFFFFF;
+	*/
+	color: #0000FF;
+	font-family: 'Arial';
+	font-size: 80%;
+	font-weight: bold;
+}
+
+td.liteGrey {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	border-color: #EEEEEE;
+	*/
+	background:   #EEEEEE;
+}
+
+td.liteGreyBk {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	border-color: #EEEEEE;
+	*/
+	background:   #DDD8BD;
+}
+
+td.white {
+    /* color: #000080; */
+	background: white;
+	color: #000000;
+	font-family: 'Arial';
+	font-size: 80%;
+	
+}
+
+tr.white {
+    /* color: #000080; */
+	background: white;
+    /* 
+	color: #000000;
+	font-family: 'Arial';
+	font-size: 80%;
+	*/
+		
+}
+
+tr.greyHeader {
+	/*
+	border-color: #BEB770;
+	background:   #BEB770;
+	*/
+	border-color: #D3C596;
+	background:   #D3C596;
+}
+
+tr.grey {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	border-color: #C3C3C3;
+	background:   #C3C3C3;
+	*/
+	border-color: #F5E192;
+	background:   #EEE9D7;
+}
+
+tr.liteGrey {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	*/
+	border-color: #D3D3D3;
+	background:   #D3D3D3;
+}
+
+tr.liteGreyBk {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	border-color: #EEEEEE;
+	*/
+	background:   #DDD8BD;
+}
+
+tr.liteGrey2 {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	*/
+	border-color: #EEEEEE;
+	background:   #EEEEEE;
+}
+
+tr.parameter {
+	border-color: #863601;
+	background:   #863601;
+}
+
+tr.highlight {
+	/*
+	border-color: #E6E6E6;
+	background:   #E6E6E6;
+	border-color: #EEEEEE;
+	*/
+	background:   #DDFBFF;
+}
+
+/* button sub account */
+.btcommon { 
+	background: #ABC7DA; 
+	font: 11px Arial; 
+	color: #000; 
+	height: 1.7em;
+	width: 7em;
+}
+
+.btcommon2 { 
+	background: #ABC7DA; 
+	font: 11px Arial; 
+	color: #000; 
+	height: 1.7em;
+}
+
+.title { 
+	font: 16px Arial; 
+	color: #000080; 
+}
+
+.text { 
+	font: 11px Arial; 
+	color: #000000; 
+}
+
+.directions { 
+	font: 13px Arial; 
+}
+
+.appPage {
+	font-size: 80%;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #336699;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.applinks {
+	font-size: 70%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+div#box {
+    display: none;
+    visibility: none;
+}
+
+td.box {
+	/* color: #FF0909;*/
+	color: #007100;
+    font-family: 'Arial';
+	font-size: 80%;
+	font-weight: bold;
+}
+
+span.noScriptError {
+	color: #FF0000;
+	font-family: 'Arial';
+	font-size: 80%;
+	font-weight: bold;
+}
+

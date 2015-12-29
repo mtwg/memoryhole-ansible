@@ -1,0 +1,412 @@
+<?php
+$module_name = 'legal_arrestees';
+$searchdefs [$module_name] = 
+array (
+  'layout' => 
+  array (
+    'basic_search' => 
+    array (
+      'first_name' => 
+      array (
+        'name' => 'first_name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'last_name' => 
+      array (
+        'name' => 'last_name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'preferred_name' => 
+      array (
+        'label' => 'LBL_PREFERRED_NAME',
+        'width' => '10%',
+        'name' => 'preferred_name',
+        'default' => true,
+      ),
+      'arrest_date' => 
+      array (
+        'label' => 'LBL_ARREST_DATE',
+        'width' => '10%',
+        'name' => 'arrest_date',
+        'default' => true,
+      ),
+      'disposition_c' => 
+      array (
+        'label' => 'LBL_DISPOSITION',
+        'width' => '10%',
+        'name' => 'disposition_c',
+        'default_value' => '',
+        'default' => true,
+      ),
+      'first_appearance_date_c' => 
+      array (
+        'label' => 'LBL_FIRST_APPEARANCE_DATE',
+        'width' => '10%',
+        'name' => 'first_appearance_date_c',
+        'default_value' => '',
+        'default' => true,
+      ),
+      'release_type_c' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'studio' => 'visible',
+        'label' => 'LBL_RELEASE_TYPE',
+        'width' => '10%',
+        'name' => 'release_type_c',
+      ),
+    ),
+    'advanced_search' => 
+    array (
+      'first_name' => 
+      array (
+        'name' => 'first_name',
+      ),
+      'last_name' => 
+      array (
+        'name' => 'last_name',
+      ),
+      'email' => 
+      array (
+        'label' => 'LBL_EMAIL',
+        'width' => '10',
+        'name' => 'email',
+      ),
+      'phone_mobile' => 
+      array (
+        'label' => 'LBL_MOBILE_PHONE',
+        'width' => '10',
+        'name' => 'phone_mobile',
+      ),
+      'phone_work' => 
+      array (
+        'label' => 'LBL_OFFICE_PHONE',
+        'width' => '10',
+        'name' => 'phone_work',
+      ),
+      'preferred_name' => 
+      array (
+        'label' => 'LBL_PREFERRED_NAME',
+        'width' => '10',
+        'name' => 'preferred_name',
+      ),
+      'primary_address_street' => 
+      array (
+        'label' => 'LBL_PRIMARY_ADDRESS_STREET',
+        'width' => '10',
+        'name' => 'primary_address_street',
+      ),
+      'primary_address_city' => 
+      array (
+        'label' => 'LBL_PRIMARY_ADDRESS_CITY',
+        'width' => '10',
+        'name' => 'primary_address_city',
+      ),
+      'primary_address_state' => 
+      array (
+        'label' => 'LBL_PRIMARY_ADDRESS_STATE',
+        'width' => '10',
+        'name' => 'primary_address_state',
+      ),
+      'primary_address_postalcode' => 
+      array (
+        'label' => 'LBL_PRIMARY_ADDRESS_POSTALCODE',
+        'width' => '10',
+        'name' => 'primary_address_postalcode',
+      ),
+      'date_of_birth' => 
+      array (
+        'label' => 'LBL_DATE_OF_BIRTH',
+        'width' => '10',
+        'name' => 'date_of_birth',
+      ),
+      'gender_id_c' => 
+      array (
+        'label' => 'LBL_GENDER_ID',
+        'width' => '10',
+        'name' => 'gender_id_c',
+        'default_value' => '',
+      ),
+      'support_person_c' => 
+      array (
+        'label' => 'LBL_SUPPORT_PERSON',
+        'width' => '10',
+        'name' => 'support_person_c',
+        'default_value' => '',
+      ),
+      'arrest_location' => 
+      array (
+        'label' => 'LBL_ARREST_LOCATION',
+        'width' => '10',
+        'name' => 'arrest_location',
+      ),
+      'arrest_date' => 
+      array (
+        'label' => 'LBL_ARREST_DATE',
+        'width' => '10',
+        'name' => 'arrest_date',
+      ),
+      'arrest_time_c' => 
+      array (
+        'label' => 'LBL_ARREST_TIME',
+        'width' => '10',
+        'name' => 'arrest_time_c',
+        'default_value' => '',
+      ),
+      'charges_c' => 
+      array (
+        'label' => 'LBL_CHARGES',
+        'width' => '10',
+        'name' => 'charges_c',
+        'default_value' => '',
+      ),
+      'arresting_officer' => 
+      array (
+        'label' => 'LBL_ARRESTING_OFFICER',
+        'width' => '10',
+        'name' => 'arresting_officer',
+      ),
+      'badge_number' => 
+      array (
+        'label' => 'LBL_BADGE_NUMBER',
+        'width' => '10',
+        'name' => 'badge_number',
+      ),
+      'release_date' => 
+      array (
+        'label' => 'LBL_RELEASE_DATE',
+        'width' => '10',
+        'name' => 'release_date',
+      ),
+      'release_time' => 
+      array (
+        'label' => 'LBL_RELEASE_TIME',
+        'width' => '10',
+        'name' => 'release_time',
+      ),
+      'release_type_c' => 
+      array (
+        'label' => 'LBL_RELEASE_TYPE',
+        'width' => '10',
+        'name' => 'release_type_c',
+        'default_value' => '',
+      ),
+      'jail_facility_c' => 
+      array (
+        'label' => 'LBL_JAIL_FACILITY',
+        'width' => '10',
+        'name' => 'jail_facility_c',
+        'default_value' => '',
+      ),
+      'booking_number_c' => 
+      array (
+        'label' => 'LBL_BOOKING_NUMBER',
+        'width' => '10',
+        'name' => 'booking_number_c',
+        'default_value' => '',
+      ),
+      'jail_location_c' => 
+      array (
+        'label' => 'LBL_JAIL_LOCATION',
+        'width' => '10',
+        'name' => 'jail_location_c',
+        'default_value' => '',
+      ),
+      'bail_c' => 
+      array (
+        'label' => 'LBL_BAIL',
+        'width' => '10',
+        'name' => 'bail_c',
+        'default_value' => '',
+      ),
+      'case_number_c' => 
+      array (
+        'label' => 'LBL_CASE_NUMBER',
+        'width' => '10',
+        'name' => 'case_number_c',
+        'default_value' => '',
+      ),
+      'citation_number' => 
+      array (
+        'label' => 'LBL_CITATION_NUMBER',
+        'width' => '10',
+        'name' => 'citation_number',
+      ),
+      'docket_c' => 
+      array (
+        'label' => 'LBL_DOCKET',
+        'width' => '10',
+        'name' => 'docket_c',
+        'default_value' => '',
+      ),
+      'lawyer' => 
+      array (
+        'label' => 'LBL_LAWYER',
+        'width' => '10',
+        'name' => 'lawyer',
+      ),
+      'first_appearance_date_c' => 
+      array (
+        'label' => 'LBL_FIRST_APPEARANCE_DATE',
+        'width' => '10',
+        'name' => 'first_appearance_date_c',
+        'default_value' => '',
+      ),
+      'next_hearing_time_c' => 
+      array (
+        'label' => 'LBL_NEXT_HEARING_TIME',
+        'width' => '10',
+        'name' => 'next_hearing_time_c',
+        'default_value' => '',
+      ),
+      'misdemeanors_c' => 
+      array (
+        'label' => 'LBL_MISDEMEANORS',
+        'width' => '10',
+        'name' => 'misdemeanors_c',
+        'default_value' => '',
+      ),
+      'infraction_c' => 
+      array (
+        'label' => 'LBL_INFRACTION',
+        'width' => '10',
+        'name' => 'infraction_c',
+        'default_value' => '',
+      ),
+      'dropped_c' => 
+      array (
+        'label' => 'LBL_DROPPED',
+        'width' => '10',
+        'name' => 'dropped_c',
+        'default_value' => '',
+      ),
+      'legal_strategy_c' => 
+      array (
+        'label' => 'LBL_LEGAL_STRATEGY',
+        'width' => '10',
+        'name' => 'legal_strategy_c',
+        'default_value' => '',
+      ),
+      'disposition_c' => 
+      array (
+        'label' => 'LBL_DISPOSITION',
+        'width' => '10',
+        'name' => 'disposition_c',
+        'default_value' => '',
+      ),
+      'medical_needs_c' => 
+      array (
+        'label' => 'LBL_MEDICAL_NEEDS',
+        'width' => '10',
+        'name' => 'medical_needs_c',
+        'default_value' => '',
+      ),
+      'jurisdiction_c' => 
+      array (
+        'label' => 'LBL_JURISDICTION',
+        'width' => '10',
+        'name' => 'jurisdiction_c',
+        'default_value' => '',
+      ),
+      'arrest_city_c' => 
+      array (
+        'label' => 'LBL_ARREST_CITY',
+        'width' => '10',
+        'name' => 'arrest_city_c',
+        'default_value' => '',
+      ),
+      'immigration_issues' => 
+      array (
+        'label' => 'LBL_IMMIGRATION_ISSUES',
+        'width' => '10',
+        'name' => 'immigration_issues',
+      ),
+      'contacts_c' => 
+      array (
+        'label' => 'LBL_CONTACTS',
+        'width' => '10',
+        'name' => 'contacts_c',
+        'default_value' => '',
+      ),
+      'minor' => 
+      array (
+        'label' => 'LBL_MINOR',
+        'width' => '10',
+        'name' => 'minor',
+      ),
+      'confirmed_info_c' => 
+      array (
+        'label' => 'LBL_CONFIRMED_INFO',
+        'width' => '10',
+        'name' => 'confirmed_info_c',
+        'default_value' => '',
+      ),
+      'felony_charges' => 
+      array (
+        'label' => 'LBL_FELONY_CHARGES',
+        'width' => '10',
+        'name' => 'felony_charges',
+      ),
+      'info_notes_c' => 
+      array (
+        'label' => 'LBL_INFO_NOTES',
+        'width' => '10',
+        'name' => 'info_notes_c',
+        'default_value' => '',
+      ),
+      'email_bounce_c' => 
+      array (
+        'label' => 'LBL_EMAIL_BOUNCE',
+        'width' => '10',
+        'name' => 'email_bounce_c',
+        'default_value' => '',
+      ),
+      'support_needs_c' => 
+      array (
+        'label' => 'LBL_SUPPORT_NEEDS',
+        'width' => '10',
+        'name' => 'support_needs_c',
+        'default_value' => '',
+      ),
+      'bad_phone_c' => 
+      array (
+        'label' => 'LBL_BAD_PHONE',
+        'width' => '10',
+        'name' => 'bad_phone_c',
+        'default_value' => '',
+      ),
+      'description' => 
+      array (
+        'label' => 'LBL_DESCRIPTION',
+        'width' => '10',
+        'name' => 'description',
+      ),
+      'listserv_c' => 
+      array (
+        'label' => 'LBL_LISTSERV',
+        'width' => '10',
+        'name' => 'listserv_c',
+        'default_value' => '',
+      ),
+      'stay_away_c' => 
+      array (
+        'label' => 'LBL_STAY_AWAY',
+        'width' => '10',
+        'name' => 'stay_away_c',
+        'default_value' => '',
+      ),
+    ),
+  ),
+  'templateMeta' => 
+  array (
+    'maxColumns' => '3',
+    'widths' => 
+    array (
+      'label' => '10',
+      'field' => '30',
+    ),
+  ),
+);
+?>

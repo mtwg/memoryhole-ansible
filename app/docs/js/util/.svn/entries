@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2006-11-27T12:17:16.004419Z"
+   url="file:///home/greg/svn/js/util"
+   last-author="greg"
+   kind="dir"
+   uuid="159d7183-3923-0410-a542-ee2c3f15e505"
+   repos="file:///home/greg/svn"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="YAHOO.js"
+   text-time="2006-11-27T12:22:07.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="92ab97e9c19a3a875f2fc5ba6f7124b1"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="dom.js"
+   text-time="2006-11-27T12:22:07.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="3874677abe82c82e141ed4d99d5b2417"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="event.js"
+   text-time="2006-11-27T12:22:07.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="3c68b520705daab4989743cbd7160a6c"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+</wc-entries>

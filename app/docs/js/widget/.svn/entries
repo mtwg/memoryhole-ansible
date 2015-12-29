@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2006-11-27T12:17:16.004419Z"
+   url="file:///home/greg/svn/js/widget"
+   last-author="greg"
+   kind="dir"
+   uuid="159d7183-3923-0410-a542-ee2c3f15e505"
+   repos="file:///home/greg/svn"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="dragdrop.js"
+   text-time="2006-11-27T12:22:07.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="5cd48fc733a73636881be6cfc645000e"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+</wc-entries>

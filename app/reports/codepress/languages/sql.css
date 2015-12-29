@@ -1,0 +1,17 @@
+/*
+ * CodePress color styles for SQL syntax highlighting
+ * By Merlin Moncure
+ */
+ 
+ 
+b {color:#0000FF;font-style:normal;font-weight:bold;} /* reserved words */
+u {color:#FF0000;font-style:normal;} /* types */
+a {color:#CD6600;font-style:normal;font-weight:bold;} /* commands */
+dfn {color:#990099; font-weight:;} /* Aliases */
+var{color:#009999;font-style:normal;font-weight:bold;}/* @Vars */
+strong{color:#997700;}
+em{color:#009999;}
+span{font-weight:bold;}
+
+i, i b, i u, i a, i s,i var,i span, i dfn{color:#009900;font-weight:bold;font-style:italic;} /* comments */
+s, s b, s u, s a, s i,s var,s span, s dfn{color:#009900;font-weight:normal;} /* strings */

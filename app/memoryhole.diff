@@ -1,0 +1,1301 @@
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/config_override.php mem2/config_override.php
+--- suitecrm-7.1.4-max/config_override.php	2014-12-12 03:56:10.502980375 -0800
++++ mem2/config_override.php	2014-12-12 04:29:37.944808029 -0800
+@@ -1,3 +1,36 @@
+ <?php
+ /***CONFIGURATOR***/
++$sugar_config['default_module_favicon'] = false;
++$sugar_config['dashlet_auto_refresh_min'] = '30';
++$sugar_config['enable_action_menu'] = false;
++$sugar_config['stack_trace_errors'] = false;
++$sugar_config['developerMode'] = true;
++$sugar_config['addAjaxBannedModules']['1'] = 'AOS_Contracts';
++$sugar_config['addAjaxBannedModules']['2'] = 'legal_arrestees';
++$sugar_config['addAjaxBannedModules']['3'] = 'Notes';
++$sugar_config['addAjaxBannedModules']['4'] = 'Opportunities';
++$sugar_config['addAjaxBannedModules']['5'] = 'jjwg_Markers';
++$sugar_config['addAjaxBannedModules']['6'] = 'Leads';
++$sugar_config['addAjaxBannedModules']['7'] = 'legal_charges';
++$sugar_config['addAjaxBannedModules']['8'] = 'AOS_Product_Categories';
++$sugar_config['addAjaxBannedModules']['9'] = 'jjwg_Maps';
++$sugar_config['addAjaxBannedModules']['10'] = 'legal_lawyers';
++$sugar_config['addAjaxBannedModules']['11'] = 'legal_events';
++$sugar_config['addAjaxBannedModules']['12'] = 'legal_witnesses';
++$sugar_config['addAjaxBannedModules']['13'] = 'jjwg_Areas';
++$sugar_config['addAjaxBannedModules']['14'] = 'legal_evidence';
++$sugar_config['addAjaxBannedModules']['15'] = 'AOS_PDF_Templates';
++$sugar_config['addAjaxBannedModules']['16'] = 'AOS_Quotes';
++$sugar_config['addAjaxBannedModules']['17'] = 'AOS_Products';
++$sugar_config['addAjaxBannedModules']['18'] = 'jjwg_Maps';
++$sugar_config['addAjaxBannedModules']['19'] = 'Contacts';
++$sugar_config['addAjaxBannedModules']['20'] = 'ProspectLists';
++$sugar_config['addAjaxBannedModules']['21'] = 'Accounts';
++$sugar_config['addAjaxBannedModules']['22'] = 'Prospects';
++$sugar_config['addAjaxBannedModules']['23'] = 'AOR_Reports';
++$sugar_config['addAjaxBannedModules']['24'] = 'Cases';
++$sugar_config['addAjaxBannedModules']['25'] = 'FP_Event_Locations';
++$sugar_config['addAjaxBannedModules']['26'] = 'FP_events';
++$sugar_config['list_max_entries_per_page'] = '100';
++$sugar_config['disabled_languages'] = 'es_es,ru_ru';
+ /***CONFIGURATOR***/
+\ No newline at end of file
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/config.php mem2/config.php
+--- suitecrm-7.1.4-max/config.php	2014-12-12 03:55:47.126816252 -0800
++++ mem2/config.php	2014-12-12 03:46:47.923044820 -0800
+@@ -419,4 +419,5 @@
+   'use_real_names' => true,
+   'vcal_time' => '2',
+   'verify_client_ip' => true,
+-);
+\ No newline at end of file
++  'default_module'=>'legal_arrestees',
++);
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/custom/include/language/en_us.lang.php mem2/custom/include/language/en_us.lang.php
+--- suitecrm-7.1.4-max/custom/include/language/en_us.lang.php	1969-12-31 16:00:00.000000000 -0800
++++ mem2/custom/include/language/en_us.lang.php	2014-12-12 04:36:42.535684950 -0800
+@@ -0,0 +1,470 @@
++<?php
++$GLOBALS['app_list_strings']['evidence_type_list']=array (
++  'notes' => 'Notes',
++  'video' => 'Video',
++  'outtake' => 'Outtake Report',
++  'dphoto' => 'Photo (Digital)',
++  'fphoto' => 'Photo (Film)',
++);
++$GLOBALS['app_list_strings']['evidence_type_list']=array (
++  'daudio' => 'Audio (Digital)',
++  'aaudio' => 'Audio (Analog)',
++  'incidentreport' => 'Incident Report',
++  'notes' => 'Notes',
++  'dphoto' => 'Photo (Digital)',
++  'fphoto' => 'Photo (Film)',
++  'other' => 'Other',
++  'outtake' => 'Outtake Report',
++  'video' => 'Video',
++);
++$app_strings['LBL_GROUPTAB8_1212825269'] = 'Evidence';
++
++$app_strings['LBL_GROUPTAB9_1212825269'] = 'Events';
++
++$app_strings['LBL_GROUPTAB10_1212825269'] = 'Arrestees';
++
++$app_strings['LBL_GROUPTAB11_1212825269'] = 'Charges';
++
++$app_strings['LBL_GROUPTAB12_1212825297'] = 'Lawyers';
++
++$app_strings['LBL_GROUPTAB13_1212825297'] = 'Witnesses';
++$GLOBALS['app_list_strings']['states_list']=array (
++  '' => '',
++  'AL' => 'AL',
++  'AK' => 'AK',
++  'AS' => 'AS',
++  'AZ' => 'AZ',
++  'AR' => 'AR',
++  'CA' => 'CA',
++  'CO' => 'CO',
++  'CT' => 'CT',
++  'DE' => 'DE',
++  'DC' => 'DC',
++  'FM' => 'FM',
++  'FL' => 'FL',
++  'GA' => 'GA',
++  'GU' => 'GU',
++  'HI' => 'HI',
++  'ID' => 'ID',
++  'IL' => 'IL',
++  'IN' => 'IN',
++  'IA' => 'IA',
++  'KS' => 'KS',
++  'KY' => 'KY',
++  'LA' => 'LA',
++  'ME' => 'ME',
++  'MH' => 'MH',
++  'MD' => 'MD',
++  'MA' => 'MA',
++  'MI' => 'MI',
++  'MN' => 'MN',
++  'MS' => 'MS',
++  'MO' => 'MO',
++  'MT' => 'MT',
++  'NE' => 'NE',
++  'NV' => 'NV',
++  'NH' => 'NH',
++  'NJ' => 'NJ',
++  'NM' => 'NM',
++  'NY' => 'NY',
++  'NC' => 'NC',
++  'ND' => 'ND',
++  'MP' => 'MP',
++  'OH' => 'OH',
++  'OK' => 'OK',
++  'OR' => 'OR',
++  'PW' => 'PW',
++  'PA' => 'PA',
++  'PR' => 'PR',
++  'RI' => 'RI',
++  'SC' => 'SC',
++  'SD' => 'SD',
++  'TN' => 'TN',
++  'TX' => 'TX',
++  'UT' => 'UT',
++  'VT' => 'VT',
++  'VI' => 'VI',
++  'VA' => 'VA',
++  'WA' => 'WA',
++  'WV' => 'WV',
++  'WI' => 'WI',
++  'WY' => 'WY',
++  'AB' => 'AB',
++  'BC' => 'BC',
++  'MB' => 'MB',
++  'NB' => 'NB',
++  'NL' => 'NL',
++  'NT' => 'NT',
++  'NS' => 'NS',
++  'NU' => 'NU',
++  'ON' => 'ON',
++  'PE' => 'PE',
++  'QC' => 'QC',
++  'SK' => 'SK',
++  'YT' => 'YT',
++);
++$GLOBALS['app_list_strings']['useofforce_list']=array (
++  'police brutality' => 'Police Brutality',
++  'taser' => 'Tasers',
++  'Rubber Bullets' => 'Rubber Bullets',
++  'Horses' => 'Horses',
++  'Pepper Spray' => 'Pepper Spray',
++  'tear gas' => 'Tear Gas',
++  'Assault' => 'Assault',
++  'Tackling' => 'Tackling',
++  'Undercovers' => 'undercovers',
++  'Provacateurs' => 'Provacateurs',
++  'Fake Arrest' => 'Fake Arrest',
++  'Snatch and Grab' => 'Snatch and Grab',
++  'Verbal Assault' => 'Verbal Assault',
++  'Orange Fencing' => 'Orange Fencing',
++);
++$GLOBALS['app_list_strings']['evidence_type_list']=array (
++  'daudio' => 'Audio (Digital)',
++  'aaudio' => 'Audio (Analog)',
++  'incidentreport' => 'Incident Report',
++  'notes' => 'Notes',
++  'dphoto' => 'Photo (Digital)',
++  'fphoto' => 'Photo (Film)',
++  'other' => 'Other',
++  'outtake' => 'Outtake Report',
++  'cellvideo' => 'Cell Video',
++  'dvdvideo' => 'DVD Video',
++  'minivideo' => 'MiniDV',
++  'vhsvideo' => 'VHS Video',
++);
++$GLOBALS['app_list_strings']['evidence_type_list']=array (
++  'daudio' => 'Audio (Digital)',
++  'aaudio' => 'Audio (Analog)',
++  'incidentreport' => 'Incident Report',
++  'notes' => 'Notes',
++  'dphoto' => 'Photo (Digital)',
++  'fphoto' => 'Photo (Film)',
++  'other' => 'Other',
++  'outtake' => 'Outtake Report',
++  'cellvideo' => 'Cell Video',
++  'dvdvideo' => 'DVD Video',
++  'minivideo' => 'MiniDV Video',
++  'vhsvideo' => 'VHS Video',
++);
++$GLOBALS['app_list_strings']['lawyer_specialties_list']=array (
++  'immigration' => 'Immigration',
++  'juvenile' => 'Juvenile',
++  'gbltq' => 'GBLTQ',
++  'felonies' => 'Felonies',
++  'other' => 'Other (see notes)',
++);
++$GLOBALS['app_list_strings']['lawyer_practice_list']=array (
++  'all_criminal' => 'Entirely Criminal',
++  '25_criminal' => '25+ Criminal Cases/Year',
++  'some_criminal' => '< 25 Criminal Cases/Year',
++  'mostly_civil' => 'Primarily Civil',
++  'all_civil' => 'All Civil',
++);
++$GLOBALS['app_list_strings']['lawyers_roles_list']=array (
++  'jailvisits' => 'Jail Vists',
++  'firstappearance' => 'First Appearances',
++  'tkecase' => 'Full Representation',
++  'below_felony' => 'Full Rep. Below Felony',
++  'rep_help' => 'Rep. with Advice',
++  'legal_work' => 'Legal Work',
++  'motions' => 'Motion Hearings',
++  'civil' => 'Civil Suits',
++  'Other' => 'Other',
++);
++$GLOBALS['app_list_strings']['charges_list']=array (
++  '-blank-' => '',
++  'assaultonpo' => 'Assault on a Police Officer',
++  'concealingid' => 'Concealing Identity',
++  'conspiracytocommitcd' => 'Conspiracy to Commit Civil Disobedience',
++  'consiptoriot' => 'Conspiracy To Riot',
++  'consptodamageproperty' => 'Conspiracy to Damage Property',
++  'CriminalDamagetoProperty' => 'Criminal Damage to Property',
++  'Failure to Obey' => 'Failure to Obey',
++  'propertydamage' => 'Criminal Damage to Property',
++  'discon' => 'Disorderly Conduct',
++  'Disobey Lawful Order' => 'Disobey Lawful Order',
++  'felonyriot' => 'Felony Riot',
++  'interferencewithtraffic' => 'Interferencewithtraffic',
++  'obstruction' => 'Obstruction of Legal Process',
++  'publicnusance' => 'Public Nusance',
++  'refusaltoleave' => 'Refusal to Leave',
++  'Riot 2nd Degree' => 'Riot 2nd Degree',
++  'trespassing' => 'Trespassing',
++  'unlawfulassembly' => 'Unlawful Assembly',
++  'Riot in the Third Degree' => 'Gross Misdemeanor',
++  'Damage to Propoety 1st Degree' => 'Felony',
++  'test****' => 'test****',
++  'Riot-3rd Degree' => 'Riot-3rd Degree',
++  'Presence at Unlawful Assembly' => 'Presence at Unlawful Assembly',
++  'Escape from Custody' => 'Escape from Custody',
++  'Assault-2nd Degree (F)' => 'Assault-2nd Degree (F)',
++  'Terroristic Threats (F)' => 'Terroristic Threats (F)',
++  'Damage to Prop-1st Degree (F)' => 'Damage to Prop-1st Degree (F)',
++  'Assault-4th Degree' => 'Assault-4th Degree',
++);
++$GLOBALS['app_list_strings']['charges_list']=array (
++  '-blank-' => '',
++  'assaultonpo' => 'Assault on a Police Officer',
++  'concealingid' => 'Concealing Identity',
++  'conspiracytocommitcd' => 'Conspiracy to Commit Civil Disobedience',
++  'consiptoriot' => 'Conspiracy To Riot',
++  'consptodamageproperty' => 'Conspiracy to Damage Property',
++  'CriminalDamagetoProperty' => 'Criminal Damage to Property',
++  'Failure to Obey' => 'Failure to Obey',
++  'propertydamage' => 'Criminal Damage to Property',
++  'discon' => 'Disorderly Conduct',
++  'Disobey Lawful Order' => 'Disobey Lawful Order',
++  'felonyriot' => 'Felony Riot',
++  'interferencewithtraffic' => 'Interferencewithtraffic',
++  'obstruction' => 'Obstruction of Legal Process',
++  'publicnusance' => 'Public Nusance',
++  'refusaltoleave' => 'Refusal to Leave',
++  'Riot 2nd Degree' => 'Riot 2nd Degree',
++  'trespassing' => 'Trespassing',
++  'unlawfulassembly' => 'Unlawful Assembly',
++  'Riot in the Third Degree' => 'Gross Misdemeanor',
++  'Damage to Propoety 1st Degree' => 'Felony',
++  'test****' => 'test****',
++  'Riot-3rd Degree' => 'Riot-3rd Degree',
++  'Presence at Unlawful Assembly' => 'Presence at Unlawful Assembly',
++  'Escape from Custody' => 'Escape from Custody',
++  'Assault-2nd Degree (F)' => 'Assault-2nd Degree (F)',
++  'Terroristic Threats (F)' => 'Terroristic Threats (F)',
++  'Damage to Prop-1st Degree (F)' => 'Damage to Prop-1st Degree (F)',
++  'Assault-4th Degree' => 'Assault-4th Degree',
++  'Give PO Fals Info' => 'Give PO False Info',
++);
++$GLOBALS['app_list_strings']['charges_list']=array (
++  '-blank-' => '',
++  'assaultonpo' => 'Assault on a Police Officer',
++  'concealingid' => 'Concealing Identity',
++  'conspiracytocommitcd' => 'Conspiracy to Commit Civil Disobedience',
++  'consiptoriot' => 'Conspiracy To Riot',
++  'consptodamageproperty' => 'Conspiracy to Damage Property',
++  'CriminalDamagetoProperty' => 'Criminal Damage to Property',
++  'Failure to Obey' => 'Failure to Obey',
++  'propertydamage' => 'Criminal Damage to Property',
++  'discon' => 'Disorderly Conduct',
++  'Disobey Lawful Order' => 'Disobey Lawful Order',
++  'felonyriot' => 'Felony Riot',
++  'interferencewithtraffic' => 'Interferencewithtraffic',
++  'obstruction' => 'Obstruction of Legal Process',
++  'publicnusance' => 'Public Nusance',
++  'refusaltoleave' => 'Refusal to Leave',
++  'Riot 2nd Degree' => 'Riot 2nd Degree',
++  'trespassing' => 'Trespassing',
++  'unlawfulassembly' => 'Unlawful Assembly',
++  'Riot in the Third Degree' => 'Gross Misdemeanor',
++  'Damage to Propoety 1st Degree' => 'Felony',
++  'test****' => 'test****',
++  'Riot-3rd Degree' => 'Riot-3rd Degree',
++  'Presence at Unlawful Assembly' => 'Presence at Unlawful Assembly',
++  'Escape from Custody' => 'Escape from Custody',
++  'Assault-2nd Degree (F)' => 'Assault-2nd Degree (F)',
++  'Terroristic Threats (F)' => 'Terroristic Threats (F)',
++  'Damage to Prop-1st Degree (F)' => 'Damage to Prop-1st Degree (F)',
++  'Assault-4th Degree' => 'Assault-4th Degree',
++  'Give PO Fals Info' => 'Give PO False Info',
++  'Interfere w/ Use-Pub Prop' => 'Interfere w/ Use-Pub Prop',
++);
++$GLOBALS['app_list_strings']['charges_list']=array (
++  '-blank-' => '',
++  'assaultonpo' => 'Assault on a Police Officer',
++  'concealingid' => 'Concealing Identity',
++  'conspiracytocommitcd' => 'Conspiracy to Commit Civil Disobedience',
++  'consiptoriot' => 'Conspiracy To Riot',
++  'consptodamageproperty' => 'Conspiracy to Damage Property',
++  'CriminalDamagetoProperty' => 'Criminal Damage to Property',
++  'Failure to Obey' => 'Failure to Obey',
++  'propertydamage' => 'Criminal Damage to Property',
++  'discon' => 'Disorderly Conduct',
++  'Disobey Lawful Order' => 'Disobey Lawful Order',
++  'felonyriot' => 'Felony Riot',
++  'interferencewithtraffic' => 'Interferencewithtraffic',
++  'obstruction' => 'Obstruction of Legal Process',
++  'publicnusance' => 'Public Nusance',
++  'refusaltoleave' => 'Refusal to Leave',
++  'Riot 2nd Degree' => 'Riot 2nd Degree',
++  'trespassing' => 'Trespassing',
++  'unlawfulassembly' => 'Unlawful Assembly',
++  'Riot in the Third Degree' => 'Gross Misdemeanor',
++  'Damage to Propoety 1st Degree' => 'Felony',
++  'test****' => 'test****',
++  'Riot-3rd Degree' => 'Riot-3rd Degree',
++  'Presence at Unlawful Assembly' => 'Presence at Unlawful Assembly',
++  'Escape from Custody' => 'Escape from Custody',
++  'Assault-2nd Degree (F)' => 'Assault-2nd Degree (F)',
++  'Terroristic Threats (F)' => 'Terroristic Threats (F)',
++  'Damage to Prop-1st Degree (F)' => 'Damage to Prop-1st Degree (F)',
++  'Assault-4th Degree' => 'Assault-4th Degree',
++  'Give PO Fals Info' => 'Give PO False Info',
++  'Interfere w/ Use-Pub Prop' => 'Interfere w/ Use-Pub Prop',
++  'Fleeing a Peace Officer' => 'Fleeing a Peace Office',
++);
++$GLOBALS['app_list_strings']['charges_list']=array (
++  '-blank-' => '',
++  'assaultonpo' => 'Assault on a Police Officer',
++  'concealingid' => 'Concealing Identity',
++  'conspiracytocommitcd' => 'Conspiracy to Commit Civil Disobedience',
++  'consiptoriot' => 'Conspiracy To Riot',
++  'consptodamageproperty' => 'Conspiracy to Damage Property',
++  'CriminalDamagetoProperty' => 'Criminal Damage to Property',
++  'Failure to Obey' => 'Failure to Obey',
++  'propertydamage' => 'Criminal Damage to Property',
++  'discon' => 'Disorderly Conduct',
++  'Disobey Lawful Order' => 'Disobey Lawful Order',
++  'felonyriot' => 'Felony Riot',
++  'interferencewithtraffic' => 'Interferencewithtraffic',
++  'obstruction' => 'Obstruction of Legal Process',
++  'publicnusance' => 'Public Nusance',
++  'refusaltoleave' => 'Refusal to Leave',
++  'Riot 2nd Degree' => 'Riot 2nd Degree',
++  'trespassing' => 'Trespassing',
++  'unlawfulassembly' => 'Unlawful Assembly',
++  'Riot in the Third Degree' => 'Gross Misdemeanor',
++  'Damage to Propoety 1st Degree' => 'Felony',
++  'test****' => 'test****',
++  'Riot-3rd Degree' => 'Riot-3rd Degree',
++  'Presence at Unlawful Assembly' => 'Presence at Unlawful Assembly',
++  'Escape from Custody' => 'Escape from Custody',
++  'Assault-2nd Degree (F)' => 'Assault-2nd Degree (F)',
++  'Terroristic Threats (F)' => 'Terroristic Threats (F)',
++  'Damage to Prop-1st Degree (F)' => 'Damage to Prop-1st Degree (F)',
++  'Assault-4th Degree' => 'Assault-4th Degree',
++  'Give PO Fals Info' => 'Give PO False Info',
++  'Interfere w/ Use-Pub Prop' => 'Interfere w/ Use-Pub Prop',
++  'Fleeing a Peace Officer' => 'Fleeing a Peace Office',
++);
++$GLOBALS['app_list_strings']['charges_list']=array (
++  '-blank-' => '',
++  'assaultonpo' => 'Assault on a Police Officer',
++  'concealingid' => 'Concealing Identity',
++  'conspiracytocommitcd' => 'Conspiracy to Commit Civil Disobedience',
++  'consiptoriot' => 'Conspiracy To Riot',
++  'consptodamageproperty' => 'Conspiracy to Damage Property',
++  'CriminalDamagetoProperty' => 'Criminal Damage to Property',
++  'Failure to Obey' => 'Failure to Obey',
++  'propertydamage' => 'Criminal Damage to Property',
++  'discon' => 'Disorderly Conduct',
++  'Disobey Lawful Order' => 'Disobey Lawful Order',
++  'felonyriot' => 'Felony Riot',
++  'interferencewithtraffic' => 'Interferencewithtraffic',
++  'obstruction' => 'Obstruction of Legal Process',
++  'publicnusance' => 'Public Nusance',
++  'refusaltoleave' => 'Refusal to Leave',
++  'Riot 2nd Degree' => 'Riot 2nd Degree',
++  'trespassing' => 'Trespassing',
++  'unlawfulassembly' => 'Unlawful Assembly',
++  'Riot in the Third Degree' => 'Gross Misdemeanor',
++  'Damage to Propoety 1st Degree' => 'Felony',
++  'test****' => 'test****',
++  'Riot-3rd Degree' => 'Riot-3rd Degree',
++  'Presence at Unlawful Assembly' => 'Presence at Unlawful Assembly',
++  'Escape from Custody' => 'Escape from Custody',
++  'Assault-2nd Degree (F)' => 'Assault-2nd Degree (F)',
++  'Terroristic Threats (F)' => 'Terroristic Threats (F)',
++  'Damage to Prop-1st Degree (F)' => 'Damage to Prop-1st Degree (F)',
++  'Assault-4th Degree' => 'Assault-4th Degree',
++  'Give PO Fals Info' => 'Give PO False Info',
++  'Interfere w/ Use-Pub Prop' => 'Interfere w/ Use-Pub Prop',
++  'Fleeing a Peace Officer' => 'Fleeing a Peace Office',
++);
++$GLOBALS['app_list_strings']['charges_list']=array (
++  '-blank-' => '',
++  'assaultonpo' => 'Assault on a Police Officer',
++  'concealingid' => 'Concealing Identity',
++  'conspiracytocommitcd' => 'Conspiracy to Commit Civil Disobedience',
++  'consiptoriot' => 'Conspiracy To Riot',
++  'consptodamageproperty' => 'Conspiracy to Damage Property',
++  'CriminalDamagetoProperty' => 'Criminal Damage to Property',
++  'Failure to Obey' => 'Failure to Obey',
++  'propertydamage' => 'Criminal Damage to Property',
++  'discon' => 'Disorderly Conduct',
++  'Disobey Lawful Order' => 'Disobey Lawful Order',
++  'felonyriot' => 'Felony Riot',
++  'interferencewithtraffic' => 'Interferencewithtraffic',
++  'obstruction' => 'Obstruction of Legal Process',
++  'publicnusance' => 'Public Nusance',
++  'refusaltoleave' => 'Refusal to Leave',
++  'Riot 2nd Degree' => 'Riot 2nd Degree',
++  'trespassing' => 'Trespassing',
++  'unlawfulassembly' => 'Unlawful Assembly',
++  'Riot in the Third Degree' => 'Gross Misdemeanor',
++  'Damage to Propoety 1st Degree' => 'Felony',
++  'test****' => 'test****',
++  'Riot-3rd Degree' => 'Riot-3rd Degree',
++  'Presence at Unlawful Assembly' => 'Presence at Unlawful Assembly',
++  'Escape from Custody' => 'Escape from Custody',
++  'Assault-2nd Degree (F)' => 'Assault-2nd Degree (F)',
++  'Terroristic Threats (F)' => 'Terroristic Threats (F)',
++  'Damage to Prop-1st Degree (F)' => 'Damage to Prop-1st Degree (F)',
++  'Assault-4th Degree' => 'Assault-4th Degree',
++  'Give PO Fals Info' => 'Give PO False Info',
++  'Interfere w/ Use-Pub Prop' => 'Interfere w/ Use-Pub Prop',
++  'Fleeing a Peace Officer' => 'Fleeing a Peace Office',
++  'Noone shall obstruct the traffic on any public street or road' => 'Noone shall obstruct the traffic on any public street or road',
++);
++$GLOBALS['app_list_strings']['charges_list']=array (
++  '-blank-' => '',
++  'assaultonpo' => 'Assault on a Police Officer',
++  'discon' => 'Disorderly Conduct',
++  'obstruction' => 'Obstruction of Legal Process',
++  'unlawfulassembly' => 'Unlawful Assembly',
++  'Give PO Fals Info' => 'Give PO False Info',
++  'Interfere w/ Use-Pub Prop' => 'Interfere w/ Use-Pub Prop',
++);
++$GLOBALS['app_list_strings']['release_type_list']=array (
++  'in' => 'In Custody',
++  'or' => 'Own Recognizance',
++  'bail' => 'Bail',
++  'cited' => 'Cited Out',
++  'arraigned' => 'Arraigned',
++  'dismissed' => 'Dismissed',
++  'charges dropped' => 'Charges Dropped',
++  'pending' => 'Charges Pending',
++  'unkown_released' => 'Unknown Released',
++  'guiltyplea' => 'Guilty Plea',
++  'nocomplant' => 'Out With No Complaint',
++);
++
++$GLOBALS['app_list_strings']['jursidiction_list']=array (
++  '-blank-' => '',
++  'SF' => 'San Francisco',
++  'A' => 'Alameda',
++  'F' => 'Federal',
++  'CC' => 'Contra Costa',
++  'SM' => 'San Mateo',
++  'M' => 'Marin',
++  'Y' => 'Yolo',
++);
++$GLOBALS['app_list_strings']['disposition_list']=array (
++  'open' => 'Open',
++  'dischargednoprejudice' => 'Discharged w/o Prejudice',
++  'discharged' => 'Discharged w/ Prejudice',
++  'guilty plea' => 'Guilty Plea',
++  'dismissed' => 'Dismissed',
++  'acquitted' => 'Acquitted',
++  'guilty' => 'Guilty Verdict',
++  'noaction' => 'No Action',
++  'continued' => 'Continued for Dismissal',
++  'benchwarrant' => 'Bench Warrant',
++  'nocomplaint' => 'No Complaint FIled',
++  'warrantletter' => 'Warrant Letter',
++  'nocontest' => 'No Contest',
++);
++
++$GLOBALS['app_list_strings']['arrest_city_list']=array (
++  '-blank-' => '',
++  'Oakland' => 'Oakland',
++  'San Francisco' => 'San Francisco',
++  'Berkeley' => 'Berkeley',
++  'Emeryville' => 'Emeryville',
++  'Dublin' => 'Dublin',
++);
++$GLOBALS['app_list_strings']['gender_list']=array (
++  '-blank-' => '',
++  'male' => 'Male',
++  'female' => 'Female',
++  'other' => 'See Notes',
++);
+\ No newline at end of file
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/custom/include/MVC/Controller/entry_point_registry.php mem2/custom/include/MVC/Controller/entry_point_registry.php
+--- suitecrm-7.1.4-max/custom/include/MVC/Controller/entry_point_registry.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/custom/include/MVC/Controller/entry_point_registry.php	2014-12-11 19:27:42.052899881 -0800
+@@ -8,5 +8,6 @@
+ $entry_point_registry['add_dash_page'] = array('file' => 'custom/modules/Home/AddDashboardPages.php' , 'auth' => '1');
+ $entry_point_registry['retrieve_dash_page'] = array('file' => 'custom/include/MySugar/retrieve_dash_page.php' , 'auth' => '1');
+ $entry_point_registry['remove_dash_page'] = array('file' => 'custom/modules/Home/RemoveDashboardPages.php' , 'auth' => '1');
+-$entry_point_registry['rename_dash_page'] = array('file' => 'custom/modules/Home/RenameDashboardPages.php' , 'auth' => '1');
++$entry_point_registry['quickSearch'] = array('file' => 'quickSearch.php' , 'auth' => '1');
++
+ ?>
+\ No newline at end of file
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/EditView/EditView.tpl mem2/include/EditView/EditView.tpl
+--- suitecrm-7.1.4-max/include/EditView/EditView.tpl	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/EditView/EditView.tpl	2014-12-11 11:18:58.458179000 -0800
+@@ -254,7 +254,9 @@
+ <script>document.getElementById("{{$label}}").style.display='none';</script>
+ {/if}
+ {{/foreach}}
+-</div></div>
++<div class='view' style='text-align: center; padding: 10px; '>Created on <b>{$fields.date_entered.value}</b> by <b>{$fields.created_by_name.value}</b> &nbsp;&bull;&nbsp; Modified on <b>{$fields.date_modified.value}</b> by <b>{$fields.modified_by_name.value}</b></div> 
++</div>
++</div>
+ {{include file=$footerTpl}}
+ {{if $useTabs}}
+ {sugar_getscript file="cache/include/javascript/sugar_grp_yui_widgets.js"}
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/EditView/header.tpl mem2/include/EditView/header.tpl
+--- suitecrm-7.1.4-max/include/EditView/header.tpl	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/EditView/header.tpl	2014-12-11 15:53:05.009308000 -0800
+@@ -48,6 +48,17 @@
+     {/literal}
+ </script>
+ <div class="clear"></div>
++<form action="index.php" method="POST" name="DetailView" id="{$form_id}2" {$enctype}>
++<input type="hidden" name="module" value="{$module}">
++{if isset($smarty.request.isDuplicate) && $smarty.request.isDuplicate eq "true"}
++<input type="hidden" name="record" value="">
++<input type="hidden" name="duplicateSave" value="true">
++<input type="hidden" name="duplicateId" value="{$fields.id.value}">
++{else}
++<input type="hidden" name="record" value="{$fields.id.value}">
++{/if}
++</form>
++
+ <form action="index.php" method="POST" name="{$form_name}" id="{$form_id}" {$enctype}>
+ <table width="100%" cellpadding="0" cellspacing="0" border="0" class="dcQuickEdit">
+ <tr>
+@@ -85,6 +96,9 @@
+    {{/foreach}}
+ {{else}}
+ {{sugar_button module="$module" id="SAVE" view="$view" form_id="$form_id" location="HEADER" appendTo="header_buttons"}}
++{{sugar_button module="$module" id="SAVENEW" view="$view" form_id="$form_id" location="HEADER" appendTo="header_buttons"}}
++{{sugar_button module="$module" id="CREATE" view="$view" form_id="$form_id" location="HEADER" appendTo="header_buttons"}}
++{{sugar_button module="$module" id="DELETE" view="$view" form_id="$form_id" location="HEADER" appendTo="header_buttons"}}
+ {{sugar_button module="$module" id="CANCEL" view="$view" form_id="$form_id" location="HEADER" appendTo="header_buttons"}}
+ {{/if}}
+ {{if empty($form.hideAudit) || !$form.hideAudit}}
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/globalControlLinks.php mem2/include/globalControlLinks.php
+--- suitecrm-7.1.4-max/include/globalControlLinks.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/globalControlLinks.php	2014-12-11 19:06:29.325394239 -0800
+@@ -55,10 +55,12 @@
+ }
+ 
+ 
+-$global_control_links['employees'] = array(
++
++ /*$global_control_links['employees'] = array(
++
+ 'linkinfo' => array($app_strings['LBL_EMPLOYEES']=> 'index.php?module=Employees&action=index&query=true'),
+ 'submenu' => ''
+-);
++);*/
+ if (
+         is_admin($current_user)
+ 
+@@ -67,7 +69,7 @@
+ 'linkinfo' => array($app_strings['LBL_ADMIN'] => 'index.php?module=Administration&action=index'),
+ 'submenu' => ''
+ );
+-$global_control_links['training'] = array(
++/*$global_control_links['training'] = array(
+ 'linkinfo' => array($app_strings['LBL_TRAINING'] => 'javascript:void(window.open(\'http://support.sugarcrm.com\'))'),
+ 'submenu' => ''
+  );
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/language/en_us.lang.php mem2/include/language/en_us.lang.php
+--- suitecrm-7.1.4-max/include/language/en_us.lang.php	2014-09-24 16:29:08.000000000 -0700
++++ mem2/include/language/en_us.lang.php	2014-12-11 19:01:27.103606537 -0800
+@@ -1918,9 +1918,9 @@
+     'LBL_FULL_FORM_BUTTON_KEY' => 'L',
+     'LBL_FULL_FORM_BUTTON_LABEL' => 'Full Form',
+     'LBL_FULL_FORM_BUTTON_TITLE' => 'Full Form',
+-    'LBL_SAVE_NEW_BUTTON_KEY' => 'V',
++    'LBL_SAVE_NEW_BUTTON_KEY' => 'v',
+     'LBL_SAVE_NEW_BUTTON_LABEL' => 'Save & Create New',
+-    'LBL_SAVE_NEW_BUTTON_TITLE' => 'Save & Create New',
++    'LBL_SAVE_NEW_BUTTON_TITLE' => 'Save & Create New [Alt+v]',
+     'LBL_SAVE_OBJECT' => 'Save {0}',
+     'LBL_SEARCH_BUTTON_KEY' => 'Q',
+     'LBL_SEARCH_BUTTON_LABEL' => 'Search',
+@@ -2499,15 +2499,15 @@
+     'LBL_DUPLICATE_BUTTON_KEY' => 'u',
+     'LBL_DUPLICATE_BUTTON_LABEL' => 'Duplicate',
+     'LBL_DUPLICATE_BUTTON_TITLE' => 'Duplicate',
+-    'LBL_DELETE_BUTTON_KEY' => 'd',
++    'LBL_DELETE_BUTTON_KEY' => 'D',
+     'LBL_DELETE_BUTTON_LABEL' => 'Delete',
+-    'LBL_DELETE_BUTTON_TITLE' => 'Delete',
+-    'LBL_SAVE_BUTTON_KEY' => 'a',
++    'LBL_DELETE_BUTTON_TITLE' => 'Delete [Alt+D]',
++    'LBL_SAVE_BUTTON_KEY' => 's',
+     'LBL_SAVE_BUTTON_LABEL' => 'Save',
+-    'LBL_SAVE_BUTTON_TITLE' => 'Save',
++    'LBL_SAVE_BUTTON_TITLE' => 'Save [Alt+s]',
+     'LBL_CANCEL_BUTTON_KEY' => 'l',
+     'LBL_CANCEL_BUTTON_LABEL' => 'Cancel',
+-    'LBL_CANCEL_BUTTON_TITLE' => 'Cancel',
++    'LBL_CANCEL_BUTTON_TITLE' => 'Cancel [Alt+l]',
+     'LBL_FIRST_INPUT_EDIT_VIEW_KEY' => '7',
+     'LBL_ADV_SEARCH_LNK_KEY' => '8',
+     'LBL_FIRST_INPUT_SEARCH_KEY' => '9',
+@@ -2600,6 +2600,80 @@
+     'isnull' => 'Is Null',
+         );
+ 
++	$app_list_strings['states_list'] = array(
++	'AL' => 'AL',
++	'AK' => 'AK',
++	'AS' => 'AS',
++	'AZ' => 'AZ',
++	'AR' => 'AR',
++	'CA' => 'CA',
++	'CO' => 'CO',
++	'CT' => 'CT',
++	'DE' => 'DE',
++	'DC' => 'DC',
++	'FM' => 'FM',
++	'FL' => 'FL',
++	'GA' => 'GA',
++	'GU' => 'GU',
++	'HI' => 'HI',
++	'ID' => 'ID',
++	'IL' => 'IL',
++	'IN' => 'IN',
++	'IA' => 'IA',
++	'KS' => 'KS',
++	'KY' => 'KY',
++	'LA' => 'LA',
++	'ME' => 'ME',
++	'MH' => 'MH',
++	'MD' => 'MD',
++	'MA' => 'MA',
++	'MI' => 'MI',
++	'MN' => 'MN',
++	'MS' => 'MS',
++	'MO' => 'MO',
++	'MT' => 'MT',
++	'NE' => 'NE',
++	'NV' => 'NV',
++	'NH' => 'NH',
++	'NJ' => 'NJ',
++	'NM' => 'NM',
++	'NY' => 'NY',
++	'NC' => 'NC',
++	'ND' => 'ND',
++	'MP' => 'MP',
++	'OH' => 'OH',
++	'OK' => 'OK',
++	'OR' => 'OR',
++	'PW' => 'PW',
++	'PA' => 'PA',
++	'PR' => 'PR',
++	'RI' => 'RI',
++	'SC' => 'SC',
++	'SD' => 'SD',
++	'TN' => 'TN',
++	'TX' => 'TX',
++	'UT' => 'UT',
++	'VT' => 'VT',
++	'VI' => 'VI',
++	'VA' => 'VA',
++	'WA' => 'WA',
++	'WV' => 'WV',
++	'WI' => 'WI',
++	'WY' => 'WY',
++	'AB' => 'AB',
++	'BC' => 'BC',
++	'MB' => 'MB',
++	'NB' => 'NB',
++	'NL' => 'NL',
++	'NT' => 'NT',
++	'NS' => 'NS',
++	'NU' => 'NU',
++	'ON' => 'ON',
++	'PE' => 'PE',
++	'QC' => 'QC',
++	'SK' => 'SK',
++	'YT' => 'YT',
++ 	);
+     $app_list_strings['countries_dom'] = array(
+         '' => '',
+         'ABU DHABI' => 'ABU DHABI',
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/ListView/ListViewDCMenu.tpl mem2/include/ListView/ListViewDCMenu.tpl
+--- suitecrm-7.1.4-max/include/ListView/ListViewDCMenu.tpl	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/ListView/ListViewDCMenu.tpl	2014-12-06 21:05:09.598525000 -0800
+@@ -171,7 +171,7 @@
+ 				<td scope='row' align='{$params.align|default:'left'}' valign="top" {if ($params.type == 'teamset')}class="nowrap"{/if}>
+ 					{if $col == 'NAME' || $params.bold}<b>{/if}
+ 				    {if $params.link && !$params.customCode}
+-						<{$pageData.tag.$id[$params.ACLTag]|default:$pageData.tag.$id.MAIN} href='index.php?action={$params.action|default:'DetailView'}&module={if $params.dynamic_module}{$rowData[$params.dynamic_module]}{else}{$params.module|default:$pageData.bean.moduleDir}{/if}&record={$rowData[$params.id]|default:$rowData.ID}&offset={$pageData.offsets.current+$smarty.foreach.rowIteration.iteration}&stamp={$pageData.stamp}'>
++						<{$pageData.tag.$id[$params.ACLTag]|default:$pageData.tag.$id.MAIN} href='index.php?action={$params.action|default:'EditView'}&module={if $params.dynamic_module}{$rowData[$params.dynamic_module]}{else}{$params.module|default:$pageData.bean.moduleDir}{/if}&record={$rowData[$params.id]|default:$rowData.ID}&offset={$pageData.offsets.current+$smarty.foreach.rowIteration.iteration}&stamp={$pageData.stamp}'>
+ 					{/if}
+ 					{if $params.customCode}
+ 						{sugar_evalcolumn_old var=$params.customCode rowData=$rowData}
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/ListView/ListViewGeneric.tpl mem2/include/ListView/ListViewGeneric.tpl
+--- suitecrm-7.1.4-max/include/ListView/ListViewGeneric.tpl	2014-08-13 12:30:46.000000000 -0700
++++ mem2/include/ListView/ListViewGeneric.tpl	2014-12-06 21:03:51.969802000 -0800
+@@ -74,7 +74,7 @@
+ 	<div class="list view listViewEmpty">
+     {if $displayEmptyDataMesssages}
+         {if strlen($query) == 0}
+-                {capture assign="createLink"}<a href="?module={$pageData.bean.moduleDir}&action=EditView&return_module={$pageData.bean.moduleDir}&return_action=DetailView">{$APP.LBL_CREATE_BUTTON_LABEL}</a>{/capture}
++                {capture assign="createLink"}<a href="?module={$pageData.bean.moduleDir}&action=EditView&return_module={$pageData.bean.moduleDir}&return_action=EditView">{$APP.LBL_CREATE_BUTTON_LABEL}</a>{/capture}
+                 {capture assign="importLink"}<a href="?module=Import&action=Step1&import_module={$pageData.bean.moduleDir}&return_module={$pageData.bean.moduleDir}&return_action=index">{$APP.LBL_IMPORT}</a>{/capture}
+                 {capture assign="helpLink"}<a target="_blank" href='?module=Administration&action=SupportPortal&view=documentation&version={$sugar_info.sugar_version}&edition={$sugar_info.sugar_flavor}&lang=&help_module={$currentModule}&help_action=&key='>{$APP.LBL_CLICK_HERE}</a>{/capture}
+                 <p class="msg">
+@@ -90,7 +90,7 @@
+                 {$APP.MSG_LIST_VIEW_NO_RESULTS|replace:"<item1>":$quotedQuery}
+             </p>
+             <p class = "submsg">
+-                <a href="?module={$pageData.bean.moduleDir}&action=EditView&return_module={$pageData.bean.moduleDir}&return_action=DetailView">
++                <a href="?module={$pageData.bean.moduleDir}&action=EditView&return_module={$pageData.bean.moduleDir}&return_action=EditView">
+                     {$APP.MSG_LIST_VIEW_NO_RESULTS_SUBMSG|replace:"<item1>":$quotedQuery|replace:"<item2>":$singularModule}
+                 </a>
+ 
+@@ -207,7 +207,7 @@
+ 						{if $col == 'NAME' || $params.bold}<b>{/if}
+ 					    {if $params.link && !$params.customCode}
+ 	{capture assign=linkModule}{if $params.dynamic_module}{$rowData[$params.dynamic_module]}{else}{$params.module|default:$pageData.bean.moduleDir}{/if}{/capture}
+-	{capture assign=action}{if $act}{$act}{else}DetailView{/if}{/capture}
++	{capture assign=action}{if $act}{$act}{else}EditView{/if}{/capture}
+ 	{capture assign=record}{$rowData[$params.id]|default:$rowData.ID}{/capture}
+ 	{capture assign=url}index.php?module={$linkModule}&offset={$offset}&stamp={$pageData.stamp}&return_module={$linkModule}&action={$action}&record={$record}{/capture}
+ 	                        <{$pageData.tag.$id[$params.ACLTag]|default:$pageData.tag.$id.MAIN} href="{sugar_ajax_url url=$url}">
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/MVC/Controller/SugarController.php mem2/include/MVC/Controller/SugarController.php
+--- suitecrm-7.1.4-max/include/MVC/Controller/SugarController.php	2014-09-24 16:29:08.000000000 -0700
++++ mem2/include/MVC/Controller/SugarController.php	2014-12-10 18:43:21.109404000 -0800
+@@ -563,12 +563,30 @@
+ 	 */
+ 	protected function post_save(){
+ 		$module = (!empty($this->return_module) ? $this->return_module : $this->module);
+-		$action = (!empty($this->return_action) ? $this->return_action : 'DetailView');
++		$action = (!empty($this->return_action) ? $this->return_action : 'EditView');
+ 		$id = (!empty($this->return_id) ? $this->return_id : $this->bean->id);
+ 
+ 		$url = "index.php?module=".$module."&action=".$action."&record=".$id;
+ 		$this->set_redirect($url);
+ 	}
++	
++	/**
++	 * SaveNew action - save and  create new
++	 */
++	public function pre_savenew(){
++		$this->pre_save();
++	}	
++ 
++	public function action_savenew(){
++		$this->action_save();
++	}
++
++	protected function post_savenew(){
++		$module = (!empty($this->return_module) ? $this->return_module : $this->module);
++		$action = 'EditView';
++		$url = "index.php?module=".$module."&action=".$action;
++		$this->set_redirect($url);
++	}
+ 
+ 	/*
+ 	 * Delete a bean
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/MVC/View/SugarView.php mem2/include/MVC/View/SugarView.php
+--- suitecrm-7.1.4-max/include/MVC/View/SugarView.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/MVC/View/SugarView.php	2014-12-12 04:20:55.885217761 -0800
+@@ -1210,7 +1210,7 @@
+         if (!file_exists('modules/' . $module . '/Menu.php')
+                 && !file_exists('custom/modules/' . $module . '/Ext/Menus/menu.ext.php')
+                 && !empty($GLOBALS['mod_strings']['LNK_NEW_RECORD'])) {
+-            $module_menu[] = array("index.php?module=$module&action=EditView&return_module=$module&return_action=DetailView",
++            $module_menu[] = array("index.php?module=$module&action=EditView&return_module=$module&return_action=EditView",
+                 $GLOBALS['mod_strings']['LNK_NEW_RECORD'],"{$GLOBALS['app_strings']['LBL_CREATE_BUTTON_LABEL']}$module" ,$module );
+             $module_menu[] = array("index.php?module=$module&action=index", $GLOBALS['mod_strings']['LNK_LIST'],
+                 $module, $module);
+@@ -1307,7 +1307,7 @@
+         if($show_help) {
+             $theTitle .= "<span class='utils'>";
+             $createImageURL = SugarThemeRegistry::current()->getImageURL('create-record.gif');
+-            $url = ajaxLink("index.php?module=$module&action=EditView&return_module=$module&return_action=DetailView");
++            $url = ajaxLink("index.php?module=$module&action=EditView&return_module=$module&return_action=EditView");
+             $theTitle .= <<<EOHTML
+ &nbsp;
+ <a id="create_image" href="{$url}" class="utilsLink">
+@@ -1377,7 +1377,7 @@
+             switch ($this->action) {
+             case 'EditView':
+                 if(!empty($this->bean->id) && (empty($_REQUEST['isDuplicate']) || $_REQUEST['isDuplicate'] === 'false')) {
+-                    $params[] = "<a href='index.php?module={$this->module}&action=DetailView&record={$this->bean->id}'>".$this->bean->get_summary_text()."</a>";
++                    $params[] = "<a href='index.php?module={$this->module}&action=EditView&record={$this->bean->id}'>".$this->bean->get_summary_text()."</a>";
+                     $params[] = $GLOBALS['app_strings']['LBL_EDIT_BUTTON_LABEL'];
+                 }
+                 else
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/MVC/View/views/view.edit.php mem2/include/MVC/View/views/view.edit.php
+--- suitecrm-7.1.4-max/include/MVC/View/views/view.edit.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/MVC/View/views/view.edit.php	2014-12-10 17:52:28.072576000 -0800
+@@ -54,6 +54,7 @@
+ 
+  	function ViewEdit(){
+  		parent::SugarView();
++		$this->options['show_subpanels'] = true;
+  	}
+ 
+     /**
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/QuickSearchDefaults.php mem2/include/QuickSearchDefaults.php
+--- suitecrm-7.1.4-max/include/QuickSearchDefaults.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/QuickSearchDefaults.php	2014-12-11 19:05:33.273062853 -0800
+@@ -80,17 +80,17 @@
+ 
+     function getQSParent($parent = 'Accounts') {
+         global $app_strings;
+-
++		if ($parent == 'legal_lawyers' || $parent == 'legal_witnesses') { $name = 'last_name'; } else { $name = 'name'; }
+         $qsParent = array(
+                     'form' => $this->form_name,
+                     'method' => 'query',
+                     'modules' => array($parent),
+                     'group' => 'or',
+-                    'field_list' => array('name', 'id'),
++                    'field_list' => array($name, 'id'),
+                     'populate_list' => array('parent_name', 'parent_id'),
+                     'required_list' => array('parent_id'),
+-                    'conditions' => array(array('name'=>'name','op'=>'like_custom','end'=>'%','value'=>'')),
+-                    'order' => 'name',
++                    'conditions' => array(array('name'=>$name,'op'=>'like_custom','end'=>'%','value'=>'')),
++                    'order' => $name,
+                     'limit' => '30',
+                     'no_match_text' => $app_strings['ERR_SQS_NO_MATCH']
+                     );
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/Smarty/plugins/function.sugar_actions_link.php mem2/include/Smarty/plugins/function.sugar_actions_link.php
+--- suitecrm-7.1.4-max/include/Smarty/plugins/function.sugar_actions_link.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/Smarty/plugins/function.sugar_actions_link.php	2014-12-11 18:53:05.560634394 -0800
+@@ -72,9 +72,9 @@
+ 			case "CANCEL":
+ 			$cancelButton  = '{if !empty($smarty.request.return_action) && ($smarty.request.return_action == "DetailView" && !empty($smarty.request.return_id))}';
+ 			$cancelButton  = '{if !empty($smarty.request.return_action) && ($smarty.request.return_action == "DetailView" && !empty($smarty.request.return_id))}';
+-			$cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=DetailView&module={$smarty.request.return_module}&record={$smarty.request.return_id}\'); return false;" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" type="button" id="'.$type.$location.'"> ';
++			$cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=EditView&module={$smarty.request.return_module}&record={$smarty.request.return_id}\'); return false;" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" type="button" id="'.$type.$location.'"> ';
+ 			$cancelButton .= '{elseif !empty($smarty.request.return_action) && ($smarty.request.return_action == "DetailView" && !empty($fields.id.value))}';
+-			$cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=DetailView&module={$smarty.request.return_module}&record={$fields.id.value}\'); return false;" type="button" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" id="'.$type.$location.'"> ';
++			$cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=EditView&module={$smarty.request.return_module}&record={$fields.id.value}\'); return false;" type="button" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" id="'.$type.$location.'"> ';
+ 			$cancelButton .= '{elseif empty($smarty.request.return_action) || empty($smarty.request.return_id) && !empty($fields.id.value)}';
+ 			$cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=index&module='.$module.'\'); return false;" type="button" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" id="'.$type.$location.'"> ';
+ 			$cancelButton .= '{else}';
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/Smarty/plugins/function.sugar_button.php mem2/include/Smarty/plugins/function.sugar_button.php
+--- suitecrm-7.1.4-max/include/Smarty/plugins/function.sugar_button.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/Smarty/plugins/function.sugar_button.php	2014-12-11 18:54:04.512984119 -0800
+@@ -304,9 +304,9 @@
+ 
+ 			case "CANCEL":
+                 $cancelButton  = '{if !empty($smarty.request.return_action) && ($smarty.request.return_action == "DetailView" && !empty($smarty.request.return_id))}';
+-                $cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=DetailView&module={$smarty.request.return_module}&record={$smarty.request.return_id}\'); return false;" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" type="button" id="'.$type.$location.'"> ';
++                $cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=EditView&module={$smarty.request.return_module}&record={$smarty.request.return_id}\'); return false;" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" type="button" id="'.$type.$location.'"> ';
+                 $cancelButton .= '{elseif !empty($smarty.request.return_action) && ($smarty.request.return_action == "DetailView" && !empty($fields.id.value))}';
+-                $cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=DetailView&module={$smarty.request.return_module}&record={$fields.id.value}\'); return false;" type="button" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" id="'.$type.$location.'"> ';
++                $cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=EditView&module={$smarty.request.return_module}&record={$fields.id.value}\'); return false;" type="button" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" id="'.$type.$location.'"> ';
+                 $cancelButton .= '{elseif empty($smarty.request.return_action) || empty($smarty.request.return_id) && !empty($fields.id.value)}';
+                 $cancelButton .= '<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="SUGAR.ajaxUI.loadContent(\'index.php?action=index&module='.$module.'\'); return false;" type="button" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}" id="'.$type.$location.'"> ';
+                 $cancelButton .= '{else}';
+@@ -337,6 +337,11 @@
+ 				$output = '{if $bean->aclAccess("save")}<input title="{$APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{$APP.LBL_SAVE_BUTTON_KEY}" class="button primary" onclick="'.$js_form.' {if $isDuplicate}_form.return_id.value=\'\'; {/if}_form.action.value=\'Save\'; if(check_form(\'' . $view . '\'))SUGAR.ajaxUI.submitForm(_form);return false;" type="submit" name="button" value="{$APP.LBL_SAVE_BUTTON_LABEL}" id="'.$type.$location.'">{/if} ';
+ 			break;
+ 
++ 			case "SAVENEW":
++				$output = '{if $bean->aclAccess("savenew")}<input title="{$APP.LBL_SAVE_NEW_BUTTON_TITLE}" accessKey="{$APP.LBL_SAVE_NEW_BUTTON_KEY}" class="button primary" onclick="'.$js_form.' {if $isDuplicate}_form.return_id.value=\'\'; {/if}_form.action.value=\'SaveNew\'; if(check_form(\'' . $view . '\'))SUGAR.ajaxUI.submitForm(_form);return false;" type="submit" name="button" value="{$APP.LBL_SAVE_NEW_BUTTON_LABEL}" id="'.$type.$location.'">{/if} ';
++ 			break;
++
++
+ 			case "SUBPANELSAVE":
+                 if($view == 'QuickCreate' || (isset($_REQUEST['target_action']) && strtolower($_REQUEST['target_action']) == 'quickcreate')) $view =  "form_SubpanelQuickCreate_{$module}";
+ 
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/SubPanel/SubPanel.php mem2/include/SubPanel/SubPanel.php
+--- suitecrm-7.1.4-max/include/SubPanel/SubPanel.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/SubPanel/SubPanel.php	2014-12-11 18:55:32.193504077 -0800
+@@ -164,7 +164,7 @@
+ 			$ListView = new ListView();
+ 		}
+ 		$ListView->initNewXTemplate($xTemplatePath,$this->subpanel_defs->mod_strings);
+-		$ListView->xTemplateAssign("RETURN_URL", "&return_module=".$this->parent_module."&return_action=DetailView&return_id=".$this->parent_bean->id);
++		$ListView->xTemplateAssign("RETURN_URL", "&return_module=".$this->parent_module."&return_action=EditView&return_id=".$this->parent_bean->id);
+ 		$ListView->xTemplateAssign("RELATED_MODULE", $this->parent_module);  // TODO: what about unions?
+ 		$ListView->xTemplateAssign("RECORD_ID", $this->parent_bean->id);
+ 		$ListView->xTemplateAssign("EDIT_INLINE_PNG", SugarThemeRegistry::current()->getImage('edit_inline','align="absmiddle"  border="0"',null,null,'.gif',$app_strings['LNK_EDIT']));
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/SubPanel/SubPanelTiles.js mem2/include/SubPanel/SubPanelTiles.js
+--- suitecrm-7.1.4-max/include/SubPanel/SubPanelTiles.js	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/SubPanel/SubPanelTiles.js	2014-12-11 18:55:54.041633606 -0800
+@@ -37,7 +37,7 @@
+ return window.document.forms['DetailView'].elements['module'].value;}}
+ function subp_nav(m,i,a,t,r){if(t.href.search(/#/)<0){return;}
+ if(a=='d'){a='DetailView';}else{a='EditView';}
+-url="index.php?module="+m+"&action="+a+"&record="+i+"&parent_module="+get_module_name()+"&parent_id="+get_record_id()+"&return_module="+get_module_name()+"&return_id="+get_record_id()+"&return_action=DetailView";if(r)
++url="index.php?module="+m+"&action="+a+"&record="+i+"&parent_module="+get_module_name()+"&parent_id="+get_record_id()+"&return_module="+get_module_name()+"&return_id="+get_record_id()+"&return_action=EditView";if(r)
+ {url+="&return_relationship="+r;}
+ t.href=url;}
+ function sub_p_rem(sp,lf,li,rp){return_url="index.php?module="+get_module_name()+"&action=SubPanelViewer&subpanel="+sp+"&record="+get_record_id()+"&sugar_body_only=1&inline=1";remove_url="index.php?module="+get_module_name()
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/SugarFields/Fields/Relate/EditView.tpl mem2/include/SugarFields/Fields/Relate/EditView.tpl
+--- suitecrm-7.1.4-max/include/SugarFields/Fields/Relate/EditView.tpl	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/SugarFields/Fields/Relate/EditView.tpl	2014-12-11 18:56:36.837887287 -0800
+@@ -59,8 +59,10 @@
+ 	{{$displayParams.popupData}}, 
+ 	"single", 
+ 	true
+-);' {{if isset($displayParams.javascript.btn)}}{{$displayParams.javascript.btn}}{{/if}}><img src="{sugar_getimagepath file="id-ff-select.png"}"></button>{{if empty($displayParams.selectOnly) }}<button type="button" name="btn_clr_{{$idname}}" id="btn_clr_{{$idname}}" tabindex="{{$tabindex}}" title="{sugar_translate label="{{$displayParams.accessKeyClearTitle}}"}"  class="button lastChild"
+-onclick="SUGAR.clearRelateField(this.form, '{{$idname}}', '{{if !empty($displayParams.idName)}}{{$displayParams.idName}}_{{/if}}{{sugarvar key='id_name'}}');"  value="{sugar_translate label="{{$displayParams.accessKeyClearLabel}}"}" {{if isset($displayParams.javascript.btn_clear)}}{{$displayParams.javascript.btn_clear}}{{/if}}><img src="{sugar_getimagepath file="id-ff-clear.png"}"></button>
++);' {{if isset($displayParams.javascript.btn)}}{{$displayParams.javascript.btn}}{{/if}}><img src="{sugar_getimagepath file="id-ff-select.png"}"></button>{{if empty($displayParams.selectOnly) }}<button type="button" name="btn_clr_{{$idname}}" id="btn_clr_{{$idname}}" tabindex="{{$tabindex}}" title="{sugar_translate label="{{$displayParams.accessKeyClearTitle}}"}"  class="button"
++onclick="SUGAR.clearRelateField(this.form, '{{$idname}}', '{{if !empty($displayParams.idName)}}{{$displayParams.idName}}_{{/if}}{{sugarvar key='id_name'}}');"  value="{sugar_translate label="{{$displayParams.accessKeyClearLabel}}"}" {{if isset($displayParams.javascript.btn_clear)}}{{$displayParams.javascript.btn_clear}}{{/if}}><img src="{sugar_getimagepath file="id-ff-clear.png"}"></button><button type="button" name="btn_jump_{{sugarvar key='name'}}" tabindex="{{$tabindex}}" title=""  class="button lastChild"
++onclick="document.location='index.php?module={{sugarvar key='module'}}&action=EditView&record={{sugarvar memberName='vardef.id_name' key='value'}}';">View</button>
++
+ {{/if}}
+ </span>
+ {{/if}}
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/TemplateHandler/TemplateHandler.php mem2/include/TemplateHandler/TemplateHandler.php
+--- suitecrm-7.1.4-max/include/TemplateHandler/TemplateHandler.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/TemplateHandler/TemplateHandler.php	2014-12-11 18:58:48.194665602 -0800
+@@ -340,8 +340,8 @@
+             foreach($defs as $f) {
+                 $field = $f;
+                 $name = $qsd->form_name . '_' . $field['name'];
+-
+-                if($field['type'] == 'relate' && isset($field['module']) && preg_match('/_name$|_c$/si',$name)) {
++                //if($field['type'] == 'relate' && isset($field['module']) && preg_match('/_name$|_c$/si',$name)) {
++		if($field['type'] == 'relate' && isset($field['module'])) {
+                     if(preg_match('/^(Campaigns|Teams|Users|Contacts|Accounts)$/si', $field['module'], $matches)) {
+ 
+                         if($matches[0] == 'Campaigns') {
+@@ -415,8 +415,8 @@
+                 }
+ 				$name = $qsd->form_name . '_' . $field['name'];
+ 
+-
+-                if($field['type'] == 'relate' && isset($field['module']) && (preg_match('/_name$|_c$/si',$name) || !empty($field['quicksearch']))) {
++		if($field['type'] == 'relate' && isset($field['module'])) {
++                //if($field['type'] == 'relate' && isset($field['module']) && (preg_match('/_name$|_c$/si',$name) || !empty($field['quicksearch']))) {
+                     if (!preg_match('/_c$/si',$name)
+                         && (!isset($field['id_name']) || !preg_match('/_c$/si',$field['id_name']))
+                         && preg_match('/^(Campaigns|Teams|Users|Contacts|Accounts)$/si', $field['module'], $matches)
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/include/utils/security_utils.php mem2/include/utils/security_utils.php
+--- suitecrm-7.1.4-max/include/utils/security_utils.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/include/utils/security_utils.php	2014-12-11 19:02:10.583863875 -0800
+@@ -70,7 +70,7 @@
+ 	require_once('modules/MySettings/TabController.php');
+ 	$controller = new TabController();
+ 	$tabArray = $controller->get_tabs($user); 
+-
++	unset($tabArray[0]['Home']);
+ 	return $tabArray[0];
+ 		
+ }
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/modules/ACLRoles/Save.php mem2/modules/ACLRoles/Save.php
+--- suitecrm-7.1.4-max/modules/ACLRoles/Save.php	2014-07-07 16:33:40.000000000 -0700
++++ mem2/modules/ACLRoles/Save.php	2014-12-11 19:08:08.709981621 -0800
+@@ -74,5 +74,5 @@
+     sugar_cleanup(true);
+ }
+ 
+-header("Location: index.php?module=ACLRoles&action=DetailView&record=". $role->id);
++header("Location: index.php?module=ACLRoles&action=EditView&record=". $role->id);
+ ?>
+\ No newline at end of file
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/modules/legal_arrestees/legal_arrestees.php mem2/modules/legal_arrestees/legal_arrestees.php
+--- suitecrm-7.1.4-max/modules/legal_arrestees/legal_arrestees.php	2014-12-12 03:58:43.664055364 -0800
++++ mem2/modules/legal_arrestees/legal_arrestees.php	2014-12-12 03:30:40.656272254 -0800
+@@ -38,10 +38,10 @@
+  */
+ require_once('modules/legal_arrestees/legal_arrestees_sugar.php');
+ class legal_arrestees extends legal_arrestees_sugar {
+-	
++	var $importable = true; 	
+ 	function legal_arrestees(){	
+ 		parent::legal_arrestees_sugar();
+ 	}
+ 	
+ }
+-?>
+\ No newline at end of file
++?>
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/modules/legal_arrestees/vardefs.php mem2/modules/legal_arrestees/vardefs.php
+--- suitecrm-7.1.4-max/modules/legal_arrestees/vardefs.php	2014-12-12 03:58:43.664055364 -0800
++++ mem2/modules/legal_arrestees/vardefs.php	2014-12-12 03:31:16.240521782 -0800
+@@ -68,8 +68,8 @@
+     'reportable' => 0,
+     'len' => '255',
+     'id_name' => 'account_id',
+-    'ext2' => 'Accounts',
+-    'module' => 'Accounts',
++    'ext2' => 'lawyers',
++    'module' => 'legal_lawyers',
+     'studio' => 'visible',
+   ),
+   'preferred_name' => 
+@@ -301,4 +301,4 @@
+ 	'optimistic_lock'=>true,
+ );
+ require_once('include/SugarObjects/VardefManager.php');
+-VardefManager::createVardef('legal_arrestees','legal_arrestees', array('basic','assignable','person'));
+\ No newline at end of file
++VardefManager::createVardef('legal_arrestees','legal_arrestees', array('basic','assignable','person'));
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/modules/legal_lawyers/metadata/subpaneldefs.php mem2/modules/legal_lawyers/metadata/subpaneldefs.php
+--- suitecrm-7.1.4-max/modules/legal_lawyers/metadata/subpaneldefs.php	1969-12-31 16:00:00.000000000 -0800
++++ mem2/modules/legal_lawyers/metadata/subpaneldefs.php	2008-06-09 17:14:55.000000000 -0700
+@@ -0,0 +1,15 @@
++<?php
++$layout_defs['legal_lawyers']['subpanel_setup']['legal_arrestees'] = array(  //Note: legal_arrestees in this line must be lowercase
++'order' => 99, 
++'module' => 'legal_arrestees', 
++'subpanel_name' => 'default', 
++'refresh_page' => 1, 
++'get_subpanel_data' => 'arrestees',  // matches the name of the link field
++'title_key' => 'Arrestees', 
++'top_buttons' => array(
++array('widget_class' => 'SubPanelTopCreateButton'),
++array('widget_class' => 'SubPanelTopSelectButton', 'mode'=>'MultiSelect')
++), 
++); 
++
++?>
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/modules/legal_lawyers/vardefs.php mem2/modules/legal_lawyers/vardefs.php
+--- suitecrm-7.1.4-max/modules/legal_lawyers/vardefs.php	2014-12-12 03:58:43.668055392 -0800
++++ mem2/modules/legal_lawyers/vardefs.php	2014-12-12 04:17:25.771772138 -0800
+@@ -57,5 +57,23 @@
+ ),
+ 	'optimistic_lock'=>true,
+ );
++$dictionary['legal_lawyers']['relationships']['lawyer_arrestee'] = array( 
++'lhs_module' => 'legal_lawyers', 
++'lhs_table' => 'legal_lawyers', 
++'lhs_key' => 'id', 
++'rhs_module' => 'legal_arrestees',
++'rhs_table' => 'legal_arrestees', // must use custom table as we're using a custom Relate field in step 4
++'rhs_key' => 'account_id', // must match the name of the field containing the PARENT id in the CHILD_cstm table
++'relationship_type' => 'one-to-many' // one LHS to many RHS
++);
++$dictionary['legal_lawyers']['fields']['arrestees'] = array ( 
++'name' => 'arrestees', 
++'type' => 'link', 
++'relationship' => 'lawyer_arrestee', 
++'source'=>'non-db', 
++'vname'=>'LBL_ARRESTEES', 
++);
++
++
+ require_once('include/SugarObjects/VardefManager.php');
+ VardefManager::createVardef('legal_lawyers','legal_lawyers', array('basic','assignable','person'));
+\ No newline at end of file
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/quickSearch.php mem2/quickSearch.php
+--- suitecrm-7.1.4-max/quickSearch.php	1969-12-31 16:00:00.000000000 -0800
++++ mem2/quickSearch.php	2014-12-08 16:13:08.063049000 -0800
+@@ -0,0 +1,26 @@
++<?php
++require_once('include/entryPoint.php');
++global $db;
++$results = array();
++
++
++$name = $db->quote($_REQUEST['name']);
++$module = $db->quote($_REQUEST['module']);
++if ($module == 'legal_arrestees') {
++        $query = "select id as value, concat(last_name, ', ', first_name) as name, concat(arrest_date, ' - ', arrest_city_c) as details from legal_arrestees join legal_arrestees_cstm on id=id_c where (last_name like '%$name%' or first_name like '%$name%' or preferred_name like '%$name%') and deleted = 0  order by if(last_name like '$name%', 100, 0) + if(last_name like '%$name%', 10, 0) + if(first_name like '$name%', 20,0) + if(first_name like '%$name%', 5, 0) + if(preferred_name like '$name%', 50, 0) desc, last_name, first_name, details desc limit 10";
++} elseif ($module == 'legal_events' || $module == 'legal_evidence') {
++        $query = "select id as value, name, '' as details from $module where name like '%$name%' and deleted = 0  order by if(name like '$name%', 100, 0) + if(name like '%$name%', 10, 0) desc, name limit 10";
++} else {
++        $query = "select id as value, concat(last_name, ', ', first_name) as name, '' as details from $module where last_name like '%$name%' or first_name like '%$name%' and deleted = 0  order by if(last_name like '$name%', 100, 0) + if(last_name like '%$name%', 10, 0) + if(first_name like '$name%', 5,0) desc, last_name, first_name limit 10";
++}
++$res = $db->query($query);
++while ($row = $res->fetch_assoc()) {
++	$row['label'] = "$row[name]<span class='details'>$row[details]</span>";
++	$results[] = $row;
++}
++if (! count($results)) {
++	$results[] = array('name'=>'', 'label'=>'No results found', 'value'=>'NOTFOUND');
++}
++print json_encode($results);
++?>
++
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/themes/Suite7/css/style.css mem2/themes/Suite7/css/style.css
+--- suitecrm-7.1.4-max/themes/Suite7/css/style.css	2014-07-07 16:33:40.000000000 -0700
++++ mem2/themes/Suite7/css/style.css	2014-12-12 04:52:56.630305636 -0800
+@@ -2786,7 +2786,7 @@
+ {
+     border: 1px solid;
+     font-size: 11px;
+-    width:75px;
++    width:150px;
+     -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+     -o-transition: all 0.3s ease-out;
+@@ -5256,4 +5256,14 @@
+ 
+ #lessmargin {
+     margin: 0 50px 0 0;
+-}
+\ No newline at end of file
++}
++
++ul.ui-autocomplete {
++	font-size: .9em;
++}
++
++ul.ui-autocomplete .details {
++	display: block;
++	font-size: .8em;
++	color: #666;
++}
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/themes/Suite7/tpls/_globalLinks.tpl mem2/themes/Suite7/tpls/_globalLinks.tpl
+--- suitecrm-7.1.4-max/themes/Suite7/tpls/_globalLinks.tpl	2014-07-07 16:33:40.000000000 -0700
++++ mem2/themes/Suite7/tpls/_globalLinks.tpl	2014-12-11 19:12:02.279361140 -0800
+@@ -74,13 +74,13 @@
+     <ul id="quick-nav">
+         <li> <a href="#"><img src="themes/Suite7/images/quickcreate.png" class="quick_create"></a>
+             <ul>
+-                <li><a href="index.php?module=Accounts&action=EditView&return_module=Accounts&return_action=DetailView">{$APP.LBL_QUICK_ACCOUNT}</a></li>
+-                <li><a href="index.php?module=Contacts&action=EditView&return_module=Contacts&return_action=DetailView">{$APP.LBL_QUICK_CONTACT}</a></li>
+-                <li><a href="index.php?module=Opportunities&action=EditView&return_module=Opportunities&return_action=DetailView">{$APP.LBL_QUICK_OPPORTUNITY}</a></li>
+-                <li><a href="index.php?module=Leads&action=EditView&return_module=Leads&return_action=DetailView">{$APP.LBL_QUICK_LEAD}</a></li>
+-                <li><a href="index.php?module=Documents&action=EditView&return_module=Documents&return_action=DetailView">{$APP.LBL_QUICK_DOCUMENT}</a></li>
+-                <li><a href="index.php?module=Calls&action=EditView&return_module=Calls&return_action=DetailView">{$APP.LBL_QUICK_CALL}</a></li>
+-                <li><a href="index.php?module=Tasks&action=EditView&return_module=Tasks&return_action=DetailView">{$APP.LBL_QUICK_TASK}</a></li>
++                <li><a href="index.php?module=Accounts&action=EditView&return_module=Accounts&return_action=EditView">{$APP.LBL_QUICK_ACCOUNT}</a></li>
++                <li><a href="index.php?module=Contacts&action=EditView&return_module=Contacts&return_action=EditView">{$APP.LBL_QUICK_CONTACT}</a></li>
++                <li><a href="index.php?module=Opportunities&action=EditView&return_module=Opportunities&return_action=EditView">{$APP.LBL_QUICK_OPPORTUNITY}</a></li>
++                <li><a href="index.php?module=Leads&action=EditView&return_module=Leads&return_action=EditView">{$APP.LBL_QUICK_LEAD}</a></li>
++                <li><a href="index.php?module=Documents&action=EditView&return_module=Documents&return_action=EditView">{$APP.LBL_QUICK_DOCUMENT}</a></li>
++                <li><a href="index.php?module=Calls&action=EditView&return_module=Calls&return_action=EditView">{$APP.LBL_QUICK_CALL}</a></li>
++                <li><a href="index.php?module=Tasks&action=EditView&return_module=Tasks&return_action=EditView">{$APP.LBL_QUICK_TASK}</a></li>
+             </ul>
+ 
+         </li>
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/themes/Suite7/tpls/_headerModuleList.tpl mem2/themes/Suite7/tpls/_headerModuleList.tpl
+--- suitecrm-7.1.4-max/themes/Suite7/tpls/_headerModuleList.tpl	2014-08-13 12:30:46.000000000 -0700
++++ mem2/themes/Suite7/tpls/_headerModuleList.tpl	2014-12-11 19:12:30.871529926 -0800
+@@ -71,7 +71,7 @@
+                                                     <span>
+                                                     <a title="{$item.module_name}"
+                                                        accessKey="{$smarty.foreach.lastViewed.iteration}"
+-                                                       href="{sugar_link module=$item.module_name action='DetailView' record=$item.item_id link_only=1}">
++                                                       href="{sugar_link module=$item.module_name action='EditView' record=$item.item_id link_only=1}">
+                                                         <span>{$item.item_summary_short}</span>
+                                                     </a>
+                                             </td>
+@@ -151,7 +151,7 @@
+                                                 <li>
+                                                     <a title="{$item.module_name}"
+                                                        accessKey="{$smarty.foreach.lastViewed.iteration}"
+-                                                       href="{sugar_link module=$item.module_name action='DetailView' record=$item.item_id link_only=1}">
++                                                       href="{sugar_link module=$item.module_name action='EditView' record=$item.item_id link_only=1}">
+                                                         <span>{$item.item_summary_short}</span>
+                                                     </a>
+                                             </td>
+@@ -171,7 +171,7 @@
+                                                 <span>
+                                                 <a title="{$item.module_name}"
+                                                    accessKey="{$smarty.foreach.lastViewed.iteration}"
+-                                                   href="{sugar_link module=$item.module_name action='DetailView' record=$item.item_id link_only=1}">
++                                                   href="{sugar_link module=$item.module_name action='EditView' record=$item.item_id link_only=1}">
+                                                     <span>{$item.item_summary_short}</span>
+                                                 </a>
+                         </td>
+@@ -214,7 +214,7 @@
+                                                     <span></span>
+                                                     <a title="{$item.module_name}"
+                                                        accessKey="{$smarty.foreach.lastViewed.iteration}"
+-                                                       href="{sugar_link module=$item.module_name action='DetailView' record=$item.item_id link_only=1}">
++                                                       href="{sugar_link module=$item.module_name action='EditView' record=$item.item_id link_only=1}">
+                                                         <span>{$item.item_summary_short}</span>
+                                                     </a>
+                                             </td>
+@@ -235,7 +235,7 @@
+                                             <span>
+                                             <a title="{$item.module_name}"
+                                                accessKey="{$smarty.foreach.lastViewed.iteration}"
+-                                               href="{sugar_link module=$item.module_name action='DetailView' record=$item.item_id link_only=1}">
++                                               href="{sugar_link module=$item.module_name action='EditView' record=$item.item_id link_only=1}">
+                                                 <span>{$item.item_summary_short}</span>
+                                             </a>
+                     </td>
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/themes/Suite7/tpls/header.tpl mem2/themes/Suite7/tpls/header.tpl
+--- suitecrm-7.1.4-max/themes/Suite7/tpls/header.tpl	2014-07-07 16:33:40.000000000 -0700
++++ mem2/themes/Suite7/tpls/header.tpl	2014-12-11 19:13:01.751712199 -0800
+@@ -70,6 +70,68 @@
+         YAHOO.util.History.initialize("ajaxUI-history-field", "ajaxUI-history-iframe");
+         {/if}{literal}
+     }
++
++/*
++ * jQuery UI Autocomplete HTML Extension
++ *
++ * Copyright 2010, Scott González (http://scottgonzalez.com)
++ * Dual licensed under the MIT or GPL Version 2 licenses.
++ *
++ * http://github.com/scottgonzalez/jquery-ui-extensions
++ */
++(function( $ ) {
++
++var proto = $.ui.autocomplete.prototype,
++	initSource = proto._initSource;
++
++function filter( array, term ) {
++	var matcher = new RegExp( $.ui.autocomplete.escapeRegex(term), "i" );
++	return $.grep( array, function(value) {
++		return matcher.test( $( "<div>" ).html( value.label || value.value || value ).text() );
++	});
++}
++
++$.extend( proto, {
++	_initSource: function() {
++		if ( this.options.html && $.isArray(this.options.source) ) {
++			this.source = function( request, response ) {
++				response( filter( this.options.source, request.term ) );
++			};
++		} else {
++			initSource.call( this );
++		}
++	},
++
++	_renderItem: function( ul, item) {
++		return $( "<li></li>" )
++			.data( "item.autocomplete", item )
++			.append( $( "<a></a>" )[ this.options.html ? "html" : "text" ]( item.label ) )
++			.appendTo( ul );
++	}
++});
++
++})( jQuery );
++
++	if (document.getElementById('query_string')) {
++		var module = '{/literal}{ $MODULE_NAME }{literal}';
++		$('#query_string').autocomplete({
++			source: function(request, response) {
++				$.getJSON("index.php", {entryPoint: 'quickSearch', name: request.term, module: module}, response);
++			},
++			focus: function(event, ui) {
++				$("#query_string").val(ui.item.name);
++				return false;
++			},
++			select: function(event, ui) {
++				if (ui.item.value == 'NOTFOUND') { return false; }
++				window.location.href='?module='+module+'&return_module='+module+'&action=EditView&record='+ui.item.value;
++				$("#query_string").val('');
++				return false;
++			},
++			html: true
++		});
++	}
++	/* End Add */
+ </script>
+ {/literal}
+ 
+diff -ruN '--exclude=cache' suitecrm-7.1.4-max/themes/Suite7/tpls/_welcome.tpl mem2/themes/Suite7/tpls/_welcome.tpl
+--- suitecrm-7.1.4-max/themes/Suite7/tpls/_welcome.tpl	2014-07-07 16:33:40.000000000 -0700
++++ mem2/themes/Suite7/tpls/_welcome.tpl	2014-12-11 19:12:14.359432454 -0800
+@@ -50,7 +50,7 @@
+                     <input type="hidden" name="module" value="Home">
+                     <input type="hidden" name="search_form" value="false">
+                     <input type="hidden" name="advanced" value="false">
+-                    <input type="text" name="query_string" id="query_string" value=""/>
++                    <input type="text" name="query_string" id="query_string" placeholder='Search {$MODULE_TAB|replace:'legal_':''|capitalize}' value=""/>
+                     <button  type="submit" class="button" ></button>
+                 </form>
+             </div>

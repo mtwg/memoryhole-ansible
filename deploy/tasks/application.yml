@@ -1,0 +1,90 @@
+- name: Copy memoryhole from app/ to the webroot
+  synchronize: src=../app/ dest=/var/www/html rsync_opts=--update,-a
+  sudo: yes
+  sudo_user: rikki
+  tags:
+    - application
+
+- name: Copy over config.php file w/ mysql creds
+  template: src=templates/config.php.j2 dest=/var/www/html/config.php
+  sudo: yes
+  sudo_user: root
+  tags:
+    - application
+
+- name: create mysql app user
+  mysql_user:
+    name: "{{ mysql_app_user }}"
+    user: "{{ mysql_app_user }}"
+    password: "{{ mysql_app_password }}"
+    host: "localhost"
+    priv: "{{ mysql_app_db_name }}.*:ALL"
+    state: present
+    login_user: "{{ mysql_root_user }}"
+    login_password: "{{ mysql_root_password }}"
+    login_host: localhost
+  tags:
+    - application
+
+- name: create mysql app db
+  sudo: yes
+  sudo_user: root
+  mysql_db:
+    name: "{{ mysql_app_db_name }}"
+    state: present
+    login_user: "{{ mysql_root_user }}"
+    login_password: "{{ mysql_root_password }}"
+    login_host: "{{ ansible_hostname }}"
+  register: dbcreated
+  tags:
+    - application
+
+- name: Copy over db.sql file w/ config creds
+  template: src=templates/db.sql.j2 dest=/root/db.sql
+  sudo: yes
+  sudo_user: root
+  tags:
+    - application
+    - schema
+
+- name: create schema
+  mysql_db:
+    name: "{{ mysql_app_db_name }}"
+    target: /root/db.sql
+    state: import
+    login_user: "{{ mysql_root_user }}"
+    login_password: "{{ mysql_root_password }}"
+    login_host: "{{ ansible_hostname }}"
+  tags:
+    - application
+    - schema
+
+
+- name: set application-wide folder ownership
+  file: path=/var/www/html group=apache owner=apache state=directory recurse=yes
+
+- name: set special folder ownership and permissions
+  file: 'path=/var/www/html/{{ item }} mode=0755 recurse=yes state=directory group=apache owner=apache'
+  sudo: yes
+  with_items:
+    - cache
+    - custom
+    - data
+    - modules
+  tags:
+    - application
+
+- name: ok and config_override.php can be writeable (for UI-driven config changes) but NOT config.php with db credentials nope sorry
+  file: path=/var/www/html/config_override.php mode=664
+  tags:
+    - application
+
+- name: Add php.ini configs - Memory Limit
+  lineinfile: dest=/etc/php.ini regexp="^memory_limit" line="memory_limit = 256M"
+  tags:
+    - application
+
+- name: Add php.ini configs - Timezone
+  lineinfile: dest=/etc/php.ini regexp="^;date.timezone" line="date.timezone = America/New_York"
+  tags:
+    - application

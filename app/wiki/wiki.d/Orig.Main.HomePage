@@ -1,0 +1,186 @@
+version=pmwiki-2.2.22 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:33.0) Gecko/20100101 Firefox/33.0
+author=
+charset=ISO-8859-1
+csum=
+host=127.0.0.1
+name=Main.HomePage
+rev=258
+targets=
+text=%25width=300px rfloat%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a!!!!Welcome to the Occupy Legal Wiki%0a
+time=1417409703
+author:1417409703=
+diff:1417409703:1333429037:=2a3,29%0a> * [[[++Priority Issues++]]]%0a> * [[Charged Cases]]%0a> * [[Today's News]]%0a> * [[Notes | Hotline Notes]]%0a> * [[SF Commune Mass Arrest]]%0a> * 1/28 Mass Arrest%0a> ** [[Jail Conditions Reports]]%0a> ** [[Property Issues Reports]]%0a> * [[Process Documentation]]%0a> * [[Hotline Peeps Phone List]]%0a> * [[Activist Contacts]]%0a> * [[To Do List]]%0a> * [[Phone Script]]%0a> * [[Legal Info for Oakland and SF]]%0a> * [[Upcoming Court Dates and Lawyers]]%0a> * %25newwin%25 [[https://www.google.com/calendar/b/0/render?cid=sepc80ca5q5qjshqjp1g51v3ss@group.calendar.google.com | Hotline schedule - Google Calendar ]]%0a> %0a> * %25newwin%25 [[https://styrotopia.net:4444/legal/occupy/reports/dockets.php | Docket Sheet Generator ]]%0a> * [[https://styrotopia.net:4444/legal/occupy/courtdates/ | Link to AC court date checker ]]%0a> * [[Tips on Using the Inmate Locator]]%0a> * %25newwin%25 [[https://styrotopia.net:4444/legal/occupy/compare.html | This link will help you compare/remove duplicates in the DB!]]%0a> * [[Medical Resources]]%0a> * [[Email Templates]]%0a> %0a> * [[Refiled Charges]]%0a> %0a> * [[Stay Away Orders]]%0a\ No newline at end of file%0a
+host:1417409703=127.0.0.1
+author:1333429037=
+diff:1333429037:1329169953:=7d6%0a%3c * [[SF Commune Mass Arrest]]%0a
+host:1333429037=127.0.0.1
+author:1329169953=
+diff:1329169953:1328568636:=19d18%0a%3c * %25newwin%25 [[https://styrotopia.net:4444/legal/occupy/reports/dockets.php | Docket Sheet Generator ]]%0a
+host:1329169953=127.0.0.1
+author:1328568636=
+diff:1328568636:1328041998:=25,27c25%0a%3c * [[Refiled Charges]]%0a%3c %0a%3c * [[Stay Away Orders]]%0a\ No newline at end of file%0a---%0a> * [[Refiled Charges]]%0a\ No newline at end of file%0a
+host:1328568636=127.0.0.1
+author:1328041998=
+diff:1328041998:1327562780:=7,9d6%0a%3c * 1/28 Mass Arrest%0a%3c ** [[Jail Conditions Reports]]%0a%3c ** [[Property Issues Reports]]%0a
+host:1328041998=127.0.0.1
+author:1327562780=
+diff:1327562780:1327422634:=21,22d20%0a%3c %0a%3c * [[Refiled Charges]]%0a\ No newline at end of file%0a
+host:1327562780=127.0.0.1
+author:1327422634=Jackie
+diff:1327422634:1325121079:=9d8%0a%3c * [[Activist Contacts]]%0a
+host:1327422634=127.0.0.1
+author:1325121079=
+diff:1325121079:1323143245:=4d3%0a%3c * [[Charged Cases]]%0a
+host:1325121079=127.0.0.1
+author:1323143245=
+diff:1323143245:1323143227:=12c12%0a%3c * %25newwin%25 [[https://www.google.com/calendar/b/0/render?cid=sepc80ca5q5qjshqjp1g51v3ss@group.calendar.google.com | Hotline schedule - Google Calendar ]]%0a---%0a> * [[https://www.google.com/calendar/b/0/render?cid=sepc80ca5q5qjshqjp1g51v3ss@group.calendar.google.com | Hotline schedule - Google Calendar ]]%0a
+host:1323143245=127.0.0.1
+author:1323143227=
+diff:1323143227:1321907514:=12c12%0a%3c * [[https://www.google.com/calendar/b/0/render?cid=sepc80ca5q5qjshqjp1g51v3ss@group.calendar.google.com | Hotline schedule - Google Calendar ]]%0a---%0a> %0a
+host:1323143227=127.0.0.1
+author:1321907514=
+diff:1321907514:1321832474:=11d10%0a%3c * [[Upcoming Court Dates and Lawyers]]%0a
+host:1321907514=127.0.0.1
+author:1321832474=
+diff:1321832474:1321731873:=
+host:1321832474=127.0.0.1
+author:1321731873=
+diff:1321731873:1321731844:=2a3%0a> * [[[++Current Issues++]]]%0a
+host:1321731873=127.0.0.1
+author:1321731844=
+diff:1321731844:1321646294:=4c4%0a%3c * [[[++Priority Issues++]]]%0a---%0a> %0a
+host:1321731844=127.0.0.1
+author:1321646294=
+diff:1321646294:1321499032:=3,4d2%0a%3c * [[[++Current Issues++]]]%0a%3c %0a
+host:1321646294=127.0.0.1
+author:1321499032=jackie
+diff:1321499032:1321457575:=8d7%0a%3c * [[Phone Script]]%0a
+host:1321499032=127.0.0.1
+author:1321457575=jackie
+csum:1321457575=link for new page with list of email templates
+diff:1321457575:1321068777:=15d14%0a%3c * [[Email Templates]]%0a
+host:1321457575=127.0.0.1
+author:1321068777=
+diff:1321068777:1321066373:=12c12%0a%3c * [[Tips on Using the Inmate Locator]]%0a---%0a> * [[Tips on Using the Inmate Checker]]%0a
+host:1321068777=127.0.0.1
+author:1321066373=
+diff:1321066373:1320907758:=12d11%0a%3c * [[Tips on Using the Inmate Checker]]%0a14d12%0a%3c * [[Medical Resources]]%0a
+host:1321066373=127.0.0.1
+author:1320907758=
+diff:1320907758:1320907721:=9a10%0a> * [[Anti-Oppression & Facilitation Resources]]%0a
+host:1320907758=127.0.0.1
+author:1320907721=
+diff:1320907721:1320617581:=10d9%0a%3c * [[Anti-Oppression & Facilitation Resources]]%0a
+host:1320907721=127.0.0.1
+author:1320617581=
+diff:1320617581:1320617558:=12c12%0a%3c * %25newwin%25 [[https://styrotopia.net:4444/legal/occupy/compare.html | This link will help you compare/remove duplicates in the DB!]]%0a---%0a> * %25newwin%25 [[https://styrotopia.net:4444/legal/occupy/compare.html | This link will help you remove duplicates in the DB!]]%0a
+host:1320617581=127.0.0.1
+author:1320617558=
+diff:1320617558:1320617488:=12c12%0a%3c * %25newwin%25 [[https://styrotopia.net:4444/legal/occupy/compare.html | This link will help you remove duplicates in the DB!]]%0a---%0a> * [[https://styrotopia.net:4444/legal/occupy/compare.html | This link will help you remove duplicates in the DB!]]%0a
+host:1320617558=127.0.0.1
+author:1320617488=
+diff:1320617488:1320003985:=12d11%0a%3c * [[https://styrotopia.net:4444/legal/occupy/compare.html | This link will help you remove duplicates in the DB!]]%0a
+host:1320617488=127.0.0.1
+author:1320003985=
+diff:1320003985:1319805775:=10,11d9%0a%3c %0a%3c * [[https://styrotopia.net:4444/legal/occupy/courtdates/ | Link to AC court date checker ]]%0a
+host:1320003985=127.0.0.1
+author:1319805775=
+diff:1319805775:1319805468:=8c8%0a%3c * [[Legal Info for Oakland and SF]]%0a---%0a> * [[Important Phone Numbers]]%0a
+host:1319805775=127.0.0.1
+author:1319805468=
+diff:1319805468:1319763219:=8,9d7%0a%3c * [[Important Phone Numbers]]%0a%3c %0a
+host:1319805468=127.0.0.1
+author:1319763219=
+diff:1319763219:1319268664:=5,7c5%0a%3c * [[Process Documentation]]%0a%3c * [[Hotline Peeps Phone List]]%0a%3c * [[To Do List]]%0a---%0a> * [[Process Documentation]]%0a\ No newline at end of file%0a
+host:1319763219=127.0.0.1
+author:1319268664=
+diff:1319268664:1319268638:=1c1%0a%3c %25width=300px rfloat%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25width=200px rfloat%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268664=192.168.2.1
+author:1319268638=
+diff:1319268638:1319268628:=1c1%0a%3c %25width=200px rfloat%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25width=200px right%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268638=192.168.2.1
+author:1319268628=
+diff:1319268628:1319268620:=1c1%0a%3c %25width=200px right%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25width=200px%25%25right%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268628=192.168.2.1
+author:1319268620=
+diff:1319268620:1319268598:=1c1%0a%3c %25width=200px%25%25right%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25width=200px%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268620=192.168.2.1
+author:1319268598=
+diff:1319268598:1319268584:=1c1%0a%3c %25width=200px%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25rfloat right width=200px%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268598=192.168.2.1
+author:1319268584=
+diff:1319268584:1319268562:=1c1%0a%3c %25rfloat right width=200px%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25rfloat right width=200px%25http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268584=192.168.2.1
+author:1319268562=
+diff:1319268562:1319268540:=1c1,2%0a%3c %25rfloat right width=200px%25http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25rfloat right width=200px%25%0a> http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268562=192.168.2.1
+author:1319268540=
+diff:1319268540:1319268491:=1,2c1%0a%3c %25rfloat right width=200px%25%0a%3c http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25rfloat right width=200px%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268540=192.168.2.1
+author:1319268491=
+diff:1319268491:1319268395:=1c1%0a%3c %25rfloat right width=200px%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25rfloat right width=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268491=192.168.2.1
+author:1319268395=
+diff:1319268395:1319268203:=1c1%0a%3c %25rfloat right width=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25rfloat width=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268395=192.168.2.1
+author:1319268203=
+diff:1319268203:1319268164:=1c1%0a%3c %25rfloat width=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25float:right width=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268203=192.168.2.1
+author:1319268164=
+diff:1319268164:1319268146:=1c1%0a%3c %25float:right width=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25float:right width=10pct height=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268164=192.168.2.1
+author:1319268146=
+diff:1319268146:1319268136:=1c1,2%0a%3c %25float:right width=10pct height=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25float:right width=10pct height=40pct%25 http://www.textually.org/textually/archives/images%0a> /set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268146=192.168.2.1
+author:1319268136=
+diff:1319268136:1319268121:=1,2d0%0a%3c %25float:right width=10pct height=40pct%25 http://www.textually.org/textually/archives/images%0a%3c /set3/1806260658_ffcc80dfb2_o.jpg%0a3a2%0a> %25float:right width=10pct height=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268136=192.168.2.1
+author:1319268121=
+diff:1319268121:1319268046:=2c2%0a%3c %25float:right width=10pct height=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25float:right%25 %25width=10pct%25 %25height=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268121=192.168.2.1
+author:1319268046=
+diff:1319268046:1319268010:=0a1%0a> %25float:right%25 %25width=40pct%25 %25height=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a2c3%0a%3c %25float:right%25 %25width=10pct%25 %25height=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %0a
+host:1319268046=192.168.2.1
+author:1319268010=
+diff:1319268010:1319267954:=1c1%0a%3c %25float:right%25 %25width=40pct%25 %25height=40pct%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25float:right%25 %25width=40%25%25 %25height=40%25%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319268010=192.168.2.1
+author:1319267954=
+diff:1319267954:1319267922:=1c1%0a%3c %25float:right%25 %25width=40%25%25 %25height=40%25%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> %25float:right%25 %25width=40%25 %25height=40%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319267954=192.168.2.1
+author:1319267922=
+diff:1319267922:1319267862:=1d0%0a%3c %25float:right%25 %25width=40%25 %25height=40%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a3c2%0a%3c %0a---%0a> %25float:right%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319267922=192.168.2.1
+author:1319267862=
+diff:1319267862:1319267782:=2c2%0a%3c %25float:right%25 http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a---%0a> http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319267862=192.168.2.1
+author:1319267782=
+diff:1319267782:1319267153:=2d1%0a%3c http://www.textually.org/textually/archives/images/set3/1806260658_ffcc80dfb2_o.jpg%0a
+host:1319267782=192.168.2.1
+author:1319267153=
+diff:1319267153:1319267093:=3,4c3%0a%3c * [[Notes | Hotline Notes]]%0a%3c * [[Process Documentation]]%0a\ No newline at end of file%0a---%0a> * [[Notes | Hotline Notes]]%0a\ No newline at end of file%0a
+host:1319267153=192.168.2.1
+author:1319267093=
+diff:1319267093:1319267063:=3c3%0a%3c * [[Notes | Hotline Notes]]%0a\ No newline at end of file%0a---%0a> * [[Hotline Notes | Notes]]%0a\ No newline at end of file%0a
+host:1319267093=192.168.2.1
+author:1319267063=
+diff:1319267063:1319267052:=3c3%0a%3c * [[Hotline Notes | Notes]]%0a\ No newline at end of file%0a---%0a> * [[Hotline Notes]]%0a\ No newline at end of file%0a
+host:1319267063=192.168.2.1
+author:1319267052=
+diff:1319267052:1319058008:=3c3,5%0a%3c * [[Hotline Notes]]%0a\ No newline at end of file%0a---%0a> * [[Notes]]%0a> %0a> We love '''MARKO'''!!!!!%0a\ No newline at end of file%0a
+host:1319267052=192.168.2.1
+author:1319058008=
+diff:1319058008:1319055879:=3,5c3%0a%3c * [[Notes]]%0a%3c %0a%3c We love '''MARKO'''!!!!!%0a\ No newline at end of file%0a---%0a> * [[Notes]]%0a\ No newline at end of file%0a
+host:1319058008=98.210.153.66
+author:1319055879=
+diff:1319055879:1319055871:=1c1%0a%3c !!!!Welcome to the Occupy Legal Wiki%0a---%0a> !!!Welcome to the Occupy Legal Wiki%0a
+host:1319055879=98.210.153.66
+author:1319055871=
+diff:1319055871:1319055855:=1c1%0a%3c !!!Welcome to the Occupy Legal Wiki%0a---%0a> !!Welcome to the Occupy Legal Wiki%0a
+host:1319055871=98.210.153.66
+author:1319055855=
+diff:1319055855:1319055549:=1,3c1%0a%3c !!Welcome to the Occupy Legal Wiki%0a%3c * [[Today's News]]%0a%3c * [[Notes]]%0a\ No newline at end of file%0a---%0a> !!Welcome to the Occupy Legal Wiki!!%0a\ No newline at end of file%0a
+host:1319055855=98.210.153.66
+author:1319055549=
+diff:1319055549:1142203034:=1c1,12%0a%3c !!Welcome to the Occupy Legal Wiki!!%0a\ No newline at end of file%0a---%0a> Welcome to PmWiki!%0a> %0a> A local copy of PmWiki's%0a> documentation has been installed along with the software,%0a> and is available via the [[PmWiki/documentation index]].  %0a> %0a> To continue setting up PmWiki, see [[PmWiki/initial setup tasks]].%0a> %0a> The [[PmWiki/basic editing]] page describes how to create pages%0a> in PmWiki.  You can practice editing in the [[wiki sandbox]].%0a> %0a> More information about PmWiki is available from http://www.pmwiki.org .%0a
+host:1319055549=98.210.153.66

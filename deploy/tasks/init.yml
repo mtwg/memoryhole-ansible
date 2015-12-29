@@ -1,0 +1,38 @@
+---
+- name: Install system packages
+  yum: pkg={{item}} state=latest
+  with_items:
+  - libselinux-python
+  - MySQL-python
+  - httpd
+  - php-mysql
+  - php
+  - php-gd
+  - curl
+  - wget
+  - gzip
+  - rsync
+  - openssl
+  - policycoreutils-python
+  - vim
+  - php-pear
+  - php-devel
+  - httpd-devel
+  - pcre-devel
+  - gcc
+  - make
+  - php-mbstring
+  - php-pecl-apc
+  tags: yum
+
+- name: Enable wheel for CentOS
+  lineinfile: 'dest=/etc/sudoers state=present regexp="^%wheel" line="%wheel ALL=(ALL) NOPASSWD: ALL"'
+
+- name: Instantiate non-root access user
+  user: name={{ sys_access_user }} group=wheel generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa
+
+- name: Provision authorized key
+  authorized_key: user={{ sys_access_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+- name: Disable TTY for non-root access user
+  lineinfile: 'line="Defaults:{{ sys_access_user }} !requiretty" dest="/etc/sudoers"'

@@ -1,0 +1,30 @@
+body { font-family: Verdana, Arial, sans; }
+a { color: #6386B4; } 
+img { border: none; }
+td { font-size: .8em;}
+td img { vertical-align: middle; }
+.queryname { font-size: 1.4em; font-weight: bold; color: #6386B4; text-decoration: underline; display: inline;}
+#editquery {font-size: 1.4em; vertical-align: top; width: 90%; text-align: center; margin: auto;}
+input, textarea { border: 1px solid gray; vertical-align: top; }
+.qelement { font-weight: bold; }
+#qright { text-align: right; float: right; width: 55%; margin-right: -2px;}
+#qleft { text-align: left; float: left; width: 45%; position: relative;}
+.button { border: 1px solid gray; padding: 4px; background: #EEEEEE;}
+.button img { width: 24px; height: 24px;  vertical-align: -7px; }
+#suggest { font-size: .9em; width: 95%; background: #FFFFBB; padding: 5px;  margin: auto; display: none; font-style: italic; border: 1px dashed gray;}
+#querytable { width: 80%; }
+.selected { background: #B9DDFF;} 
+#details { text-align: center; margin: auto; background: #B9DDFF;}
+#message { text-align: center;  margin: auto; margin-bottom: 15px; margin-top: 10px;  }
+#message>div { border: 1px solid gray; padding: 10px; font-size: 1.3em; margin: auto; display: none; width: 600px;}
+#errorstring { font-size: .8em; font-family: monospace; text-align: left; }
+#infostring { display: inline; }
+#message img { vertical-align: middle; }
+#progress { color: white; background: #6386B4; }
+#info {  background: #FFFFBB; }
+#error {  background: #FF9999; }
+.pointer { cursor: pointer; }
+#newQuery { margin: auto; margin-bottom: 15px;width: 80%; font-size:.8em; }
+h2 { text-align: center; color: #6386B4; margin: 8px;}
+h4 { font-size: .7em; margin: auto; margin-top: 0px; font-style: italic; text-align: center;} 
+#notes { width: 200px; }

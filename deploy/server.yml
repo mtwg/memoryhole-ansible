@@ -1,0 +1,13 @@
+# This script provisions the server and should be run with root
+- hosts: memoryhole
+  remote_user: root
+  sudo: yes
+
+  vars_files:
+    - ../config.yml
+
+  pre_tasks:
+    - include: tasks/init.yml
+
+  handlers:
+    - include: handlers/main.yml

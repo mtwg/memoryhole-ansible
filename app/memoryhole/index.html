@@ -1,0 +1,49 @@
+<html><body>
+
+<h1> Memory Hole User Documentation </h1>
+
+(For Administrative and Technical Documentation, <a href='admindoc.html'>click here</a>)
+
+<h2>Introduction</h2>
+The Memory Hole is a web-based database application designed to:
+<li>Track arrestees through the arrest process (from arrest until release)
+<li>Track cases of arrestees through the court system
+<li>Track lawyers involved with legal support
+<li>Track evidence associated with arrests
+
+<p>It is based on the SugarCRM platform. For more details, please refer to the Administrative Documentation
+
+<p>
+
+<h2>Overview</h2>
+The information in the memory hole is broken into 6 categories:
+<h4>Arrestees</h4> Any individual who has been arrested. If a person has been arrested more than once, then they should get more than one entry as an arrestee. Arrestees can be linked to Events, Evidence, Lawyers, Witnesses, and Charges.
+<h4>Events</h4> This is an organizational category that refers to a particular time and location at which something of interest occurred. It can be specific or broad. For example, a mass arrest at 14th and broadway at 1:34pm on 8/29, or cops videotaping the entrance to an activist space during the week of the rnc. The purpose of events is to group arrestees, witnesses, and evidence to one another where relevant. Events can be linked to Arrestees, Evidence, and Witnesses.
+<h4>Evidence</h4> Evidence will mostly consist of videos, photos, and legal observer notes, but could also include witness statements, outtake statements, pieces of physical evidence (i.e. rubber bullets), and even notes from the legal hotline. Each piece of evidence should be recorded with an ID number that is affixed to it clearly. In the case of digital evidence, the files are stored in a folder named with the ID number. Note that rolls of film, or sets of digital photos, are regarded as a piece of evidence - we don't need to enter every individual photograph. Evidence can be linked to Arrestees, Events, and Witnesses.
+<h4>Lawyers</h4> People who have signed up to either do jail visits, make first appearances, or provide representation. Lawyers can be linked to Arrestees.
+<h4>Witnesses</h4> Anyone who submits evidence, or may provide testimony relevant to someones case. This includes Legal Observers. Witnesses can be linked to Evidence, Events, and Arrestees.
+<h4>Charges</h4> Things people are charged with. Charges can be linked to Arrestees.
+
+<h2>Usage</h2>
+You can switch sections of the database by clicking on the labeled tabs near the top of the screen. For each section, there are two views: List View, and Edit View. Note that throughout the application, most buttons have shortcut keys attached to them. You can find out what the shortcut key is for a button by hovering the mouse over the button. For example, the shorcut for Save is Alt + S. <b>Note</b>: in Firefox, you must use <SHIFT> + <ALT> + <HOTKEY> for the hotkeys to work. Using the hotkeys can make data entry go much faster.
+<h4>List View</h4>
+This is the initial screen for each section. Here you will be presented with a list of the items in that section. You can perform searches to narrow the list. Clicking on any item will take you to the <i>Edit View</i> for that item. You can re-sort the list by clicking on the column headings. You can also export the list by clicking on export (see searches below). Clicking on the 'Create New' button will allow you to create a new record.
+<h4>Edit View</h4>
+This is where you either create new, or edit existing, records. <b>Note:</b> Make sure to click save or any changes you make in edit view will be lost.
+
+<h2>Searches</h2>
+There are three types of searches: The Jump Search, Basic Search, and Advanced Search.
+<h4>Jump Search</h4>
+This search method is only available for Arrestees, Lawyers, and Witnesses. It is located at the top of the List View page, next to the words "Jump to". If you begin to type a name into this field, last name first, a menu will appear giving you a list of the names that match what you are typing. You can then use Tab or the arrow keys to select the name you want, and by pressing Enter, you will be taken to that person's Edit View.  <b>Note:</b> Sometimes the cursor will get stuck in the Jump Search box. If this occurs, just reload the page.
+<h4>Basic Search</h4> 
+Basic search is available on the List View page, above the list of records. Just enter you terms into the fields and click the search button, and the list will only show items matching the search. The clear the search, click the 'Clear' button.
+<h4>Advanced Search</h4>
+Advanced search is reached by clicking on the Adavnced Search tab. The search area will expand to display all possible search fields. It works the same as the Basic Search.
+<h4>Saved Searches</h4>
+Under the Advanced Search tab, you can save a search by clicking 'Saved Search and Layout". This will expand a further area giving you the option to save a search by entering in a name in the 'Save this search as' field and clicking save. The Search will then appear in the 'Saved Searches' dropdown below the search area. You can reperform a saved search by choosing it from the dropdown. You can also specify which fields will be displayed in the list view of search results, as well as the search order.
+<h4>Exporting results</h4>
+By selecting the checkboxes next to records (or by using the Select menu to select all records), you can export these records by clicking 'Export'. The records will be downloaded to a file in CSV (comma-separated value) format, which then can be imported into almost any database or spreadsheet application (such as MS Excel or OpenOffice Calc).
+
+
+</body>
+</html>

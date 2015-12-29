@@ -1,0 +1,410 @@
+CREATE TABLE `legal_arresal_witnesses` (
+  `id` varchar(36) NOT NULL,
+  `date_modified` datetime default NULL,
+  `deleted` tinyint(1) NOT NULL default '0',
+  `legal_arrestees_ida` varchar(36) default NULL,
+  `legal_witnesses_idb` varchar(36) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `legal_arresal_witnesses_ida1` (`legal_arrestees_ida`),
+  KEY `legal_arresal_witnesses_idb2` (`legal_witnesses_idb`),
+  KEY `legal_arresal_witnesses_idc3` (`legal_arrestees_ida`,`legal_witnesses_idb`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `legal_arresegal_charges` (
+  `id` varchar(36) NOT NULL,
+  `date_modified` datetime default NULL,
+  `deleted` tinyint(1) NOT NULL default '0',
+  `legal_arrestees_ida` varchar(36) default NULL,
+  `legal_charges_idb` varchar(36) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `legal_arresegal_charges_ida1` (`legal_arrestees_ida`),
+  KEY `legal_arresegal_charges_idb2` (`legal_charges_idb`),
+  KEY `legal_arresegal_charges_idc3` (`legal_arrestees_ida`,`legal_charges_idb`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `legal_arresgal_evidence` (
+  `id` varchar(36) NOT NULL,
+  `date_modified` datetime default NULL,
+  `deleted` tinyint(1) NOT NULL default '0',
+  `legal_arrestees_ida` varchar(36) default NULL,
+  `legal_evidence_idb` varchar(36) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `legal_arresgal_evidence_ida1` (`legal_arrestees_ida`),
+  KEY `legal_arresgal_evidence_idb2` (`legal_evidence_idb`),
+  KEY `legal_arresgal_evidence_idc3` (`legal_arrestees_ida`,`legal_evidence_idb`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `legal_arreslegal_events` (
+  `id` varchar(36) NOT NULL,
+  `date_modified` datetime default NULL,
+  `deleted` tinyint(1) NOT NULL default '0',
+  `legal_arrestees_ida` varchar(36) default NULL,
+  `legal_events_idb` varchar(36) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `legal_arreslegal_events_ida1` (`legal_arrestees_ida`),
+  KEY `legal_arreslegal_events_idb2` (`legal_events_idb`),
+  KEY `legal_arreslegal_events_idc3` (`legal_arrestees_ida`,`legal_events_idb`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_arrestees` (
+  `id` char(36) NOT NULL,
+  `date_entered` datetime default NULL,
+  `date_modified` datetime default NULL,
+  `modified_user_id` char(36) default NULL,
+  `created_by` char(36) default NULL,
+  `description` text,
+  `deleted` tinyint(1) default '0',
+  `assigned_user_id` char(36) default NULL,
+  `salutation` varchar(5) default NULL,
+  `first_name` varchar(100) default NULL,
+  `last_name` varchar(100) default NULL,
+  `title` varchar(100) default NULL,
+  `department` varchar(255) default NULL,
+  `do_not_call` tinyint(1) default '0',
+  `phone_home` varchar(25) default NULL,
+  `phone_mobile` varchar(25) default NULL,
+  `phone_work` varchar(25) default NULL,
+  `phone_other` varchar(25) default NULL,
+  `phone_fax` varchar(25) default NULL,
+  `primary_address_street` varchar(150) default NULL,
+  `primary_address_city` varchar(100) default NULL,
+  `primary_address_state` varchar(100) default NULL,
+  `primary_address_postalcode` varchar(20) default NULL,
+  `primary_address_country` varchar(255) default NULL,
+  `alt_address_street` varchar(150) default NULL,
+  `alt_address_city` varchar(100) default NULL,
+  `alt_address_state` varchar(100) default NULL,
+  `alt_address_postalcode` varchar(20) default NULL,
+  `alt_address_country` varchar(255) default NULL,
+  `assistant` varchar(75) default NULL,
+  `assistant_phone` varchar(25) default NULL,
+  `lawyer_id` char(36) default NULL,
+  `account_id` char(36) default NULL,
+  `preferred_name` varchar(60) default NULL,
+  `arrest_date` date default NULL,
+  `arrest_time` text,
+  `arrest_location` varchar(25) default NULL,
+  `arresting_officer` varchar(25) default NULL,
+  `badge_number` varchar(25) default NULL,
+  `release_date` date default NULL,
+  `release_time` varchar(25) default NULL,
+  `email` varchar(70) default NULL,
+  `date_of_birth` date default NULL,
+  `immigration_issues` tinyint(1) default '0',
+  `felony_charges` tinyint(1) default '0',
+  `minor` tinyint(1) default '0',
+  `incident_id` varchar(30) default NULL,
+  `citation_number` varchar(60) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_arrestees_audit` (
+  `id` char(36) NOT NULL,
+  `parent_id` char(36) NOT NULL,
+  `date_created` datetime default NULL,
+  `created_by` varchar(36) default NULL,
+  `field_name` varchar(100) default NULL,
+  `data_type` varchar(100) default NULL,
+  `before_value_string` varchar(255) default NULL,
+  `after_value_string` varchar(255) default NULL,
+  `before_value_text` text,
+  `after_value_text` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_arrestees_cstm` (
+  `id_c` char(36) NOT NULL,
+  `arrest_time_c` varchar(25) default NULL,
+  `disposition_c` varchar(100) default 'open',
+  `release_type_c` varchar(25) default NULL,
+  `gender_id_c` varchar(100) default '',
+  `state_c` varchar(100) default 'MN',
+  `gender_solidarity_c` tinyint(1) default '0',
+  `wants_lawyer_c` tinyint(1) default '0',
+  `wants_bail_c` tinyint(1) default '0',
+  `first_appearance_date_c` date default NULL,
+  `first_appearance_location_c` varchar(25) default NULL,
+  `support_person_c` varchar(25) default NULL,
+  `support_contact_c` varchar(25) default NULL,
+  `legal_strategy_c` text,
+  `medical_needs_c` text,
+  `jail_location_c` varchar(25) default NULL,
+  `booking_number_c` varchar(25) default NULL,
+  `jail_facility_c` varchar(25) default NULL,
+  `affinity_group_c` varchar(25) default NULL,
+  `contacts_c` text,
+  `support_needs_c` text,
+  `unconfirmed_arrest_c` tinyint(1) default '0',
+  `medical_concern_c` tinyint(1) default '0',
+  `charges_c` text,
+  `bail_c` varchar(25) default NULL,
+  `case_number_c` varchar(35) default NULL,
+  `next_hearing_time_c` varchar(200) default NULL,
+  `jurisdiction_c` varchar(100) default '',
+  `caseid_c` varchar(40) default NULL,
+  `court_db_info_c` text,
+  PRIMARY KEY  (`id_c`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_charges` (
+  `id` char(36) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `date_entered` datetime default NULL,
+  `date_modified` datetime default NULL,
+  `modified_user_id` char(36) default NULL,
+  `created_by` char(36) default NULL,
+  `description` text,
+  `deleted` tinyint(1) default '0',
+  `assigned_user_id` char(36) default NULL,
+  `charge` varchar(25) default NULL,
+  `charge_desc` varchar(25) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_charges_audit` (
+  `id` char(36) NOT NULL,
+  `parent_id` char(36) NOT NULL,
+  `date_created` datetime default NULL,
+  `created_by` varchar(36) default NULL,
+  `field_name` varchar(100) default NULL,
+  `data_type` varchar(100) default NULL,
+  `before_value_string` varchar(255) default NULL,
+  `after_value_string` varchar(255) default NULL,
+  `before_value_text` text,
+  `after_value_text` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_evental_witnesses` (
+  `id` varchar(36) NOT NULL,
+  `date_modified` datetime default NULL,
+  `deleted` tinyint(1) NOT NULL default '0',
+  `legal_events_ida` varchar(36) default NULL,
+  `legal_witnesses_idb` varchar(36) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `legal_evental_witnesses_ida1` (`legal_events_ida`),
+  KEY `legal_evental_witnesses_idb2` (`legal_witnesses_idb`),
+  KEY `legal_evental_witnesses_idc3` (`legal_events_ida`,`legal_witnesses_idb`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_eventgal_evidence` (
+  `id` varchar(36) NOT NULL,
+  `date_modified` datetime default NULL,
+  `deleted` tinyint(1) NOT NULL default '0',
+  `legal_events_ida` varchar(36) default NULL,
+  `legal_evidence_idb` varchar(36) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `legal_eventgal_evidence_ida1` (`legal_events_ida`),
+  KEY `legal_eventgal_evidence_idb2` (`legal_evidence_idb`),
+  KEY `legal_eventgal_evidence_idc3` (`legal_events_ida`,`legal_evidence_idb`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_events` (
+  `id` char(36) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `date_entered` datetime default NULL,
+  `date_modified` datetime default NULL,
+  `modified_user_id` char(36) default NULL,
+  `created_by` char(36) default NULL,
+  `description` text,
+  `deleted` tinyint(1) default '0',
+  `assigned_user_id` char(36) default NULL,
+  `loctation` varchar(25) default NULL,
+  `date` date default NULL,
+  `start_time` varchar(25) default NULL,
+  `end_time` varchar(25) default NULL,
+  `use_of_force` text,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_events_audit` (
+  `id` char(36) NOT NULL,
+  `parent_id` char(36) NOT NULL,
+  `date_created` datetime default NULL,
+  `created_by` varchar(36) default NULL,
+  `field_name` varchar(100) default NULL,
+  `data_type` varchar(100) default NULL,
+  `before_value_string` varchar(255) default NULL,
+  `after_value_string` varchar(255) default NULL,
+  `before_value_text` text,
+  `after_value_text` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_evidence` (
+  `id` char(36) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `date_entered` datetime default NULL,
+  `date_modified` datetime default NULL,
+  `modified_user_id` char(36) default NULL,
+  `created_by` char(36) default NULL,
+  `description` text,
+  `deleted` tinyint(1) default '0',
+  `assigned_user_id` char(36) default NULL,
+  `type` varchar(100) default 'dphoto',
+  `account_id` char(36) default NULL,
+  `witness` varchar(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_evidence_audit` (
+  `id` char(36) NOT NULL,
+  `parent_id` char(36) NOT NULL,
+  `date_created` datetime default NULL,
+  `created_by` varchar(36) default NULL,
+  `field_name` varchar(100) default NULL,
+  `data_type` varchar(100) default NULL,
+  `before_value_string` varchar(255) default NULL,
+  `after_value_string` varchar(255) default NULL,
+  `before_value_text` text,
+  `after_value_text` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_evidence_cstm` (
+  `id_c` char(36) NOT NULL,
+  `id_display_c` varchar(255) default NULL,
+  `evidence_id_c` varchar(40) default NULL,
+  `datetimelocation_c` text,
+  `use_of_force_c` text,
+  PRIMARY KEY  (`id_c`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_lawyers` (
+  `id` char(36) NOT NULL,
+  `date_entered` datetime default NULL,
+  `date_modified` datetime default NULL,
+  `modified_user_id` char(36) default NULL,
+  `created_by` char(36) default NULL,
+  `description` text,
+  `deleted` tinyint(1) default '0',
+  `assigned_user_id` char(36) default NULL,
+  `salutation` varchar(5) default NULL,
+  `first_name` varchar(100) default NULL,
+  `last_name` varchar(100) default NULL,
+  `title` varchar(100) default NULL,
+  `department` varchar(255) default NULL,
+  `do_not_call` tinyint(1) default '0',
+  `phone_home` varchar(25) default NULL,
+  `phone_mobile` varchar(25) default NULL,
+  `phone_work` varchar(25) default NULL,
+  `phone_other` varchar(25) default NULL,
+  `phone_fax` varchar(25) default NULL,
+  `primary_address_street` varchar(150) default NULL,
+  `primary_address_city` varchar(100) default NULL,
+  `primary_address_state` varchar(100) default NULL,
+  `primary_address_postalcode` varchar(20) default NULL,
+  `primary_address_country` varchar(255) default NULL,
+  `alt_address_street` varchar(150) default NULL,
+  `alt_address_city` varchar(100) default NULL,
+  `alt_address_state` varchar(100) default NULL,
+  `alt_address_postalcode` varchar(20) default NULL,
+  `alt_address_country` varchar(255) default NULL,
+  `assistant` varchar(75) default NULL,
+  `assistant_phone` varchar(25) default NULL,
+  `email` varchar(70) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_lawyers_audit` (
+  `id` char(36) NOT NULL,
+  `parent_id` char(36) NOT NULL,
+  `date_created` datetime default NULL,
+  `created_by` varchar(36) default NULL,
+  `field_name` varchar(100) default NULL,
+  `data_type` varchar(100) default NULL,
+  `before_value_string` varchar(255) default NULL,
+  `after_value_string` varchar(255) default NULL,
+  `before_value_text` text,
+  `after_value_text` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_lawyers_cstm` (
+  `id_c` char(36) NOT NULL,
+  `organization_c` varchar(60) default NULL,
+  `nlg_c` tinyint(1) default '1',
+  `state_c` varchar(100) default 'MN',
+  `lawyer_roles_c` text,
+  `lawyersspecialties_c` text,
+  `license_number_c` varchar(25) default NULL,
+  `practicing_states_c` varchar(25) default NULL,
+  `years_in_practice_c` int(11) default NULL,
+  `years_in_crim_practice_c` int(11) default NULL,
+  `can_represent_in_mn_c` tinyint(1) default '0',
+  `federal_practice_c` tinyint(1) default '0',
+  `represented_protestors_c` tinyint(1) default '0',
+  `civil_rights_experience_c` tinyint(1) default '0',
+  `regular_courts_c` varchar(25) default NULL,
+  PRIMARY KEY  (`id_c`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_witnesses` (
+  `id` char(36) NOT NULL,
+  `date_entered` datetime default NULL,
+  `date_modified` datetime default NULL,
+  `modified_user_id` char(36) default NULL,
+  `created_by` char(36) default NULL,
+  `description` text,
+  `deleted` tinyint(1) default '0',
+  `assigned_user_id` char(36) default NULL,
+  `salutation` varchar(5) default NULL,
+  `first_name` varchar(100) default NULL,
+  `last_name` varchar(100) default NULL,
+  `title` varchar(100) default NULL,
+  `department` varchar(255) default NULL,
+  `do_not_call` tinyint(1) default '0',
+  `phone_home` varchar(25) default NULL,
+  `phone_mobile` varchar(25) default NULL,
+  `phone_work` varchar(25) default NULL,
+  `phone_other` varchar(25) default NULL,
+  `phone_fax` varchar(25) default NULL,
+  `primary_address_street` varchar(150) default NULL,
+  `primary_address_city` varchar(100) default NULL,
+  `primary_address_state` varchar(100) default NULL,
+  `primary_address_postalcode` varchar(20) default NULL,
+  `primary_address_country` varchar(255) default NULL,
+  `alt_address_street` varchar(150) default NULL,
+  `alt_address_city` varchar(100) default NULL,
+  `alt_address_state` varchar(100) default NULL,
+  `alt_address_postalcode` varchar(20) default NULL,
+  `alt_address_country` varchar(255) default NULL,
+  `assistant` varchar(75) default NULL,
+  `assistant_phone` varchar(25) default NULL,
+  `email` varchar(70) default NULL,
+  `legal_observer` tinyint(1) default '1',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_witnesses_audit` (
+  `id` char(36) NOT NULL,
+  `parent_id` char(36) NOT NULL,
+  `date_created` datetime default NULL,
+  `created_by` varchar(36) default NULL,
+  `field_name` varchar(100) default NULL,
+  `data_type` varchar(100) default NULL,
+  `before_value_string` varchar(255) default NULL,
+  `after_value_string` varchar(255) default NULL,
+  `before_value_text` text,
+  `after_value_text` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `legal_witnesses_cstm` (
+  `id_c` char(36) NOT NULL,
+  `state_c` varchar(100) default 'MN',
+  PRIMARY KEY  (`id_c`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+

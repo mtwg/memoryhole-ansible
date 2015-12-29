@@ -1,0 +1,4 @@
+# yum remove mysql mysql-server
+# srm -rf /var/lib/mysql
+# srm -rf /var/www/html
+# srm -rf /var/log/*

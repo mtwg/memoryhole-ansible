@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2006-11-27T12:17:16.004419Z"
+   url="file:///home/greg/svn/js"
+   last-author="greg"
+   kind="dir"
+   uuid="159d7183-3923-0410-a542-ee2c3f15e505"
+   repos="file:///home/greg/svn"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="ygDDPlayer.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="d16164122bc9e576a1915f19458cf8c6"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ygDDOnTop.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="9fcc6e05ca3f8deb4d614e59ef97ea9b"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DragDropMgr.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="4fe2356f447fc35d58481413a30d6ae0"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   name="widget"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="color.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="890f17b3a01fa69716ea9ef6d66d1f37"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ygDDMy2.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="d7e97a021e20e6642c1b654ae364b9df"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="YAHOO.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="26c3f18d90ded3d0faab8f14361d7ae5"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="animation.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="4a07e759780db706caf7321c8fe3e263"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="dom.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="3874677abe82c82e141ed4d99d5b2417"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="event.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="3c68b520705daab4989743cbd7160a6c"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="log.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="30d6ee10fae2ccf65405d4bc42559aba"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ygDDSwap.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="832eaf4db54cea5cfa3efb89700f5147"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="slider.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="0e1f239b5a8cea50c7151039cb352a7c"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ygDDList.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="58681ce758fffb89821f70362f7b9d8e"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="dragdrop-debug.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="9d12a807a6847bd7525fe0b9946adba4"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="key.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="a6ef1a3725b7ab5fc5552e29f14cc899"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ygDDMy.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="b1b42ecc11d2f15291ef3d7ef99b8203"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:07.000000Z"/>
+<entry
+   name="util"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="dragdrop.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="5f797471b124ac079f2e7b6ef62ef82d"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:08.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DragDrop.js"
+   text-time="2006-11-27T12:22:08.000000Z"
+   committed-date="2006-11-27T12:17:16.004419Z"
+   checksum="43fbd13bc03ead4116329b8a919cb14e"
+   last-author="greg"
+   kind="file"
+   prop-time="2006-11-27T12:22:08.000000Z"/>
+</wc-entries>

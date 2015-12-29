@@ -1,0 +1,29 @@
+<?php
+// created: 2010-03-15 18:16:45
+$md5_string = array (
+  './application/app_strings.php' => '0af3e84e3da49711621f75fb2fa08fdc',
+  './LICENSE.txt' => '93d1cdadad7a6d7f9719c29cc0ca50f9',
+  './images/themes/Legacy/iFrames.gif' => 'c11c80a650b8d6f3607ac547520f2527',
+  './images/themes/default/iFrames.gif' => '0a0e964460018c0dc9295d9c48773952',
+  './images/themes/default/CreateiFrames.gif' => '2def896bb91201710ee131522715616f',
+  './modules/Administration/en_us.lang.php' => '6bcc424f3d71348c4d72b99bd0a371b8',
+  './modules/iFrames/language/en_us.lang.php' => '99fd4453f4b69991e5d6e14a3a9f4add',
+  './modules/iFrames/language/en_us.help.index.html' => 'd89061636bb8fa707ff4c60403d2690f',
+  './modules/iFrames/DetailView.html' => '71c9e072d6b6dc54d7d5afd0a0277993',
+  './modules/iFrames/vardefs.php' => '942ddfe8a2dd8a64ec38ccdef745f9ab',
+  './modules/iFrames/EditView.html' => 'f34a424d1b5b70d71333d65137182c94',
+  './modules/iFrames/iFrame.php' => '15b430b94cb5460dba220963bf46d347',
+  './modules/iFrames/Save.php' => '5cc3c1134f4d28cd0624fc7b60195b80',
+  './modules/iFrames/iFrameFormBase.php' => '431a6eb7ec5f2442714c6f68a037d3f1',
+  './modules/iFrames/ListView.html' => 'cc39a39174cbbda83ea66897a5b57150',
+  './modules/iFrames/Menu.php' => 'c37feeb231bb0587593fc251eac10091',
+  './modules/iFrames/field_arrays.php' => '4bdfccfc6020925c001adeccb04ef8da',
+  './modules/iFrames/Forms.php' => 'bf89096828cf56fd093282682ad9116a',
+  './modules/iFrames/index.php' => '1d06d7613bbb9daddca51853bfe546a7',
+  './modules/iFrames/header.php' => '66394ce770c2306adfab89d054907408',
+  './post_install/install_actions.php' => 'ffe239416846c3a567a65fd538d39262',
+  './post_uninstall/uninstall_actions.php' => '37fd395c07e0e1169772ace28299b2af',
+  './manifest.php' => '094ffd791b0dd037d50f48909c1cbe5d',
+  './mysites.zip' => '1287a6aab7c1174a3a645956a962b0cb',
+);
+?>

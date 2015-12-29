@@ -1,0 +1,150 @@
+table,textarea 
+{
+	FONT-SIZE: 12px; 
+	FONT-FAMILY: "Verdana", "Arial", "Helvetica", sans-serif;
+	background-color: #ffffff;
+	border: 1px solid #999999;
+}
+.drop { 
+	display: inline;
+	position: relative; 
+	font-weight: bold;
+}
+.edit {
+	FONT-SIZE: 12px; 
+	FONT-FAMILY: "Verdana", "Arial", "Helvetica", sans-serif;
+}
+
+.drag {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	top: 0px;
+	left: 0px;
+}
+
+.comment:hover {
+	background-color:#ffffcc;
+	border: 1px solid #000000;
+	padding: 2px; 
+	cursor: text;	
+}
+
+.row_off
+{
+	background-color: #ffffff;
+	color: #000000;
+}
+.row_off select,.row_off input[type="text"]{
+	background-color: #ffffff;
+}	
+td {
+	margin: 0px;
+	padding: 3px; 
+}
+
+h2 {
+	color: #006699;
+	margin: 5px;
+	margin-top: 0px;
+}
+.row_on
+{
+	background-color: #FFE3B5;
+	color: #000000;
+}
+.row_on select, .row_on input[type="text"]{
+	background-color: #FFE3B5;
+}	
+
+.th
+{
+	background-color: #D3DCE3;
+	color: #000000;
+}
+
+a, a:visited, a:link 
+{
+	color: #006699; 
+	text-decoration: none;
+}
+
+a:active, a:hover 
+{
+	color: #666666;
+	text-decoration: underline;
+}
+
+form
+{
+	font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+	font-size: 10pt;
+}
+select, input {
+	font-size: 8pt;
+}
+body 
+{
+	background: #FFE3B5 url(images/bg.jpg) repeat-x fixed;
+	font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+	font-size: 10pt;
+	text-align: center;
+}
+.header
+{
+	border-top: none;
+	background-color: #dddddd;
+	border-bottom: 1px solid black;
+	font-weight: normal;
+	margin: 0px;
+}
+.comment {
+	font-size: 10pt;
+}
+.crumbs {
+	text-align: left;
+	background-color: #ff8800;
+	border-top: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
+	padding: 3px;
+}
+.filelist table, tr {
+	border-right: 10px solid #000000;
+	border-bottom: 1px solid #000000;
+	border: 10px solid;
+	margin: 20px;
+}
+.filelist td, th {
+	border-right: 1px solid #000000;
+}
+.name {
+	display: none;
+}
+
+img {
+	margin: 0px 3px 0px 0px; 
+	vertical-align: bottom;
+	border: none;
+}
+#feedback {
+	padding: 5px;
+	background: #FFE3B5;
+	border: 1px solid #ff8800;
+	font-weight: bold;
+	margin: 5px; 
+	width: 50%;
+	display: none;
+}
+
+#playlist_link { 
+	background: none repeat scroll 0 0 #FFE3B5;
+	padding: 1px 4px;
+	position: absolute;
+	right: 4px;
+	top: 3px;
+}
+
+#content { position: relative; }

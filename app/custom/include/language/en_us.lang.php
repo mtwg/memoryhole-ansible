@@ -1,0 +1,270 @@
+<?php
+
+$app_strings['LBL_GROUPTAB8_1212825269'] = 'Evidence';
+
+$app_strings['LBL_GROUPTAB9_1212825269'] = 'Events';
+
+$app_strings['LBL_GROUPTAB10_1212825269'] = 'Arrestees';
+
+$app_strings['LBL_GROUPTAB11_1212825269'] = 'Charges';
+
+$app_strings['LBL_GROUPTAB12_1212825297'] = 'Lawyers';
+
+$app_strings['LBL_GROUPTAB13_1212825297'] = 'Witnesses';
+$GLOBALS['app_list_strings']['states_list']=array (
+  '' => '',
+  'AL' => 'AL',
+  'AK' => 'AK',
+  'AS' => 'AS',
+  'AZ' => 'AZ',
+  'AR' => 'AR',
+  'CA' => 'CA',
+  'CO' => 'CO',
+  'CT' => 'CT',
+  'DE' => 'DE',
+  'DC' => 'DC',
+  'FM' => 'FM',
+  'FL' => 'FL',
+  'GA' => 'GA',
+  'GU' => 'GU',
+  'HI' => 'HI',
+  'ID' => 'ID',
+  'IL' => 'IL',
+  'IN' => 'IN',
+  'IA' => 'IA',
+  'KS' => 'KS',
+  'KY' => 'KY',
+  'LA' => 'LA',
+  'ME' => 'ME',
+  'MH' => 'MH',
+  'MD' => 'MD',
+  'MA' => 'MA',
+  'MI' => 'MI',
+  'MN' => 'MN',
+  'MS' => 'MS',
+  'MO' => 'MO',
+  'MT' => 'MT',
+  'NE' => 'NE',
+  'NV' => 'NV',
+  'NH' => 'NH',
+  'NJ' => 'NJ',
+  'NM' => 'NM',
+  'NY' => 'NY',
+  'NC' => 'NC',
+  'ND' => 'ND',
+  'MP' => 'MP',
+  'OH' => 'OH',
+  'OK' => 'OK',
+  'OR' => 'OR',
+  'PW' => 'PW',
+  'PA' => 'PA',
+  'PR' => 'PR',
+  'RI' => 'RI',
+  'SC' => 'SC',
+  'SD' => 'SD',
+  'TN' => 'TN',
+  'TX' => 'TX',
+  'UT' => 'UT',
+  'VT' => 'VT',
+  'VI' => 'VI',
+  'VA' => 'VA',
+  'WA' => 'WA',
+  'WV' => 'WV',
+  'WI' => 'WI',
+  'WY' => 'WY',
+  'AB' => 'AB',
+  'BC' => 'BC',
+  'MB' => 'MB',
+  'NB' => 'NB',
+  'NL' => 'NL',
+  'NT' => 'NT',
+  'NS' => 'NS',
+  'NU' => 'NU',
+  'ON' => 'ON',
+  'PE' => 'PE',
+  'QC' => 'QC',
+  'SK' => 'SK',
+  'YT' => 'YT',
+);
+
+$GLOBALS['app_list_strings']['useofforce_list']=array (
+  'police brutality' => 'Police Brutality',
+  'Taser Deploy' => 'Taser Deploy',
+  'Unholster Taser' => 'Unholster Taser',
+  'Unholster Gun' => 'Unholster Gun',
+  'Baton' => 'Baton',
+  'Pepper Spray' => 'Pepper Spray',
+  'tear gas' => 'Tear Gas',
+  'Rubber Bullets' => 'Rubber Bullets',
+  'Assault' => 'Assault',
+  'Verbal Assault' => 'Verbal Assault',
+  'Tackling' => 'Tackling',
+  'Take Down Techniques' => ' Take Down Techniques ',
+  'Horses' => 'Horses',
+  'Kettling' => 'Kettling',
+  'Pop Up Line' => 'Pop Up Line',
+  'Orange Fencing' => 'Orange Fencing',
+  'Undercovers' => 'Undercovers',
+  'Provacateurs' => 'Provacateurs',
+  'Fake Arrest' => 'Fake Arrest',
+  'Snatch and Grab' => 'Snatch and Grab',
+);
+
+$GLOBALS['app_list_strings']['evidence_type_list']=array (
+  'daudio' => 'Audio (Digital)',
+  'aaudio' => 'Audio (Analog)',
+  'incidentreport' => 'Incident Report',
+  'FITreport' => 'FIT Report',
+  'notes' => 'Notes',
+  'legalobservernotes' => 'Legal Observer Notes',
+  'legalobserverwitness' => 'Legal Observer Witness',
+  'medicalrecords' => 'Medical Records',
+  'dphoto' => 'Photo (Digital)',
+  'fphoto' => 'Photo (Film)',
+  'other' => 'Other',
+  'cellvideo' => 'Cell Video',
+  'dvdvideo' => 'DVD Video',
+  'minivideo' => 'MiniDV Video',
+  'vhsvideo' => 'VHS Video',
+);
+
+$GLOBALS['app_list_strings']['lawyer_specialties_list']=array (
+  'felonies' => 'Criminal - Felonies',
+  'crimmisdem' => 'Criminal - Misdemeanors',
+  'civilrights' => 'Civil Rights',
+  'immigration' => 'Immigration',
+  'juvenile' => 'Juvenile',
+  'gbltq' => 'GBLTQ',
+  'other' => 'Other (see notes)',
+);
+
+$GLOBALS['app_list_strings']['lawyer_practice_list']=array (
+  'all_criminal' => 'Entirely Criminal',
+  '15_criminal' => '15+ Criminal Cases/Year',
+  'some_criminal' => '< 15 Criminal Cases/Year',
+  'mostly_civil' => 'Primarily Civil',
+  'all_civil' => 'All Civil',
+);
+
+$GLOBALS['app_list_strings']['lawyers_roles_list']=array (
+  'jailvisits' => 'Jail Visits',
+  'firstappearance' => 'First Appearances',
+  'bond' => 'Bond Hearings',
+  'tkecase' => 'Full Representation',
+  'below_felony' => 'Full Rep. Below Felony',
+  'legal_research_writing' => 'Legal Research-Writing',
+  'appeals' => 'Appeals',
+  'civil' => 'Civil Suits',
+  'Other' => 'Other',
+);
+
+$GLOBALS['app_list_strings']['charges_list']=array (
+  '-blank-' => '',
+  'assaultonpo' => 'Assault on a Police Officer',
+  'concealingid' => 'Concealing Identity',
+  'conspiracytocommitcd' => 'Conspiracy to Commit Civil Disobedience',
+  'consiptoriot' => 'Conspiracy To Riot',
+  'consptodamageproperty' => 'Conspiracy to Damage Property',
+  'CriminalDamagetoProperty' => 'Criminal Damage to Property',
+  'Failure to Obey' => 'Failure to Obey',
+  'propertydamage' => 'Criminal Damage to Property',
+  'discon' => 'Disorderly Conduct',
+  'Disobey Lawful Order' => 'Disobey Lawful Order',
+  'felonyriot' => 'Felony Riot',
+  'interferencewithtraffic' => 'Interferencewithtraffic',
+  'obstruction' => 'Obstruction of Legal Process',
+  'publicnusance' => 'Public Nusance',
+  'refusaltoleave' => 'Refusal to Leave',
+  'refusaltodisperse' => 'Refusal to Disperse',
+  'Riot 2nd Degree' => 'Riot 2nd Degree',
+  'trespassing' => 'Trespassing',
+  'unlawfulassembly' => 'Unlawful Assembly',
+  'Riot in the Third Degree' => 'Gross Misdemeanor',
+  'Damage to Propoety 1st Degree' => 'Felony',
+  'Riot-3rd Degree' => 'Riot-3rd Degree',
+  'Presence at Unlawful Assembly' => 'Presence at Unlawful Assembly',
+  'Escape from Custody' => 'Escape from Custody',
+  'Assault-2nd Degree (F)' => 'Assault-2nd Degree (F)',
+  'Terroristic Threats (F)' => 'Terroristic Threats (F)',
+  'Damage to Prop-1st Degree (F)' => 'Damage to Prop-1st Degree (F)',
+  'Assault-4th Degree' => 'Assault-4th Degree',
+  'Give PO Fals Info' => 'Give PO False Info',
+  'Interfere w/ Use-Pub Prop' => 'Interfere w/ Use-Pub Prop',
+  'Fleeing a Peace Officer' => 'Fleeing a Peace Office',
+  'Noone shall obstruct the traffic on any public street or road' => 'Noone shall obstruct the traffic on any public street or road',
+);
+
+$GLOBALS['app_list_strings']['jursidiction_list']=array (
+  '-blank-' => '',
+  'CLE' => 'Cleveland',
+  'MUNI' => 'Other Municipal Court',
+  'CUY' => 'Cuyahoga County',
+  'F' => 'Federal',
+);
+
+$GLOBALS['app_list_strings']['disposition_list']=array (
+  'open' => 'Open',
+  'nocomplaint' => 'No Complaint Filed',
+  'guilty plea' => 'Guilty Plea',
+  'nocontest' => 'No Contest',
+  'dismissednoprejudice' => 'Dismissed w/o Prejudice',
+  'dismissedwprej' => 'Discharged w/ Prejudice',
+  'acquitted' => 'Acquitted',
+  'guilty' => 'Guilty Verdict',
+  'noaction' => 'No Action',
+  'continueddism' => 'Continued for Dismissal',
+  'continueddisc' => 'Continued for Discovery',
+  'warrant' => 'Warrant',
+  'summons' => 'Complaint and Summons Issued',
+  'capiaswarrant' => 'Capias Warrant',
+
+ );
+
+$GLOBALS['app_list_strings']['arrest_city_list']=array (
+  '-blank-' => '',
+  'Cleveland' => 'Cleveland',
+  'EC' => 'East Cleveland',
+  'Euc' => 'Euclid',
+  'LW' => 'Lakewood',
+  'CH' => 'Cleveland Heights',
+  'SH' => 'Shaker Heights',
+  'Bed' => 'Bedford',
+  'BH' => 'Bedford Heights',
+  'GH' => 'Garfield Heights',
+  'MH' => 'Maple Heights',
+  'UH' => 'University Heights',
+  'RH' => 'Richmond Heights',
+  'OthMun' => 'Other Municipality',
+
+);
+
+$GLOBALS['app_list_strings']['gender_list']=array (
+  '-blank-' => '',
+  'Man' => 'Man',
+  'Woman' => 'Woman',
+  'other' => 'See Notes',
+);
+
+$GLOBALS['app_list_strings']['release_type_list']=array (
+  'in' => 'In Custody - Unconfirmed/Pre Cite',
+  'confirmed_in' => 'In Custody - Confirmed No Cite',
+  'pb' => 'Personal Bond',
+  'bail' => 'Bail',
+  'cited' => 'Cited Out',
+  'arraigned' => 'Arraigned',
+  'dismissed' => 'Dismissed',
+  'charges dropped' => 'Charges Dropped',
+  'pending' => 'Charges Pending',
+  'unkown_released' => 'Unknown Released',
+  'guiltyplea' => 'Guilty Plea',
+  'nocomplant' => 'Out With No Complaint',
+);
+
+$GLOBALS['app_list_strings']['case_status_list']=array (
+  'pre_arraignment' => 'Pre-Arraignment',
+  'no_charges_filed' => 'No Charges Filed',
+  'pre_trial' => 'Pre-Trial',
+  'trial' => 'Trial',
+  'resolved' => 'Resolved',
+  'unknown' => 'Unknown',
+);
