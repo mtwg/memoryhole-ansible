@@ -59,6 +59,7 @@ array (
           'panelDefault' => 'expanded',
         ),
       ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -313,12 +314,6 @@ array (
             'label' => 'LBL_ARREST_LOCATION',
             'tabindex' => '52',
           ),
-          1 => 
-          array (
-            'name' => 'support_needs_c',
-            'label' => 'LBL_SUPPORT_NEEDS',
-            'tabindex' => '54',
-          ),
         ),
         3 => 
         array (
@@ -342,9 +337,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'citation_number',
-            'label' => 'LBL_CITATION_NUMBER',
-            'tabindex' => '60',
+            'name' => 'caseid_c',
+            'label' => 'LBL_CASEID',
           ),
           1 => 
           array (
@@ -353,6 +347,21 @@ array (
           ),
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'initial_charges_c',
+            'studio' => 'visible',
+            'label' => 'LBL_INITIAL_CHARGES',
+          ),
+          1 => 
+          array (
+            'name' => 'amended_charges_c',
+            'studio' => 'visible',
+            'label' => 'LBL_AMENDED_CHARGES',
+          ),
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -367,7 +376,7 @@ array (
             'tabindex' => '67',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -382,7 +391,7 @@ array (
             'tabindex' => '68',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -397,7 +406,7 @@ array (
             'tabindex' => '69',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -412,7 +421,7 @@ array (
             'tabindex' => '70',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -426,7 +435,7 @@ array (
             'label' => 'LBL_CASE_STATUS',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -440,7 +449,7 @@ array (
             'tabindex' => '66',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -451,6 +460,14 @@ array (
           array (
             'name' => 'stay_away_c',
             'label' => 'LBL_STAY_AWAY',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'wants_lawyer_c',
+            'label' => 'LBL_WANTS_LAWYER',
           ),
         ),
       ),

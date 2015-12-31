@@ -4,7 +4,7 @@
   sudo: yes
 
   vars_files:
-    - ../config.yml
+    - ../cities/{{ city_key }}/config.yml
 
   pre_tasks:
     - include: tasks/init.yml

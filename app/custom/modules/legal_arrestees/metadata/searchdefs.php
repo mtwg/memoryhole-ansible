@@ -192,14 +192,6 @@ array (
         'default_value' => '',
         'default' => true,
       ),
-      'charges_c' => 
-      array (
-        'label' => 'LBL_CHARGES',
-        'width' => '10%',
-        'name' => 'charges_c',
-        'default_value' => '',
-        'default' => true,
-      ),
       'arresting_officer' => 
       array (
         'label' => 'LBL_ARRESTING_OFFICER',
@@ -428,14 +420,6 @@ array (
         'label' => 'LBL_EMAIL_BOUNCE',
         'width' => '10%',
         'name' => 'email_bounce_c',
-        'default_value' => '',
-        'default' => true,
-      ),
-      'support_needs_c' => 
-      array (
-        'label' => 'LBL_SUPPORT_NEEDS',
-        'width' => '10%',
-        'name' => 'support_needs_c',
         'default_value' => '',
         'default' => true,
       ),

@@ -1,5 +1,5 @@
 <?php
-// created: 2015-01-05 10:46:14
+// created: 2015-12-30 21:05:59
 $searchFields['legal_arrestees'] = array (
   'first_name' => 
   array (
@@ -148,6 +148,24 @@ $searchFields['legal_arrestees'] = array (
     'is_date_field' => true,
   ),
   'end_range_arrest_date' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'range_filing_date' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'start_range_filing_date' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'end_range_filing_date' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,

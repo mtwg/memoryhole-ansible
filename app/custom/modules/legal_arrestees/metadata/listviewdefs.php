@@ -1,7 +1,6 @@
 <?php
 $module_name = 'legal_arrestees';
-$listViewDefs = array (
-$module_name =>
+$listViewDefs [$module_name] = 
 array (
   'NAME' => 
   array (
@@ -46,13 +45,6 @@ array (
   array (
     'width' => '10',
     'label' => 'LBL_DOCKET',
-    'sortable' => true,
-    'default' => true,
-  ),
-  'SUPPORT_NEEDS_C' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_SUPPORT_NEEDS',
     'sortable' => true,
     'default' => true,
   ),
@@ -124,13 +116,6 @@ array (
   array (
     'width' => '10',
     'label' => 'LBL_RELEASE_TYPE',
-    'sortable' => false,
-    'default' => false,
-  ),
-  'CHARGES_C' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_CHARGES',
     'sortable' => false,
     'default' => false,
   ),
@@ -370,6 +355,5 @@ array (
     'sortable' => false,
     'default' => false,
   ),
-)
 );
 ?>

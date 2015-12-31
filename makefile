@@ -11,8 +11,11 @@ audit:
 certs:
 	@openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout deploy/certificates/memoryhole.key -out deploy/certificates/memoryhole.crt
 
+enumerate:
+	@ansible-playbook -i deploy/hosts deploy/deploy.yml -t enumerate
+
 ansible-deploy:
 	@ansible-playbook -i deploy/hosts deploy/server.yml
 	@ansible-playbook -i deploy/hosts deploy/deploy.yml
 
-deploy: certs audit ansible-deploy 
+deploy: certs audit ansible-deploy

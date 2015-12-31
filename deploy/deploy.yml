@@ -7,7 +7,7 @@
     - geerlingguy.apache
 
   vars_files:
-    - ../config.yml
+    - ../cities/{{ city_key }}/config.yml
 
   handlers:
     - include: handlers/main.yml

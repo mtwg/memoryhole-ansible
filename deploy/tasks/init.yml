@@ -23,6 +23,7 @@
   - make
   - php-mbstring
   - php-pecl-apc
+  - ansible
   tags: yum
 
 - name: Enable wheel for CentOS

@@ -88,3 +88,9 @@
   lineinfile: dest=/etc/php.ini regexp="^;date.timezone" line="date.timezone = America/New_York"
   tags:
     - application
+
+- name: Import enumerations
+  copy: src=../app/custom/include/language/en_us.lang.php dest=/app/custom/include/language/en_us.lang.php
+  tags:
+    - application
+    - enumerations
