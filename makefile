@@ -8,9 +8,6 @@ build:
 audit:
 	@ansible-playbook -i deploy/hosts runalone/cis/playbook.yml
 
-certs:
-	@openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout deploy/certificates/memoryhole.key -out deploy/certificates/memoryhole.crt
-
 enumerate:
 	@ansible-playbook -i deploy/hosts deploy/deploy.yml -t enumerate
 

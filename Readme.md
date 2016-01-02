@@ -61,9 +61,25 @@ Yes in today's world we would have folks be able to customize this themselves, b
 
 ### Generate Certificates
 
-Run this command to generate certificates
+For SSL/TLS encryption, which we think of as an absolute for decent security (SSL/TLS is not in itself bullet-proof, but better than non-encrypted communications between user and server) one could generate their own certificates, but this is a generally less secure method for encryption for a number of reasons.  We have written in language to automate the uploading and include instructions for the creation of encryption certificates through the Let's Encrypt project, which issues automated, signed encryption certificates that are accepted by major browsers as legitimate, and that are backed by the Mozilla Foundation, Linux Foundation and Electronic Frontier Foundation.  
 
-``$: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cities/<CITY KEY>/certificates/memoryhole.key -out cities/<CITY KEY>/certificates/memoryhole.crt ``
+To create the certificates, the certificate chains and the certificate key:
+git clone https://github.com/letsencrypt/letsencrypt
+cd letsencrypt
+./letsencrypt-auto certonly --manual --email admin@thing.com -d thing.com --agree-tos		
+
+ Replace -d thing.com with your actual domain or subdomain and --email admin@thing.com with the actual email for the admin.
+
+ Move the contents generated to the ..cities/<CITY KEY>/certificates folder for the appropriate city.
+
+When the Ansible playbook runs it will automatically upload and point Apache to the certificates.
+
+Certificate Renewal
+
+Let's Encrypt certs are only valid for 90 days currently.  When the automatic renewal tool is released by the project we will update the playbook to automatically generate self-renewing certificates.  For now, just make sure to run the letsencrypt-auto script once every three months and then run the Ansible playbook to automatically upload the new certificates.
+
+In future versions of this repository, after Let's Encrypt adds better support for CentOS and better automatic renewal tools, this process will likely be completely automated on the server side.
+
 
 ### Initialize CentOS Box
 
