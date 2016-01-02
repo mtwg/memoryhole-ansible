@@ -1,0 +1,32 @@
+sys_access_user: 'rikki'
+sys_access_user_key_file: '~/.ssh/id_rsa.pub'
+mysql_root_user: 'root'
+mysql_root_password: 'SECRET'
+mysql_app_user: application
+mysql_app_password: 'SECRET'
+mysql_app_db_name: application
+app_user: admin
+app_hostname: memoryhole.yourdomain.org
+app_password: 'SECRET'
+app_email_from_address: admin@freecle.org
+app_calendar_embed_url: http://google.com/kjshdfjkdshfjkdshjkfh
+app_email_smtp_host: sdfsdfsdf
+app_email_smtp_user: sdsdfdsf
+app_email_smtp_password: sdfdsf
+ansible_hostname: localhost
+apache_vhosts:
+  - {
+    servername: "memoryhole.yourdomain.org",
+    documentroot: "/var/www/html"
+  }
+apache_vhosts_ssl:
+  - {
+    servername: "memoryhole.yourdomain.org",
+    documentroot: "/var/www/html",
+    certificate_file: "/root/{{ city_key }}/certificates/cert.pem",
+    certificate_key_file: "/root/{{ city_key }}/certificates/privkey.pem"
+    
+  }
+apache_mods_enabled:
+  - rewrite.load
+  - ssl.load
