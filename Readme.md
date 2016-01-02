@@ -34,13 +34,13 @@ Preferrably your local machine has either a fully encrypted drive, or an encrypt
 
 ### Define Hosts
 
-Edit ``deploy/hosts`` and add the appropriate IP(s) you want to deploy the instance to under ``[memoryhole]``
+Edit ``cities/<CITY KEY>/hosts`` and add the appropriate IP(s) you want to deploy the instance to under ``[memoryhole]``
 
 ### Run the CIS script
 
 The CIS ansible script needs to be run first in an isolated fashion.  Please report issues with it to the relevant repository as referenced.
 
-``ansible-playbook -i deploy/hosts runalone/cis-rhel-ansible/playbook.yml``
+``ansible-playbook -i cities/{{city_key}}//hosts runalone/cis-rhel-ansible/playbook.yml``
 
 You may get errors but it's ok, try running each of the specific tags as the documentation indicates. This script has a very difficult job to do.
 
@@ -55,7 +55,7 @@ All the enumerations for things like uses of forces, charge types, etc live here
 
 ``app/custom/includes/language/en_us.lang.php``
 
-You will need to populate these manually for your particular legal team and then blow out the application cache. It's easiest to edit these lists before you deploy.
+You will need to populate these manually for your particular legal team and then blow out the application cache. It's easiest to edit these lists before you cities/<CITY KEY>/.
 
 Yes in today's world we would have folks be able to customize this themselves, but for now this is our best option.
 
@@ -63,13 +63,13 @@ Yes in today's world we would have folks be able to customize this themselves, b
 
 Run this command to generate certificates
 
-``$: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout deploy/certificates/memoryhole.key -out deploy/certificates/memoryhole.crt ``
+``$: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cities/<CITY KEY>/certificates/memoryhole.key -out cities/<CITY KEY>/certificates/memoryhole.crt ``
 
 ### Initialize CentOS Box
 
 This script will set up a few things while using the root user. Only these few commands will be run over SSH by the root user ever.
 
-``$: ansible-playbook deploy/server.yml -i hosts``
+``$: ansible-playbook cities/<CITY KEY>/server.yml -i hosts``
 
 ### Deploy the application
 This will install and configure a secure mysql, set up the application database, place the certificates, set up apache, and configure the application.

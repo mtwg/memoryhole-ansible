@@ -1,6 +1,7 @@
 [submodule "deploy/roles/geerlingguy.apache"]
 	path = deploy/roles/geerlingguy.apache
 	url = https://github.com/geerlingguy/ansible-role-apache.git
-[submodule "runalone/cis-rhel-ansible"]
-	path = runalone/cis-rhel-ansible
-	url = git@github.com:major/cis-rhel-ansible.git
+
+[submodule "runalone/cis"]
+	path = runalone/cis
+	url = https://github.com/major/cis-rhel-ansible.git

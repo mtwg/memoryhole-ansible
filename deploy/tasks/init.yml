@@ -1,4 +1,7 @@
 ---
+- name: install the ansible rpm from a remote repo
+  yum: name=http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm state=present
+
 - name: Install system packages
   yum: pkg={{item}} state=latest
   with_items:
