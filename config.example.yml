@@ -23,10 +23,10 @@ apache_vhosts_ssl:
   - {
     servername: "memoryhole.yourdomain.org",
     documentroot: "/var/www/html",
-    certificate_file: "/root/cert.pem",
-    certificate_key_file: "/root/privkey.pem"
-    certificate_chain: "/root/chain.pem"
-    full_certificate_chain: "/root/fullchain.pem"
+    certificate_file: "/root/{{ city_key }}/certificates/cert.pem",
+    certificate_key_file: "/root/{{ city_key }}/certificates/privkey.pem"
+    certificate_chain_file: "/root/{{ city_key }}/certificates/chain.pem"
+    
   }
 apache_mods_enabled:
   - rewrite.load
