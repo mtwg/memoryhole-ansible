@@ -3,16 +3,6 @@
   tags:
   - application
 
-- name: Copy Certificate Chain
-  copy: 'src=./cities/{{ city_key }}/certificates/chain.pem dest=//root/{{ city_key }}/certificates/chain.pem owner=root group=root'
-  tags: 
-  -application
-
-- name: Copy Full Certificate Chain
-  copy: 'src=./cities/{{ city_key }}/certificates/fullchain.pem dest=/root/{{ city_key }}/certificates/fullchain.pem owner=root group=root'
-  tags:
-  -application
-
 - name: Copy certificate
   copy: 'src=./cities/{{ city_key }}/certificates/cert.pem dest=/root/{{ city_key }}/certificates/cert.pem owner=root group=root'
   notify: reload apache
