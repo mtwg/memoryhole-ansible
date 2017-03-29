@@ -1,4 +1,6 @@
-# This script provisions the server and should be run with root
+# This script provisions the server, thus we tell ansible to use root
+# When using the CIS ansible roles, root ssh login is disbled, thus why init creates
+# a new sudo user
 - hosts: memoryhole
   remote_user: root
   sudo: yes

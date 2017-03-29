@@ -12,7 +12,7 @@ enumerate:
 	@ansible-playbook -i deploy/hosts deploy/deploy.yml -t enumerate
 
 ansible-deploy:
-	@ansible-playbook -i deploy/hosts deploy/server.yml
+	@ansible-playbook -i deploy/hosts deploy/server.yml --extra-vars="city_key=dc"
 	@ansible-playbook -i deploy/hosts deploy/deploy.yml
 
 deploy: certs audit ansible-deploy

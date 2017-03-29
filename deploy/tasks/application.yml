@@ -1,9 +1,10 @@
 - name: Copy memoryhole from app/ to the webroot
-  synchronize: src=../app/ dest=/var/www/html rsync_opts=--update,-a
+  synchronize: src=../app/ dest=/var/www/html rsync_opts=--recursive,--force
   sudo: yes
   sudo_user: rikki
   tags:
     - application
+    - always
 
 - name: Copy over config.php file w/ mysql creds
   template: src=templates/config.php.j2 dest=/var/www/html/config.php
@@ -15,7 +16,6 @@
 - name: create mysql app user
   mysql_user:
     name: "{{ mysql_app_user }}"
-    user: "{{ mysql_app_user }}"
     password: "{{ mysql_app_password }}"
     host: "localhost"
     priv: "{{ mysql_app_db_name }}.*:ALL"
@@ -32,8 +32,8 @@
   mysql_db:
     name: "{{ mysql_app_db_name }}"
     state: present
-    login_user: "{{ mysql_root_user }}"
-    login_password: "{{ mysql_root_password }}"
+    login_user: "{{ mysql_app_user }}"
+    login_password: "{{ mysql_app_password }}"
     login_host: "{{ ansible_hostname }}"
   register: dbcreated
   tags:
@@ -61,10 +61,10 @@
 
 
 - name: set application-wide folder ownership
-  file: path=/var/www/html group=apache owner=apache state=directory recurse=yes
+  file: path=/var/www/html group=www-data owner=www-data state=directory recurse=yes
 
 - name: set special folder ownership and permissions
-  file: 'path=/var/www/html/{{ item }} mode=0755 recurse=yes state=directory group=apache owner=apache'
+  file: 'path=/var/www/html/{{ item }} mode=0755 recurse=yes state=directory group=www-data owner=www-data'
   sudo: yes
   with_items:
     - cache
@@ -79,12 +79,13 @@
   tags:
     - application
 
-- name: Add php.ini configs - Memory Limit
-  lineinfile: dest=/etc/php.ini regexp="^memory_limit" line="memory_limit = 256M"
-  tags:
-    - application
+# - name: Add php.ini configs - Memory Limit
+#   lineinfile: dest=/etc/php.ini regexp="^memory_limit" line="memory_limit = 256M"
+#   tags:
+#     - application
 
-- name: Add php.ini configs - Timezone
-  lineinfile: dest=/etc/php.ini regexp="^;date.timezone" line="date.timezone = America/New_York"
-  tags:
-    - application
+# - name: Add php.ini configs - Timezone
+#   lineinfile: dest=/etc/php.ini.default regexp="^;date.timezone" line="date.timezone = America/New_York"
+#   sudo: yes
+#   tags:
+#     - application

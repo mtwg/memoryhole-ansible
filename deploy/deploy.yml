@@ -1,8 +1,7 @@
 # This script provisions the server and should be run with root
 - hosts: memoryhole
-  remote_user: "{{ sys_access_user }}"
-  sudo: yes
-
+  remote_user: root
+  # Default configuration needs work and to honor letsencrypt configs somehow?
   roles:
     - geerlingguy.apache
 
@@ -12,8 +11,9 @@
   handlers:
     - include: handlers/main.yml
 
-  pre_tasks:
-    - include: tasks/certs.yml
+  # Deprecated for letsencrypt
+  # pre_tasks:
+  #   # - include: tasks/certs.yml
 
   tasks:
     - include: tasks/mysql.yml
