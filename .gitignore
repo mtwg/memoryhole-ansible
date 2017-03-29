@@ -3,4 +3,4 @@ deploy/certificates/*
 !deploy/certificates/.gitkeep
 *hosts
 cities/*
-!cities/example/*
+!cities/example
