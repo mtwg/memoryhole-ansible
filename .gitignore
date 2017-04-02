@@ -4,3 +4,4 @@ deploy/certificates/*
 *hosts
 cities/*
 !cities/example
+.vagrant
