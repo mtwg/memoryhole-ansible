@@ -4,6 +4,7 @@
   apt: pkg={{item}} state=latest
   with_items:
   - apache2
+  - apache2-utils
   - php5-mysql
   - php5
   - php5-gd

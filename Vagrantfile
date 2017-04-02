@@ -4,9 +4,7 @@ BOX_URL                 = 'https://a7240500425256e5d77a-9064bd741f55664f44e550bd
 
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.vm.box       = BOX
-    config.vm.box_url   = BOX_URL
-
+    config.vm.box       = 'debian/jessie64'
     config.vm.define 'memoryhole' do |memoryhole|
         memoryhole.vm.network :private_network, ip: "192.168.111.222"
         memoryhole.vm.network "forwarded_port", guest: 80, host: 8181
@@ -16,14 +14,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           group: "root"
         memoryhole
         memoryhole.vm.provision :ansible do |ansible|
-            ansible.playbook        = 'deploy/build.yml'
+            ansible.playbook        = 'deploy/server.yml'
             ansible.sudo            = true
             ansible.groups = {
               "webserver" => ["memoryhole"],
               "database" => ["memoryhole"],
               "all_groups:children" => ["webserver", "database"]
             }
+            ansible.raw_arguments  = [
+              "-e city_key=example",
+            ]
+        end
+        memoryhole.vm.provision :ansible do |ansible|
+            ansible.playbook        = 'deploy/deploy.yml'
+            ansible.sudo            = true
+            ansible.groups = {
+              "webserver" => ["memoryhole"],
+              "database" => ["memoryhole"],
+              "all_groups:children" => ["webserver", "database"]
+            }
+            ansible.raw_arguments  = [
+              "-e city_key=example",
+            ]
         end
     end
-
 end
