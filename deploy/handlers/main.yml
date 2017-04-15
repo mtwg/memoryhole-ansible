@@ -1,19 +1,9 @@
----
-- name: start mysql-server
-  service: name=mysqld state=started
-  sudo: true
-
-- name: reload mysql-server
-  service: name=mysqld state=reloaded
-  sudo: true
-
 - name: restart mysql-server
-  service: name=mysqld state=restarted
+  service: name=mysql state=restarted
+  become: yes
+  become_method: sudo
 
 - name: restart apache
-  service: name=httpd state=restarted
-  sudo: true
-
-- name: reload apache
-  service: name=httpd state=restarted
-  sudo: true
+  service: name=apache2 state=restarted
+  become: yes
+  become_method: sudo
