@@ -2,6 +2,6 @@
 deploy/certificates/*
 !deploy/certificates/.gitkeep
 *hosts
-cities/*
-!cities/example
 .vagrant
+**/*.retry
+**/.DS_Store
