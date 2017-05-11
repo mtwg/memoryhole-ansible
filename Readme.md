@@ -63,14 +63,10 @@ I usually:
 2. If there is a failure and you need to re-run the ansible file provisioning steps, run `vagrant provision`
 3. If you need to pass more custom arguments to the ansible scripts, see [the documentation](https://www.vagrantup.com/docs/provisioning/ansible.html) for running ansible in a Vagrantfile
 
+### Priorities
+See the [github issues](https://github.com/mtwg/memoryhole-ansible/issues) to see what our priorities are.
+
 ## Deprecated
 
 The Makefile is deprecated. Feel free to bring them back to life if you want!
 
-## TODO
-- [ ] Fix Ansible scripts for Debian Jessie base box
-- [ ] Add letsencrypt, security monitoring, hardening, and other manual steps to the ansible deployment
-- [ ] Provide a new and improved Makefile to streamline tasks
-- [ ] Add maintenance, backup, emergency tasks
-- [ ] Support a variety of architectures
-- [ ] Reorganize into a role
