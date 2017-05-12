@@ -1,0 +1,10 @@
+### backupninja mysql config file ###
+
+databases   = {{ mysql_app_db_name }}
+backupdir   = /var/backups/mysql
+hotcopy     = no
+sqldump     = yes
+compress    = yes
+
+dbusername  = {{ mysql_app_user }}
+dbpassword  = {{ mysql_app_password }}

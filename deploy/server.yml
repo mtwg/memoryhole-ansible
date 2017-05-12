@@ -1,15 +1,38 @@
 # This script provisions the server, thus we tell ansible to use root
-# When using the CIS ansible roles, root ssh login is disbled, thus why init creates
+# When using the CIS ansible roles, root ssh login is disabled, thus why init creates
 # a new sudo user
 - hosts: memoryhole
   remote_user: root
   become: yes
 
+  roles:
+    - thefinn93.letsencrypt
+
   vars_files:
     - "../cities/{{ city_key }}/config.yml"
+    - "default/main.yml"
 
-  pre_tasks:
+  tasks:
     - include: tasks/init.yml
 
   handlers:
     - include: handlers/main.yml
+
+- hosts: memoryhole
+  remote_user: "{{ sys_access_user }}"
+  become: yes
+  become_user: root
+
+  roles:
+    - geerlingguy.apache
+
+  vars_files:
+    - "../cities/{{ city_key }}/config.yml"
+    - "default/main.yml"
+
+  handlers:
+    - include: handlers/main.yml
+
+  tasks:
+    - include: tasks/mysql.yml
+    - include: tasks/application.yml

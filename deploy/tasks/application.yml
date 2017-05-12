@@ -80,13 +80,19 @@
   tags:
     - application
   notify: restart apache
-# - name: Add php.ini configs - Memory Limit
-#   lineinfile: dest=/etc/php.ini regexp="^memory_limit" line="memory_limit = 256M"
-#   tags:
-#     - application
 
-# - name: Add php.ini configs - Timezone
-#   lineinfile: dest=/etc/php.ini.default regexp="^;date.timezone" line="date.timezone = America/New_York"
-#   sudo: yes
-#   tags:
-#     - application
+- name: Add php.ini configs - Memory Limit
+  lineinfile: dest=/etc/php.ini regexp="^memory_limit" line="memory_limit = 256M"
+  tags:
+    - application
+
+- name: Add php.ini configs - Memory Limit
+  lineinfile: dest=/etc/php.ini regexp="^upload_max" line="upload_max = 10M"
+  tags:
+    - application
+
+- name: Add php.ini configs - Timezone
+  lineinfile: dest=/etc/php.ini.default regexp="^;date.timezone" line="date.timezone = America/New_York"
+  become: yes
+  tags:
+    - application
