@@ -17,33 +17,14 @@ Memoryhole is a highy specialized SugarCRM fork used by Mass Defense lawyers to 
 
 These setup instructions were done on a Mac. This instructions DO NOT yield a secure server yet. The instructions in the 'Post Run' step must be followed for the server to be secure.
 
-### Set up a Digital Ocean Droplet
-This setup instruction uses a Digital Ocean as the hosting solution, using the Debian 8.7 x64 droplet. Make sure to select this droplet!
+## Set up VPS with hosts
 
-See [here](https://www.digitalocean.com/community/tutorials/how-to-create-your-first-digitalocean-droplet-virtual-server) for instructions on how to create a droplet. These instructions are summarized below:
+In order to continue, you'll need to set up a VPS with a hosting provider (as below) or run it locally using VirtualBox / Vagrant
 
-#### Select the Debian 8.7 x64 droplet. Make sensible choices for the rest of the options:
-
-![Select droplet](/assets/select-droplet.png)
-
-#### Make sure you add an ssh key to the droplet
-
-![Add ssh keys](/assets/addsshkeys.png)
-
-When going through the set up steps, its important to add an ssh key to the server. If you do not have an ssh key, you need to create one. Even if you do have one, read carefully - the droplet seems to not take rsa keys(id_rsa, id_rsa.pub), but accepts a Ed25519 key. To generate one:
-
-```bash
-ssh-keygen -t ed25519
-```
-
-When prompted for the directory to save in, you can just use the default: `~/.ssh`. Enter a passphrase if necessary.
-
-After generating this, you need to make sure this key is added to the droplet. This is usually found at ~/.ssh/id_ed25519.pub
-
-#### You're done! Take note of the ip address, it will be used in the steps below:
-
-![Add ssh keys](/assets/server-ip.png)
-
+- [DigitalOcean](docs/hosts/digitalocean.md)
+- [Linode](docs/hosts/linode.md)
+- [Amazon AWS](docs/hosts/aws.md)
+- [Local (Vagrant)](#running-in-a-vagrant-box)
 
 ### Set up required libraries/tools. Do this on your computer.
 
@@ -58,33 +39,31 @@ brew install ansible openssl
 ```bash
 git clone git@github.com:mtwg/memoryhole-ansible.git
 cd memoryhole-ansible
-git checkout debian-overhaul # right now, the working code is in a branch.
 ```
 
-4. Install submodules
-
+4. Install ansible roles
 ```bash
-git submodule init
+ansible-galaxy install -r requirements.yml --roles-path=deploy/roles
 ```
 
 1. You should now be in the memoryhole-ansible folder. In here, create a a `cities/<example>` directory, where <example> might be something like 'newyork'. So, everywhere in this guide where you see <example>, you should replace it with `newyork`
 ```bash
 mkdir cities/<example>
 ```
-2. Copy config.example.yml to create a config.yml for that city under the `cities/<example>` folder.
+2. Copy examples/config.yml and hosts to create a config.yml for that city under the `cities/<example>` folder.
 ```bash
-cp config.example.yml cities/<example>
+cp cities/example/* cities/<example>
 ```
 3. The cities/<example> directory should contain:
   - the `config.yml` file
-   - a file called `hosts` that looks like:
+  - a file called `hosts` that looks like:
      ```
      [memoryhole]
-     <your-digital-ocean-ip-address>
+     <your-hoar-ip-address>
      ```
-     Wherein the above IP is the IP address of the server you had created earlier.
+     Wherein the above IP is the IP address of the server you had created earlier. See the cities/example/hosts file.
 
-4. Edit the config.yml file. This instructions do not yet yield a secure server, but it is advisable to change the database and admin password from the default.
+4. Edit the config.yml file. This instructions do not yet yield a secure server, but it is critical to change the database and admin password from the default.
 
 ### Run the server.
 
@@ -100,15 +79,14 @@ ansible-playbook -i cities/<example>/hosts deploy/deploy.yml -e city_key=<exampl
 After this command runs, you should be able to see an instance of memoryhole running at the host you specified. Use the values from app_user and app_password in your config.yml to login.
 
 ## Post-Run
+(Note: these tasks will soon be automated ;)
 
 I usually:
-- run certbot
-- manually change the apache configs
-- install fail2ban
-- disable root ssh
+- install cerbot & run `certbot --webroot --apache -d your.domain.name`. choose the most secure option
+- you may have to manually change the apache config, but usually not.
+- install `apt-get install fail2ban`
+- disable root ssh in `/root/.ssh/config`
 - install and configure https://github.com/BinaryDefense/artillery
-
-
 
 ## Development/Contributing
 
@@ -127,7 +105,7 @@ I usually:
 
 The Makefile is deprecated. Feel free to bring them back to life if you want!
 
-## TODO
+## TODO (outdated - see issue queue)
 - [ ] Fix Ansible scripts for Debian Jessie base box
 - [ ] Add letsencrypt, security monitoring, hardening, and other manual steps to the ansible deployment
 - [ ] Provide a new and improved Makefile to streamline tasks

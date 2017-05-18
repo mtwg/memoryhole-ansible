@@ -1,0 +1,13 @@
+---
+
+- src: https://github.com/geerlingguy/ansible-role-apache.git
+  version: 2.1.1
+  name: geerlingguy.apach
+
+- src: https://github.com/thefinn93/ansible-letsencrypt.git
+  name: thefinn93.letsencrypt
+  version: origin/master
+
+- src: https://github.com/wtanaka/ansible-role-monit
+  name: wtanaka.monit
+  version: origin/master
