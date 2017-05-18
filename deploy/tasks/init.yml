@@ -21,16 +21,26 @@
   - ansible
   - mysql-server
   - python-mysqldb
-  tags: yum
-
-- name: Enable wheel for CentOS
-  lineinfile: 'dest=/etc/sudoers state=present regexp="^%wheel" line="%wheel ALL=(ALL) NOPASSWD: ALL"'
+  - unattended-upgrades
+  - apt-listchanges
+  - fail2ban
+  - git
+  - rdiff-backup
+  - hwinfo
+  - sfdisk
+  - cryptsetup
+  - flashrom
+  - backupninja
+  tags: apt
 
 - name: Instantiate non-root access user
   user: name={{ sys_access_user }} group=sudo generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa
 
 - name: Provision authorized key
-  authorized_key: user={{ sys_access_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  authorized_key: user={{ sys_access_user }} key="{{ lookup('file', sys_access_user_key_file) }}"
 
 - name: Disable TTY for non-root access user
   lineinfile: 'line="Defaults:{{ sys_access_user }} !requiretty" dest="/etc/sudoers"'
+
+- name: Disable root ssh
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin without-password"

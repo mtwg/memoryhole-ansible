@@ -1,0 +1,22 @@
+letsencrypt_cert_domains:
+  - "{{app_domain}}"
+apache_vhosts:
+  - servername: "{{app_domain}}"
+    documentroot: "/var/www/html"
+    extra_parameters: |
+      RewriteCond %{HTTP_HOST} !^www\. [NC]
+      RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+apache_vhosts_ssl:
+  - servername: "{{app_domain}}"
+    documentroot: "/var/www/html"
+    certificate_file: "/etc/letsencrypt/live/{{app_domain}}/fullchain.pem"
+    certificate_key_file: "/etc/letsencrypt/live/{{app_domain}}/privkey.pem"
+    apache_ssl_protocol: "All -SSLv2 -SSLv3"
+    extra_parameters: |
+      SSLOptions +StrictRequire
+
+      # Always ensure Cookies have "Secure" set (JAH 2012/1)
+      Header edit Set-Cookie (?i)^(.*)(;\s*secure)??((\s*;)?(.*)) "$1; Secure$3$4"
+apache_mods_enabled:
+  - rewrite.load
+  - ssl.load
