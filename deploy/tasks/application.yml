@@ -1,21 +1,22 @@
 - name: Copy memoryhole from app/ to the webroot
-  synchronize: src=../app/ dest=/var/www/html rsync_opts=--update,-a
-  sudo: yes
-  sudo_user: rikki
+  synchronize: src=../app/ dest=/var/www/html delete=yes rsync_opts=--recursive,--force
+  become: yes
+  become_user: root
+  no_log: True # no_log suppresses the output
   tags:
     - application
+    - always
 
 - name: Copy over config.php file w/ mysql creds
   template: src=templates/config.php.j2 dest=/var/www/html/config.php
-  sudo: yes
-  sudo_user: root
+  become: yes
+  become_user: root
   tags:
     - application
 
 - name: create mysql app user
   mysql_user:
     name: "{{ mysql_app_user }}"
-    user: "{{ mysql_app_user }}"
     password: "{{ mysql_app_password }}"
     host: "localhost"
     priv: "{{ mysql_app_db_name }}.*:ALL"
@@ -27,13 +28,13 @@
     - application
 
 - name: create mysql app db
-  sudo: yes
-  sudo_user: root
+  become: yes
+  become_user: root
   mysql_db:
     name: "{{ mysql_app_db_name }}"
     state: present
-    login_user: "{{ mysql_root_user }}"
-    login_password: "{{ mysql_root_password }}"
+    login_user: "{{ mysql_app_user }}"
+    login_password: "{{ mysql_app_password }}"
     login_host: "{{ ansible_hostname }}"
   register: dbcreated
   tags:
@@ -41,8 +42,8 @@
 
 - name: Copy over db.sql file w/ config creds
   template: src=templates/db.sql.j2 dest=/root/db.sql
-  sudo: yes
-  sudo_user: root
+  become: yes
+  become_user: root
   tags:
     - application
     - schema
@@ -61,11 +62,11 @@
 
 
 - name: set application-wide folder ownership
-  file: path=/var/www/html group=apache owner=apache state=directory recurse=yes
+  file: path=/var/www/html group=www-data owner=www-data state=directory recurse=yes
 
 - name: set special folder ownership and permissions
-  file: 'path=/var/www/html/{{ item }} mode=0755 recurse=yes state=directory group=apache owner=apache'
-  sudo: yes
+  file: 'path=/var/www/html/{{ item }} mode=0755 recurse=yes state=directory group=www-data owner=www-data'
+  become: yes
   with_items:
     - cache
     - custom
@@ -78,13 +79,20 @@
   file: path=/var/www/html/config_override.php mode=664
   tags:
     - application
+  notify: restart apache
 
 - name: Add php.ini configs - Memory Limit
   lineinfile: dest=/etc/php.ini regexp="^memory_limit" line="memory_limit = 256M"
   tags:
     - application
 
+- name: Add php.ini configs - Memory Limit
+  lineinfile: dest=/etc/php.ini regexp="^upload_max" line="upload_max = 10M"
+  tags:
+    - application
+
 - name: Add php.ini configs - Timezone
-  lineinfile: dest=/etc/php.ini regexp="^;date.timezone" line="date.timezone = America/New_York"
+  lineinfile: dest=/etc/php.ini.default regexp="^;date.timezone" line="date.timezone = America/New_York"
+  become: yes
   tags:
     - application

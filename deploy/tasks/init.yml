@@ -1,42 +1,46 @@
 ---
-- name: install the ansible rpm from a remote repo
-  yum: name=http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm state=present
 
 - name: Install system packages
-  yum: pkg={{item}} state=latest
+  apt: pkg={{item}} state=latest
   with_items:
-  - libselinux-python
-  - MySQL-python
-  - httpd
-  - php-mysql
-  - php
-  - php-gd
+  - apache2
+  - apache2-utils
+  - php5-mysql
+  - php5
+  - php5-gd
   - curl
   - wget
   - gzip
   - rsync
   - openssl
-  - policycoreutils-python
   - vim
   - php-pear
-  - php-devel
-  - httpd-devel
-  - pcre-devel
   - gcc
   - make
-  - php-mbstring
-  - php-pecl-apc
+  - libapache2-mod-php5
   - ansible
-  tags: yum
-
-- name: Enable wheel for CentOS
-  lineinfile: 'dest=/etc/sudoers state=present regexp="^%wheel" line="%wheel ALL=(ALL) NOPASSWD: ALL"'
+  - mysql-server
+  - python-mysqldb
+  - unattended-upgrades
+  - apt-listchanges
+  - fail2ban
+  - git
+  - rdiff-backup
+  - hwinfo
+  - sfdisk
+  - cryptsetup
+  - flashrom
+  - backupninja
+  tags: apt
 
 - name: Instantiate non-root access user
-  user: name={{ sys_access_user }} group=wheel generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa
+  user: name={{ sys_access_user }} group=sudo generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa
 
 - name: Provision authorized key
-  authorized_key: user={{ sys_access_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  authorized_key: user={{ sys_access_user }} key="{{ lookup('file', sys_access_user_key_file) }}"
 
 - name: Disable TTY for non-root access user
   lineinfile: 'line="Defaults:{{ sys_access_user }} !requiretty" dest="/etc/sudoers"'
+
+- name: Disable root ssh
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin without-password"
