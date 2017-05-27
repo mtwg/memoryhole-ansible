@@ -3,15 +3,20 @@
 - meta: flush_handlers
 
 - name: Create ~/.my.cnf
-  template: src=dot-my.cnf.j2 dest=/root/.my.cnf mode=600
+  template:
+    src: "dot-my.cnf.j2"
+    dest: "/root/.my.cnf"
+    owner: root
+    group: root
+    mode: 0600
   tags:
     - mysql
 
 - name: update mysql root passwd
   mysql_user:
     name: "{{ mysql_root_user }}"
-    password: "{{ mysql_root_password }}"
     login_user: "{{ mysql_root_user }}"
+    password: "{{ mysql_root_password }}"
     login_password: "{{ mysql_root_password }}"
     host: "{{ item }}"
     check_implicit_admin: yes

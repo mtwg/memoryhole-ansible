@@ -11,3 +11,5 @@
 - src: https://github.com/wtanaka/ansible-role-monit
   name: wtanaka.monit
   version: origin/master
+
+- src: freedomofpress.generate-ssl-cert

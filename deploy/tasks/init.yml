@@ -25,11 +25,6 @@
   - apt-listchanges
   - fail2ban
   - git
-  - rdiff-backup
-  - hwinfo
-  - sfdisk
-  - cryptsetup
-  - flashrom
   - backupninja
   tags: apt
 

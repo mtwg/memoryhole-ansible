@@ -1,5 +1,17 @@
+
+app_email_smtp:
+  host: mail.riseup.net
+  user: user
+  password: SECRET
+  port: 465
+  auth_required: 1
+  ssl: 1
+
 letsencrypt_cert_domains:
   - "{{app_domain}}"
+localssl: false # this is set to true for Vagrant
+
+apache_remove_default_vhost: true
 apache_vhosts:
   - servername: "{{app_domain}}"
     documentroot: "/var/www/html"
@@ -13,10 +25,22 @@ apache_vhosts_ssl:
     certificate_key_file: "/etc/letsencrypt/live/{{app_domain}}/privkey.pem"
     apache_ssl_protocol: "All -SSLv2 -SSLv3"
     extra_parameters: |
-      SSLOptions +StrictRequire
+       SSLOptions +StrictRequire
 
-      # Always ensure Cookies have "Secure" set (JAH 2012/1)
-      Header edit Set-Cookie (?i)^(.*)(;\s*secure)??((\s*;)?(.*)) "$1; Secure$3$4"
+       # Always ensure Cookies have "Secure" set (JAH 2012/1)
+       # Header edit Set-Cookie (?i)^(.*)(;\s*secure)??((\s*;)?(.*)) "$1; Secure$3$4"
 apache_mods_enabled:
   - rewrite.load
   - ssl.load
+ssl_certificate_directory: "/etc/letsencrypt/live/{{ app_domain }}"
+ssl_certificate_permissions_map:
+  cert:
+    path: "{{ ssl_certificate_directory }}/fullchain.pem"
+    mode: "0644"
+    owner: root
+    group: root
+  key:
+    path: "{{ ssl_certificate_directory }}/privkey.pem"
+    mode: "0600"
+    owner: root
+    group: root

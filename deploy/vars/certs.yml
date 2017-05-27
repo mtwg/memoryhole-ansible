@@ -1,0 +1,12 @@
+ssl_certificate_directory: "/etc/letsencrypt/live/{{ app_domain }}"
+ssl_certificate_permissions_map:
+  cert:
+    path: "{{ ssl_certificate_directory }}/fullchain.pem"
+    mode: "0644"
+    owner: root
+    group: root
+  key:
+    path: "{{ ssl_certificate_directory }}/privkey.pem"
+    mode: "0600"
+    owner: root
+    group: root

@@ -18,11 +18,11 @@
   mysql_user:
     name: "{{ mysql_app_user }}"
     password: "{{ mysql_app_password }}"
+    login_user: "{{ mysql_root_user }}"
+    login_password: "{{ mysql_root_password }}"
     host: "localhost"
     priv: "{{ mysql_app_db_name }}.*:ALL"
     state: present
-    login_user: "{{ mysql_root_user }}"
-    login_password: "{{ mysql_root_password }}"
     login_host: localhost
   tags:
     - application
@@ -33,9 +33,8 @@
   mysql_db:
     name: "{{ mysql_app_db_name }}"
     state: present
-    login_user: "{{ mysql_app_user }}"
-    login_password: "{{ mysql_app_password }}"
-    login_host: "{{ ansible_hostname }}"
+    login_user: "{{ mysql_root_user }}"
+    login_password: "{{ mysql_root_password }}"
   register: dbcreated
   tags:
     - application
@@ -43,7 +42,6 @@
 - name: Copy over db.sql file w/ config creds
   template: src=templates/db.sql.j2 dest=/root/db.sql
   become: yes
-  become_user: root
   tags:
     - application
     - schema
@@ -55,11 +53,14 @@
     state: import
     login_user: "{{ mysql_root_user }}"
     login_password: "{{ mysql_root_password }}"
-    login_host: "{{ ansible_hostname }}"
   tags:
     - application
     - schema
 
+- name: delete import
+  file:
+    path: /root/db.sql
+    state: absent
 
 - name: set application-wide folder ownership
   file: path=/var/www/html group=www-data owner=www-data state=directory recurse=yes
@@ -82,17 +83,12 @@
   notify: restart apache
 
 - name: Add php.ini configs - Memory Limit
-  lineinfile: dest=/etc/php.ini regexp="^memory_limit" line="memory_limit = 256M"
-  tags:
-    - application
-
-- name: Add php.ini configs - Memory Limit
-  lineinfile: dest=/etc/php.ini regexp="^upload_max" line="upload_max = 10M"
+  lineinfile: dest=/etc/php5/apache2/php.ini regexp="^upload_max" line="upload_max = 10M"
   tags:
     - application
 
 - name: Add php.ini configs - Timezone
-  lineinfile: dest=/etc/php.ini.default regexp="^;date.timezone" line="date.timezone = America/New_York"
+  lineinfile: dest=/etc/php5/apache2/php.ini regexp="^;date.timezone" line="date.timezone = America/New_York"
   become: yes
   tags:
     - application

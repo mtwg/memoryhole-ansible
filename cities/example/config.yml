@@ -12,11 +12,11 @@ app_user: admin
 app_domain: memoryhole.localhost.com
 app_password: SECRET
 app_email_from_address: admin@freecle.org
-app_calendar_embed_url:
+app_calendar_embed_url: 'google.com'
 app_email_smtp:
-  host: host@host.com
+  host: mail.riseup.net
   user: user
   password: SECRET
-  port: 465
-  auth_required: 1
-  ssl: 1
+  port: '465'
+  auth_required: '1'
+  ssl: '1'
