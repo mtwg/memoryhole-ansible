@@ -38,13 +38,13 @@ ansible-galaxy install -r requirements.yml --roles-path=deploy/roles
 ```
 ### Configure your memoryhole instance
 
-1. You should now be in the memoryhole-ansible folder. In here, create a a `cities/<example>` directory, where <example> might be something like 'newyork'. So, everywhere in this guide where you see <example>, you should replace it with `newyork`
+1. You should now be in the memoryhole-ansible folder. In here, create a a `cities/<your city>` directory, where <your city> might be something like 'newyork'. So, everywhere in this guide where you see <your city>, you should replace it with `newyork`
 ```bash
-mkdir cities/<example>
+mkdir cities/<your city>
 ```
-2. Copy `cities/examples/config.yml` and `cities/examples/hosts` to create a config.yml for that city under the `cities/<example>` folder.
+2. Copy `cities/examples/config.yml` and `cities/examples/hosts` to create a config.yml for that city under the `cities/<your city>` folder.
 ```bash
-cp cities/example/* cities/<example>
+cp cities/example/* cities/<your city>
 ```
 Here are the configuration parameters you will see:
 
@@ -60,10 +60,18 @@ mysql_app_password|yes|n/a|the secure password for the app database user
 mysql_app_db_name|yes|n/a|the name of the database used for the application
 app_user|yes|n/a|the username for the admin user to be created with the app
 app_password|yes|n/a|the password for the admin user created with the app
-app_domain|yes|n/| the app domain without the protocol prefix, aka the "FQDN". e.g. memoryhole.myhost.com
+app_domain|yes|n/a| the app domain without the protocol prefix, aka the "FQDN". e.g. memoryhole.myhost.com
 app_email_from_address|yes|n/a|the email address that system emails are sent to users from. password reset, etc.
+app_calendar_embed_url|no|n/a|the url of the google calendar to embed on the calendars tab if necessary
+app_email_smtp|yes|n/a|several nested properties that allow users to send outbound email. required to create users.
+app_email_smtp.host|yes|n/a|the hostname for the email server. see your email's config
+app_email_smtp.user|yes|n/a|the username for the email server
+app_email_smtp.password|yes|n/a|the password for the email server
+app_email_smtp.port|no|465|the port for the email server.
+app_email_smtp.ssl|no|1|whether to use ssl encryption. 1=true, 0=false
 
-3. The cities/<example> directory should contain:
+
+3. The cities/<your city> directory should contain:
   - the `config.yml` file
   - a file called `hosts` that looks like:
      ```
@@ -77,12 +85,12 @@ app_email_from_address|yes|n/a|the email address that system emails are sent to 
 ### Option 1: Run the server.
 
 ```bash
-ansible-playbook -i cities/<example>/hosts deploy/server.yml -e city_key=<example>
+ansible-playbook -i cities/<your city>/hosts deploy/server.yml -e city_key=<your city>
 ```
 then
 
 ```bash
-ansible-playbook -i cities/<example>/hosts deploy/deploy.yml -e city_key=<example> -v
+ansible-playbook -i cities/<your city>/hosts deploy/deploy.yml -e city_key=<your city> -v
 ```
 
 ### Option 2: Run in a Vagrant box
