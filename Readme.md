@@ -36,6 +36,7 @@ cd memoryhole-ansible
 ```bash
 ansible-galaxy install -r requirements.yml --roles-path=deploy/roles
 ```
+### Configure your memoryhole instance
 
 1. You should now be in the memoryhole-ansible folder. In here, create a a `cities/<example>` directory, where <example> might be something like 'newyork'. So, everywhere in this guide where you see <example>, you should replace it with `newyork`
 ```bash
@@ -45,6 +46,23 @@ mkdir cities/<example>
 ```bash
 cp cities/example/* cities/<example>
 ```
+Here are the configuration parameters you will see:
+
+property | required? | default? | description
+--|---|---|--
+sys_access_user | no  | root | use this to specify which user should set up the services and should have ssh login left enabled
+sys_access_user_pub_key_file | no | ~/.ssh/id_rsa.pub | this key is added to the authorized keys for the sys_access_user
+letsencrypt_email | yes | none | this email address will receive notifications about certificates expiring soon
+mysql_root_user| yes | root | choose an alternate name for the root mysql user for security hardening purposes
+mysql_root_password|yes|n/a|asecure root password to use for the root mysql user
+mysql_app_user|yes|n/a|the user that memoryhole uses to access the app database
+mysql_app_password|yes|n/a|the secure password for the app database user
+mysql_app_db_name|yes|n/a|the name of the database used for the application
+app_user|yes|n/a|the username for the admin user to be created with the app
+app_password|yes|n/a|the password for the admin user created with the app
+app_domain|yes|n/| the app domain without the protocol prefix, aka the "FQDN". e.g. memoryhole.myhost.com
+app_email_from_address|yes|n/a|the email address that system emails are sent to users from. password reset, etc.
+
 3. The cities/<example> directory should contain:
   - the `config.yml` file
   - a file called `hosts` that looks like:

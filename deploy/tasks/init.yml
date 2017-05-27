@@ -29,10 +29,14 @@
   tags: apt
 
 - name: Instantiate non-root access user
-  user: name={{ sys_access_user }} group=sudo generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa
+  user:
+    name={{ sys_access_user }}
+    group=sudo
+    generate_ssh_key=yes
+    ssh_key_bits=2048
 
 - name: Provision authorized key
-  authorized_key: user={{ sys_access_user }} key="{{ lookup('file', sys_access_user_key_file) }}"
+  authorized_key: user={{ sys_access_user }} key="{{ lookup('file', sys_access_user_pub_key_file) }}"
 
 - name: Disable TTY for non-root access user
   lineinfile: 'line="Defaults:{{ sys_access_user }} !requiretty" dest="/etc/sudoers"'
