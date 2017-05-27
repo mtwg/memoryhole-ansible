@@ -1,0 +1,24 @@
+---
+ansible:
+  verbose: vv
+  diff: yes
+  playbook: examples/generate-cert.yml
+
+vagrant:
+  platforms:
+    - name: jessie64
+      box: debian/jessie64
+
+    - name: wily64
+      box: ubuntu/wily64
+
+  providers:
+    - name: virtualbox
+      type: virtualbox
+
+  instances:
+    - name: webserver
+      interfaces:
+        - network_name: private_network
+          type: dhcp
+          auto_config: true

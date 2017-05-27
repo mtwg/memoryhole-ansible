@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Conor Schaefer (@conorsch)
+  description: Generate self-signed OpenSSL certificates.
+  company: Freedom of the Press Foundation (@freedomofpress)
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+    - name: Debian
+      versions:
+        - jessie
+  galaxy_tags:
+    - security
+    - system
+    - encryption
+    - logging
+dependencies: []

@@ -1,0 +1,55 @@
+---
+# Creating the base directories separately to enforce strong permissions.
+# If a custom permissions map was provided, those files will be created
+# by the subsequent task.
+- name: Create default certificate directories.
+  become: yes
+  file:
+    state: directory
+    path: "{{ ssl_certificate_directory }}/{{ item.dirname }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - dirname: certs
+      mode: "0755"
+    - dirname: private
+      mode: "0700"
+
+- name: Create custom certificate directories.
+  become: yes
+  file:
+    state: directory
+    path: "{{ item.path|dirname }}"
+  with_items: "{{ [ssl_certificate_permissions_map.cert, ssl_certificate_permissions_map.key] }}"
+
+- name: Check for existing OpenSSL certificate file.
+  stat:
+    path: "{{ ssl_certificate_permissions_map.cert.path }}"
+  register: existing_openssl_cert_result
+
+- name: Generate OpenSSL certificate file.
+  become: yes
+  command: >
+    openssl req -config /etc/ssl/openssl.cnf -x509
+    -days 3650 -batch -nodes -newkey rsa:{{ ssl_certificate_bit_length }}
+    -keyout {{ ssl_certificate_permissions_map.key.path }}
+    -out {{ ssl_certificate_permissions_map.cert.path }}
+  when: existing_openssl_cert_result.stat.exists == false
+        or ssl_certificate_force_generate == true
+  notify: "{{ ssl_certificate_dynamic_handlers }}"
+
+- name: Set permissions on OpenSSL files.
+  become: yes
+  file:
+    state: file
+    path: "{{ item.path }}"
+    mode: "{{ item.mode }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+  with_items: "{{ [ssl_certificate_permissions_map.cert, ssl_certificate_permissions_map.key] }}"
+
+- name: Fetch OpenSSL certificate file back to localhost.
+  fetch:
+    src: "{{ ssl_certificate_permissions_map.cert.path }}"
+    dest: files/
+    flat: true
+    fail_on_missing: true

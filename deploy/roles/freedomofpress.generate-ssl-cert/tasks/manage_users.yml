@@ -1,0 +1,15 @@
+---
+- name: Create system group for managing permissions.
+  become: yes
+  group:
+    name: "{{ item }}"
+    system: yes
+  with_items: "{{ ssl_certificate_create_users }}"
+
+- name: Create system account for managing permissions.
+  become: yes
+  user:
+    name: "{{ item }}"
+    group: "{{ item }}"
+    system: yes
+  with_items: "{{ ssl_certificate_create_users }}"

@@ -1,125 +1,103 @@
-## MemoryHole?
+## Introduction
+
+- Local Vagrant Instance: :two_hearts: Currently working :two_hearts:
+- Deploying to a VPS: Needs work, self-signed SSL vs letsencrypt are clashing
+- These instructions work on a MacOSX machine. Please open any issues you have with other environments.
+
+## What is MemoryHole?
 
 Memoryhole is a highy specialized SugarCRM fork used by Mass Defense lawyers to protect the constitutional rights of demonstrators across the US.
-I did not create MemoryHole. It was created in 2012 I believe by some incredible folks on the west coast of the US as government repression increased during rising mass mobilizations.  
-Mass defense lawyers at the NLG, BMLP and other wonderful organizations have asked for a click-and-deploy but secure setup for any city, and this is the closest I got to it for now.  
-It may seem oldschool, but after research and security audits it remains a pretty solid app for what it's good for. Constitutional Rights organizations don't exactly have the budgets to rebuild something on this scale, and why rebuild something that works great already?
 
-## How to deploy
+## Set up VPS with hosts
 
-Below are instructions on how to deploy memoryhole to a CentOS VPS. You can try the 'quick instructions' option but you will need to pay close attention and go step by step.
+In order to continue, you'll need to set up a VPS with a hosting provider (as below) or run it locally using VirtualBox / Vagrant
 
-### Quick instructions
+- [DigitalOcean](docs/hosts/digitalocean.md)
+- [Linode](docs/hosts/linode.md)
+- [Amazon AWS](docs/hosts/aws.md)
+- [Local (Vagrant)](#vagrant) (running in a local vagrant box allows you to bypass using a VPS, which is great for testing and potentially ok for small-scale, local network deployments.)
 
-For a quick, mostly automated attempt at the below, use this command:
+### Set up required libraries/tools. Do this on your computer.
 
-- make && make deploy
+1. Install brew - best to follow instructions [here](https://brew.sh/)
+2. Install ansible-playbook, openssl. Run the following in the Terminal app.
 
-You will need gcc, xcode, etc whatever in your OS provides make. Otherwise you'll need to follow the steps below.
+```bash
+brew install ansible openssl
+```
 
-### Select a VPS
+3. Clone this repository. If you're on a Mac, git should be installed, otherwise, do `brew install git` if you run into errors with the line below.
+```bash
+git clone git@github.com:mtwg/memoryhole-ansible.git
+cd memoryhole-ansible
+```
 
-Because the CIS ansible role is focused on the CentOS CIS Benchmark, we are going to specifically use CentOS 6.7. And for whatever reason, not the Linode image. I chose a 1mb DigitalOcean VPS using the CentOS 6.x x86 image. Should work out of the blue! If there are any OS specific issues for newer versions of CentOS 6.x please let me know in the issue queue.
+4. Install ansible roles
+```bash
+ansible-galaxy install -r requirements.yml --roles-path=deploy/roles
+```
 
-Make sure that it has root ssh access using your public key only. No passwords allowed! The CIS script will disable password auth, and remote root auth.
+1. You should now be in the memoryhole-ansible folder. In here, create a a `cities/<example>` directory, where <example> might be something like 'newyork'. So, everywhere in this guide where you see <example>, you should replace it with `newyork`
+```bash
+mkdir cities/<example>
+```
+2. Copy `cities/examples/config.yml` and `cities/examples/hosts` to create a config.yml for that city under the `cities/<example>` folder.
+```bash
+cp cities/example/* cities/<example>
+```
+3. The cities/<example> directory should contain:
+  - the `config.yml` file
+  - a file called `hosts` that looks like:
+     ```
+     [memoryhole]
+     <your-VPS-ip-address>
+     ```
+     Wherein the above IP is the IP address of the server you had created earlier. See the cities/example/hosts file.
 
-### Set up repository
-Now, clone this repository to your local machine.
+4. Edit the config.yml file. It is critical to change the database and admin password from the default. Also, be sure to configure your email settings now rather than later.
 
-``git clone this-repo-url ~/projects/memoryhole-deployment`` or wherever
+### Option 1: Run the server.
 
-Preferrably your local machine has either a fully encrypted drive, or an encrypted home folder that you are cloning to, since you will have passwords hanging out in plaintext.
+```bash
+ansible-playbook -i cities/<example>/hosts deploy/server.yml -e city_key=<example>
+```
+then
 
-``git submodule init`` will download relevant git repositories that you will need.
+```bash
+ansible-playbook -i cities/<example>/hosts deploy/deploy.yml -e city_key=<example> -v
+```
 
-### Define Hosts
+### Option 2: Run in a Vagrant box
+<a href="#vagrant"></a>
+This allows you to run/test the application locally. Someone outside of your local network will not be able to access the application using this approach.
 
-Edit ``cities/<CITY KEY>/hosts`` and add the appropriate IP(s) you want to deploy the instance to under ``[memoryhole]``
-
-### Run the CIS script
-
-The CIS ansible script needs to be run first in an isolated fashion.  Please report issues with it to the relevant repository as referenced.
-
-``ansible-playbook -i cities/{{city_key}}//hosts runalone/cis-rhel-ansible/playbook.yml``
-
-You may get errors but it's ok, try running each of the specific tags as the documentation indicates. This script has a very difficult job to do.
-
-### Configure application for deployment
-Now, copy ``config.example.yml`` to ``config.yml``
-
-Change the configuration options to suit your install. Choose strong passwords, preferrably using the openssl command or something with encryption-level randomness.
-
-### Configure the application enumerations and strings
-
-All the enumerations for things like uses of forces, charge types, etc live here:
-
-``app/custom/includes/language/en_us.lang.php``
-
-You will need to populate these manually for your particular legal team and then blow out the application cache. It's easiest to edit these lists before you cities/<CITY KEY>/.
-
-Yes in today's world we would have folks be able to customize this themselves, but for now this is our best option.
-
-### Generate Certificates
-
-For SSL/TLS encryption, which we think of as an absolute for decent security (SSL/TLS is not in itself bullet-proof, but better than non-encrypted communications between user and server) one could generate their own certificates, but this is a generally less secure method for encryption for a number of reasons.  We have written in language to automate the uploading and include instructions for the creation of encryption certificates through the Let's Encrypt project, which issues automated, signed encryption certificates that are accepted by major browsers as legitimate, and that are backed by the Mozilla Foundation, Linux Foundation and Electronic Frontier Foundation.  
-
-To create the certificates, the certificate chains and the certificate key:
-git clone https://github.com/letsencrypt/letsencrypt
-cd letsencrypt
-./letsencrypt-auto certonly --manual --email admin@thing.com -d thing.com --agree-tos		
-
- Replace -d thing.com with your actual domain or subdomain and --email admin@thing.com with the actual email for the admin.
-
- Move the contents generated to the ..cities/<CITY KEY>/certificates folder for the appropriate city.
-
-When the Ansible playbook runs it will automatically upload and point Apache to the certificates.
-
-Certificate Renewal
-
-Let's Encrypt certs are only valid for 90 days currently.  When the automatic renewal tool is released by the project we will update the playbook to automatically generate self-renewing certificates.  For now, just make sure to run the letsencrypt-auto script once every three months and then run the Ansible playbook to automatically upload the new certificates.
-
-In future versions of this repository, after Let's Encrypt adds better support for CentOS and better automatic renewal tools, this process will likely be completely automated on the server side.
+## Requirements
+- Vagrant - https://www.vagrantup.com/downloads.html
+- VirtualBox - https://www.virtualbox.org/wiki/Downloads (choose the proper item under "platform packages")
+- Ansible (see above)
 
 
-### Initialize CentOS Box
 
-This script will set up a few things while using the root user. Only these few commands will be run over SSH by the root user ever.
+1. In the project root, run `vagrant up`. It will run the vagrant provisioning scripts.
+2. If there is a failure and you need to re-run the ansible file provisioning steps, run `vagrant provision`
+3. If you need to pass more custom arguments to the ansible scripts, see [the documentation](https://www.vagrantup.com/docs/provisioning/ansible.html) for running ansible in a Vagrantfile
 
-``$: ansible-playbook cities/<CITY KEY>/server.yml -i hosts``
+After this command runs, you should be able to see an instance of memoryhole running at the host you specified. Use the values from app_user and app_password in your config.yml to login.
 
-### Deploy the application
-This will install and configure a secure mysql, set up the application database, place the certificates, set up apache, and configure the application.
+## Post-Run
+(Note: these tasks will soon be automated )
 
-``$: ansible-playbook build.yml -i hosts``
+install and configure https://github.com/BinaryDefense/artillery
 
-### Voila!
+## Development/Contributing
 
-Now, go to https://your-application-host, accept the 'invalid' security certificate and access the admin UI using your provided login credentials.
+### Priorities
+See the [github issues](https://github.com/mtwg/memoryhole-ansible/issues) to see what our priorities are.
 
-### Troubleshooting
-
-#### I get an error with /etc/grub.cfg (or similar)
-
-This seems to be caused by either
-a) Linode's CentOS 6.5 image (however their UI boot controls it maybe?) and/or
-b) The CentOS 7 image which uses grub2
-
-To ameliorate this issue, use CentOS 6.5 somewhere other than Linode, or skip the problematic steps with --skip-steps flag
-
-### SSH Connection issues
-
-Always try manually connecting and/or using -vvvv to see what parameters it is trying to pass.
-
-The authorized_keys ansible param is going to expect to find the default id_rsa.pub in your home directory. If this isn't the case, change this in init.yml. I guess it should be a config option huh
-
-### XYZ problem with ansible
-
-Gahh I'm tired. Ansible issues can be troubleshooted by searching about ansible related things.
-
-## How to develop
-
-**Currently Vagrantfile not configured for new ansible config**
-
-Use 'vagrant up'. It will import a fancy basebox so make sure you have a strong connection.
-
-Currently some mount (shared directory in vagrant)/SELinux conflicts prevent external access to port 80 on the proper directory, but at least it will deploy and set up everything as it should be on the server.
+## TODO (outdated - see issue queue)
+- [ ] Fix Ansible scripts for Debian Jessie base box
+- [ ] Add letsencrypt, security monitoring, hardening, and other manual steps to the ansible deployment
+- [ ] Provide a new and improved Makefile to streamline tasks
+- [ ] Add maintenance, backup, emergency tasks
+- [ ] Support a variety of architectures
+- [ ] Reorganize into a role

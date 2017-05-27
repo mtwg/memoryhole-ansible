@@ -1,0 +1,19 @@
+---
+- name: Add v3 CA block to OpenSSL config (bugfix).
+  become: yes
+  lineinfile:
+    dest: /etc/ssl/openssl.cnf
+    regexp: '^\[v3_ca\]'
+    line: '[v3_ca]'
+    state: present
+    backup: yes
+
+- name: Add IPv4 address to OpenSSL config.
+  become: yes
+  lineinfile:
+    dest: /etc/ssl/openssl.cnf
+    insertafter: '\[v3_ca\]'
+    regexp: '^subjectAltName'
+    line: 'subjectAltName = IP:{{ ssl_certificate_ip_address | mandatory }}'
+    backup: yes
+    state: present

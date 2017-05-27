@@ -1,0 +1,7 @@
+---
+# tasks file for generate-ssl-cert
+- include: setup_openssl.yml
+
+- include: manage_users.yml
+
+- include: generate_cert.yml

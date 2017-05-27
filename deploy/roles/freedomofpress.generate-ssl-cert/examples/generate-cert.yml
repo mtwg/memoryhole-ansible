@@ -1,0 +1,7 @@
+---
+- name: Test OpenSSL certificate generation
+  hosts: all
+  roles:
+    - role: ansible-role-generate-ssl-cert
+      ssl_certificate_basename: logstash-client
+      ssl_certificate_bit_length: 4096
