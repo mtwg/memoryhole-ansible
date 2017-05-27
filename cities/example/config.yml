@@ -1,0 +1,22 @@
+city_key: 'example'
+sys_access_user: 'rikki'
+sys_access_user_key_file: '~/.ssh/eclipsis.pub'
+letsencrypt_email: webmaster@domain.com
+# ansible_ssh_private_key_file: '~/.ssh/eclipsis'
+mysql_root_user: 'root'
+mysql_root_password: 'SECRET'
+mysql_app_user: application
+mysql_app_password: SECRET
+mysql_app_db_name: application
+app_user: admin
+app_domain: memoryhole.localhost.com
+app_password: SECRET
+app_email_from_address: admin@freecle.org
+app_calendar_embed_url: 'google.com'
+app_email_smtp:
+  host: mail.riseup.net
+  user: user
+  password: SECRET
+  port: '465'
+  auth_required: '1'
+  ssl: '1'
