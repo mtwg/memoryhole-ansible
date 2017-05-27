@@ -5,7 +5,7 @@
   remote_user: root
   become: yes
   roles:
-    - { role: thefinn93.letsencrypt, when: localssl == false }
+    - { role: thefinn93.letsencrypt, when: localssl == 'false' }
     - freedomofpress.generate-ssl-cert
 
   vars_files:

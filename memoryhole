@@ -1,3 +1,63 @@
 #!/bin/bash
 
-bash/installansible.sh
+USAGE='
+====================
+Memoryhole CLI Usage
+====================
+
+Setup:
+------
+
+$: memoryhole setup
+  - set up the project.
+
+Create Config:
+--------------
+
+$: memoryhole create-config <city>
+  - copies example config to new directory from target city
+  - (coming soon) generates passwords
+
+Deploy:
+------
+
+$: memoryhole deploy <city> (arg required)
+  - deploy memoryhole from config in cities/<city/config.yml
+'
+
+if [ -z $1 ]
+then
+  echo "$USAGE";
+  exit 0;
+fi
+
+case  $1 in
+  'help')
+    echo -e "$USAGE";
+    exit 1;
+    ;;
+  'setup')
+    bash/installansible.sh
+    echo 'ansible installed'
+    ansible-galaxy install -r requirements.yml --roles-path=deploy/roles
+    echo 'ansible roles installed'
+    ;;
+  'create-config')
+    if [ -n $2 ]; then
+      if [ -f cities/$2/config.yml ]; then
+        echo "Config already exsists in cities/$2/config.yml!"
+        exit 0
+      fi
+      if [ ! -f cities/$2/config.yml ]; then
+        echo "Creating example config"
+        mkdir -p cities/$2
+        cp cities/example/* cities/$2
+        # generate passwords here some day
+        # prompt for config options
+      fi
+    fi
+    ;;
+  'deploy')
+    ansible-playbook -i cities/$2/hosts deploy/server.yml -e city_key=$2
+    ;;
+esac

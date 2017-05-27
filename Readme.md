@@ -87,11 +87,6 @@ app_email_smtp.ssl|no|1|whether to use ssl encryption. 1=true, 0=false
 ```bash
 ansible-playbook -i cities/<your city>/hosts deploy/server.yml -e city_key=<your city>
 ```
-then
-
-```bash
-ansible-playbook -i cities/<your city>/hosts deploy/deploy.yml -e city_key=<your city> -v
-```
 
 ### Option 2: Run in a Vagrant box
 <a href="#vagrant"></a>
