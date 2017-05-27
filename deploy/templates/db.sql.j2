@@ -6227,7 +6227,7 @@ CREATE TABLE `outbound_email` (
 
 LOCK TABLES `outbound_email` WRITE;
 /*!40000 ALTER TABLE `outbound_email` DISABLE KEYS */;
-INSERT INTO `outbound_email` VALUES ('a4acd356-dcac-5cc3-45b3-548a308daa8d','system','system','1','SMTP','other','{{ app_email_smtp.host }}',{{ app_email_smtp.port | 465 }},'{{ app_email_smtp.user }}','{{ app_email_smtp.password }}',{{ app_email_smtp.auth_required | 1 }},{{ app_email_smtp.ssl | 1 }});
+INSERT INTO `outbound_email` VALUES ('a4acd356-dcac-5cc3-45b3-548a308daa8d','system','system','1','SMTP','other','{{ app_email_smtp.host }}',{{ app_email_smtp.port }},'{{ app_email_smtp.user }}','{{ app_email_smtp.password }}',{{ app_email_smtp.auth_required }},{{ app_email_smtp.ssl }});
 /*!40000 ALTER TABLE `outbound_email` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7404,7 +7404,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('1','{{app_user}}', MD5('{{app_password}}'),0,'2015-05-02 10:49:59',NULL,1,NULL,'Administrator',1,0,1,NULL,'2008-06-07 03:23:55','2015-05-02 10:49:45','1','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Active',NULL,NULL,NULL,NULL,NULL,0,0,1,'Terminated',NULL,NULL,'',0);
+INSERT INTO `users` VALUES ('1','{{ app_user }}', MD5('{{ app_password }}'),0,'2015-05-02 10:49:59',NULL,1,NULL,'Administrator',1,0,1,NULL,'2008-06-07 03:23:55','2015-05-02 10:49:45','1','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Active',NULL,NULL,NULL,NULL,NULL,0,0,1,'Terminated',NULL,NULL,'',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

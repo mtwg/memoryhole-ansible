@@ -4,9 +4,9 @@
 - hosts: memoryhole
   remote_user: root
   become: yes
-
   roles:
-    - thefinn93.letsencrypt
+    - { role: thefinn93.letsencrypt, when: localssl == false }
+    - freedomofpress.generate-ssl-cert
 
   vars_files:
     - "../cities/{{ city_key }}/config.yml"
